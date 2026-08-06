@@ -20,15 +20,10 @@ CREATE TABLE series (
 );
 
 CREATE TABLE sefirot (
-    sefirot_id          SERIAL          PRIMARY KEY,
-    name                VARCHAR(255)    NOT NULL UNIQUE,
-    great_old_one       VARCHAR(255), 
-    description         TEXT
-
-    -- maybe interested in changing the forign key in the future
-    FOREIGN KEY (great_old_one)
-    REFERENCES characters(character_id) 
-    ON DELETE CASCADE
+    sefirot_id      SERIAL          PRIMARY KEY,
+    name            VARCHAR(255)    NOT NULL UNIQUE,
+    great_old_one   INT,            -- FK to characters(character_id); add via ALTER TABLE after characters is created
+    description     TEXT
 );
 
 CREATE TABLE location (
@@ -174,15 +169,16 @@ CREATE TABLE location_faction (
 
 -- SEQUENCES <-> MATERIAL  (N:M via sequence_material)
 CREATE TABLE sequence_material (
-    sequence_id INT NOT NULL REFERENCES sequences(sequence_id) ON DELETE CASCADE,
-    material_id INT NOT NULL REFERENCES material(material_id) ON DELETE CASCADE,
-    quantity    INT NOT NULL DEFAULT 1,
+    sequence_id INT             NOT NULL REFERENCES sequences(sequence_id) ON DELETE CASCADE,
+    material_id INT             NOT NULL REFERENCES material(material_id) ON DELETE CASCADE,
+    quantity    NUMERIC(10, 2)  NOT NULL DEFAULT 1,
+    unit        VARCHAR(50)     NOT NULL,
     PRIMARY KEY (sequence_id, material_id)
 );
 
 -- ARTIFACTS <-> ABILITIES (N:M via artifact_ability)
 CREATE TABLE artifact_ability (
-    artifact_id INT NOT NULL REFERENCES artifact(artifact_id) ON DELETE CASCADE,
+    artifact_id INT NOT NULL REFERENCES artifacts(artifact_id) ON DELETE CASCADE,
     ability_id  INT NOT NULL REFERENCES abilities(ability_id) ON DELETE CASCADE,
     PRIMARY KEY (artifact_id, ability_id)
 );
@@ -197,6 +193,7 @@ CREATE TABLE char_fac_chapter_range (
     faction_id          INT NOT NULL REFERENCES factions(faction_id) ON DELETE CASCADE,
     chapter_start_id    INT NOT NULL REFERENCES chapter(chapter_id) ON DELETE RESTRICT,
     chapter_end_id      INT          REFERENCES chapter(chapter_id) ON DELETE SET NULL,  -- NULL = still active
+    role                TEXT,
     PRIMARY KEY (character_id, faction_id, chapter_start_id)
 );
 
@@ -215,6 +212,7 @@ CREATE TABLE char_art_chapter_range (
     artifact_id         INT NOT NULL REFERENCES artifacts(artifact_id) ON DELETE CASCADE,
     chapter_start_id    INT NOT NULL REFERENCES chapter(chapter_id) ON DELETE RESTRICT,
     chapter_end_id      INT          REFERENCES chapter(chapter_id) ON DELETE SET NULL,  -- NULL = still active
+    acquisition_type    TEXT,
     PRIMARY KEY (character_id, artifact_id, chapter_start_id)
 );
 
