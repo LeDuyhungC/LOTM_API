@@ -1,0 +1,239 @@
+-- =============================================================
+--  LOTM API - PostgreSQL Database Schema
+--  @author Duy-Hung Le
+--  VERSION 0.1 / AUG 2026
+-- =============================================================
+
+-- Enable UUID extension
+CREATE EXTENSION IF NOT EXISTS "pgcrypto";
+
+-- =============================================================
+--  INDEPENDENT / ROOT TABLES
+-- =============================================================
+
+CREATE TABLE series (
+    series_id       SERIAL          PRIMARY KEY,
+    name            VARCHAR(255)    NOT NULL UNIQUE,
+    description     TEXT,
+    release_date    DATE,
+    end_date        DATE
+);
+
+CREATE TABLE sefirot (
+    sefirot_id          SERIAL          PRIMARY KEY,
+    name                VARCHAR(255)    NOT NULL UNIQUE,
+    great_old_one       VARCHAR(255), 
+    description         TEXT
+
+    -- maybe interested in changing the forign key in the future
+    FOREIGN KEY (great_old_one)
+    REFERENCES characters(character_id) 
+    ON DELETE CASCADE
+);
+
+CREATE TABLE location (
+    location_id         SERIAL          PRIMARY KEY,
+    name                VARCHAR(255)    NOT NULL,
+    region              VARCHAR(255),   
+    description         TEXT,
+    parent_location_id  INT,
+    epoch_start_id      INT             REFERENCES epochs(epoch_id) ON DELETE SET NULL,
+    epoch_end_id        INT             REFERENCES epochs(epoch_id) ON DELETE SET NULL,  -- NULL = still exists
+
+    CONSTRAINT fk_parent_location
+        FOREIGN KEY (parent_location_id)
+        REFERENCES location(location_id) 
+        ON DELETE SET NULL
+);
+
+CREATE TABLE epochs (
+    epoch_id    SERIAL          PRIMARY KEY,
+    name        VARCHAR(255)    NOT NULL UNIQUE,
+    start_year  INT,            
+    end_year    INT,            
+    description TEXT
+);
+
+CREATE TABLE material (
+    material_id SERIAL          PRIMARY KEY,
+    name        VARCHAR(255)    NOT NULL UNIQUE,
+    description TEXT,
+    rarity      VARCHAR(100)
+);
+
+CREATE TABLE artifacts (
+    artifact_id SERIAL          PRIMARY KEY,
+    name        VARCHAR(255)    NOT NULL,
+    description TEXT,
+    rarity      VARCHAR(100)
+);
+
+CREATE TABLE factions (
+    faction_id  SERIAL          PRIMARY KEY,
+    name        VARCHAR(255)    NOT NULL UNIQUE,
+    description TEXT
+);
+
+-- =============================================================
+--  VOLUME & CHAPTER  (depend on SERIES)
+-- =============================================================
+
+CREATE TABLE volume (
+    volume_id       SERIAL  PRIMARY KEY,
+    series_id       INT     NOT NULL REFERENCES series(series_id) ON DELETE CASCADE,
+    volume_number   INT     NOT NULL,
+    title           VARCHAR(255),
+    UNIQUE (series_id, volume_number)
+);
+
+CREATE TABLE chapter (
+    chapter_id      SERIAL  PRIMARY KEY,
+    volume_id       INT     NOT NULL REFERENCES volume(volume_id) ON DELETE CASCADE,
+    chapter_number  INT     NOT NULL,
+    title           VARCHAR(255),
+    UNIQUE (volume_id, chapter_number)
+);
+
+-- =============================================================
+--  PATHWAYS  (depend on SEFIROT)
+-- =============================================================
+
+CREATE TABLE pathways (
+    pathway_id  SERIAL          PRIMARY KEY,
+    sefirot_id  INT             NOT NULL REFERENCES sefirot(sefirot_id) ON DELETE RESTRICT,
+    names       TEXT[]          NOT NULL,
+    color       VARCHAR(100),
+    symbol      TEXT,                                   -- URL to pathway symbol image (e.g. from LOTM wiki)
+    description TEXT
+);
+
+-- =============================================================
+--  SEQUENCES  (depend on PATHWAYS)
+-- =============================================================
+
+CREATE TABLE sequences (
+    sequence_id SERIAL      PRIMARY KEY,
+    pathway_id  INT         NOT NULL REFERENCES pathways(pathway_id) ON DELETE CASCADE,
+    position    SMALLINT    NOT NULL CHECK (position BETWEEN 0 AND 9),
+    name        TEXT[]      NOT NULL,
+    description TEXT,
+    UNIQUE (pathway_id, position)
+);
+
+-- =============================================================
+--  ABILITIES  (depend on SEQUENCES)
+-- =============================================================
+
+CREATE TABLE abilities (
+    ability_id  SERIAL          PRIMARY KEY,
+    sequence_id INT             NOT NULL REFERENCES sequences(sequence_id) ON DELETE CASCADE,
+    name        VARCHAR(255)    NOT NULL,
+    type        TEXT            NOT NULL,
+    description TEXT
+);
+
+-- =============================================================
+--  CHARACTERS
+-- =============================================================
+
+CREATE TABLE characters (
+    character_id    SERIAL          PRIMARY KEY,
+    name            VARCHAR(255)    NOT NULL,
+    description     TEXT,
+    is_beyond_god   BOOLEAN         NOT NULL DEFAULT FALSE,
+    epoch_start_id  INT             REFERENCES epochs(epoch_id) ON DELETE SET NULL,
+    epoch_end_id    INT             REFERENCES epochs(epoch_id) ON DELETE SET NULL  -- NULL = still alive
+);
+
+-- =============================================================
+--  ALIAS  (1:N — one character has many aliases)
+-- =============================================================
+
+CREATE TABLE alias (
+    alias_id            SERIAL          PRIMARY KEY,
+    character_id        INT             NOT NULL REFERENCES characters(character_id) ON DELETE CASCADE,
+    name                VARCHAR(255)    NOT NULL,           -- e.g. "Fool", "Moon", "Star"
+    description         TEXT,
+    volume_start_id     INT             NOT NULL REFERENCES volume(volume_id) ON DELETE RESTRICT,
+    volume_end_id       INT             REFERENCES volume(volume_id) ON DELETE SET NULL,  -- NULL = still active
+    UNIQUE (character_id, name)
+);
+
+-- =============================================================
+--  JUNCTION TABLES  (N:M)
+-- =============================================================
+
+-- LOCATION <-> FACTIONS  (N:M via location_faction)
+CREATE TABLE location_faction (
+    location_id     INT     NOT NULL REFERENCES location(location_id) ON DELETE CASCADE,
+    faction_id      INT     NOT NULL REFERENCES factions(faction_id) ON DELETE CASCADE,
+    role            TEXT,
+    is_headquarters BOOLEAN NOT NULL DEFAULT FALSE,
+    PRIMARY KEY (location_id, faction_id)
+);
+
+-- SEQUENCES <-> MATERIAL  (N:M via sequence_material)
+CREATE TABLE sequence_material (
+    sequence_id INT NOT NULL REFERENCES sequences(sequence_id) ON DELETE CASCADE,
+    material_id INT NOT NULL REFERENCES material(material_id) ON DELETE CASCADE,
+    quantity    INT NOT NULL DEFAULT 1,
+    PRIMARY KEY (sequence_id, material_id)
+);
+
+-- ARTIFACTS <-> ABILITIES (N:M via artifact_ability)
+CREATE TABLE artifact_ability (
+    artifact_id INT NOT NULL REFERENCES artifact(artifact_id) ON DELETE CASCADE,
+    ability_id  INT NOT NULL REFERENCES abilities(ability_id) ON DELETE CASCADE,
+    PRIMARY KEY (artifact_id, ability_id)
+);
+
+-- =============================================================
+--  TERNARY TABLES  (Character + Entity + Chapter Range)
+-- =============================================================
+
+-- CHARACTERS <-> FACTIONS <-> CHAPTER range  (CHAR_FAC_CHAPTER_RANGE)
+CREATE TABLE char_fac_chapter_range (
+    character_id        INT NOT NULL REFERENCES characters(character_id) ON DELETE CASCADE,
+    faction_id          INT NOT NULL REFERENCES factions(faction_id) ON DELETE CASCADE,
+    chapter_start_id    INT NOT NULL REFERENCES chapter(chapter_id) ON DELETE RESTRICT,
+    chapter_end_id      INT          REFERENCES chapter(chapter_id) ON DELETE SET NULL,  -- NULL = still active
+    PRIMARY KEY (character_id, faction_id, chapter_start_id)
+);
+
+-- CHARACTERS <-> SEQUENCES <-> CHAPTER range  (CHAR_SEQ_CHAPTER_RANGE)
+CREATE TABLE char_seq_chapter_range (
+    character_id        INT NOT NULL REFERENCES characters(character_id) ON DELETE CASCADE,
+    sequence_id         INT NOT NULL REFERENCES sequences(sequence_id) ON DELETE CASCADE,
+    chapter_start_id    INT NOT NULL REFERENCES chapter(chapter_id) ON DELETE RESTRICT,
+    chapter_end_id      INT          REFERENCES chapter(chapter_id) ON DELETE SET NULL,  -- NULL = still active
+    PRIMARY KEY (character_id, sequence_id, chapter_start_id)
+);
+
+-- CHARACTERS <-> ARTIFACTS <-> CHAPTER range  (CHAR_ART_CHAPTER_RANGE)
+CREATE TABLE char_art_chapter_range (
+    character_id        INT NOT NULL REFERENCES characters(character_id) ON DELETE CASCADE,
+    artifact_id         INT NOT NULL REFERENCES artifacts(artifact_id) ON DELETE CASCADE,
+    chapter_start_id    INT NOT NULL REFERENCES chapter(chapter_id) ON DELETE RESTRICT,
+    chapter_end_id      INT          REFERENCES chapter(chapter_id) ON DELETE SET NULL,  -- NULL = still active
+    PRIMARY KEY (character_id, artifact_id, chapter_start_id)
+);
+
+-- =============================================================
+--  INDEXES  (for common query paths)
+-- =============================================================
+
+CREATE INDEX idx_volume_series          ON volume(series_id);
+CREATE INDEX idx_chapter_volume         ON chapter(volume_id);
+CREATE INDEX idx_pathways_sefirot       ON pathways(sefirot_id);
+CREATE INDEX idx_sequences_pathway      ON sequences(pathway_id);
+CREATE INDEX idx_abilities_sequence     ON abilities(sequence_id);
+CREATE INDEX idx_alias_character        ON alias(character_id);
+CREATE INDEX idx_location_epoch_start   ON location(epoch_start_id);
+CREATE INDEX idx_character_epoch_start  ON characters(epoch_start_id);
+
+CREATE INDEX idx_char_fac_char       ON char_fac_chapter_range(character_id);
+CREATE INDEX idx_char_fac_faction    ON char_fac_chapter_range(faction_id);
+CREATE INDEX idx_char_seq_char       ON char_seq_chapter_range(character_id);
+CREATE INDEX idx_char_seq_seq        ON char_seq_chapter_range(sequence_id);
+CREATE INDEX idx_char_art_char       ON char_art_chapter_range(character_id);
+CREATE INDEX idx_char_art_art        ON char_art_chapter_range(artifact_id);
