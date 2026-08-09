@@ -26,21 +26,6 @@ CREATE TABLE sefirot (
     description     TEXT
 );
 
-CREATE TABLE location (
-    location_id         SERIAL          PRIMARY KEY,
-    name                VARCHAR(255)    NOT NULL,
-    region              VARCHAR(255),   
-    description         TEXT,
-    parent_location_id  INT,
-    epoch_start_id      INT             REFERENCES epochs(epoch_id) ON DELETE SET NULL,
-    epoch_end_id        INT             REFERENCES epochs(epoch_id) ON DELETE SET NULL,  -- NULL = still exists
-
-    CONSTRAINT fk_parent_location
-        FOREIGN KEY (parent_location_id)
-        REFERENCES location(location_id) 
-        ON DELETE SET NULL
-);
-
 CREATE TABLE epochs (
     epoch_id    SERIAL          PRIMARY KEY,
     name        VARCHAR(255)    NOT NULL UNIQUE,
@@ -60,7 +45,7 @@ CREATE TABLE artifacts (
     artifact_id SERIAL          PRIMARY KEY,
     name        VARCHAR(255)    NOT NULL,
     description TEXT,
-    rarity      VARCHAR(100)
+    code_name   VARCHAR(255)    NOT NULL
 );
 
 CREATE TABLE factions (
@@ -87,6 +72,25 @@ CREATE TABLE chapter (
     chapter_number  INT     NOT NULL,
     title           VARCHAR(255),
     UNIQUE (volume_id, chapter_number)
+);
+
+-- =============================================================
+--  location  (depend on Epoch & parent_location)
+-- =============================================================
+
+CREATE TABLE location (
+    location_id         SERIAL          PRIMARY KEY,
+    name                VARCHAR(255)    NOT NULL,
+    region              VARCHAR(255),   
+    description         TEXT,
+    parent_location_id  INT,
+    epoch_start_id      INT             REFERENCES epochs(epoch_id) ON DELETE SET NULL,
+    epoch_end_id        INT             REFERENCES epochs(epoch_id) ON DELETE SET NULL,  -- NULL = still exists
+
+    CONSTRAINT fk_parent_location
+        FOREIGN KEY (parent_location_id)
+        REFERENCES location(location_id) 
+        ON DELETE SET NULL
 );
 
 -- =============================================================
