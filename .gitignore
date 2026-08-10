@@ -1,2 +1,5 @@
 # Personal notes — not tracked in repo
 Notes/
+.env
+node_modules/
+dist/
