@@ -45,8 +45,7 @@ CREATE TABLE artifacts (
     artifact_id SERIAL          PRIMARY KEY,
     name        VARCHAR(255)    NOT NULL,
     description TEXT,
-    code_name   VARCHAR(255)    NOT NULL
-);
+    code_name   VARCHAR(255)
 
 CREATE TABLE factions (
     faction_id  SERIAL          PRIMARY KEY,
