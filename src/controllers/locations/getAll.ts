@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import pool from '../../db';
 
-const getAllLocations = async (_request: Request, response: Response): Promise<void> => {
+const getAll = async (_request: Request, response: Response): Promise<void> => {
     try {
         const result = await pool.query(`
             SELECT
@@ -21,11 +21,11 @@ const getAllLocations = async (_request: Request, response: Response): Promise<v
             data: result.rows,
         });
     } catch (error) {
-        console.error('❌ Error fetching location:', error);
+        console.error('❌ Error fetching locations:', error);
         response.status(500).json({
-            error: 'Failed to retrieve location from the database.',
+            error: 'Failed to retrieve locations from the database.',
         });
     }
 };
 
-export { getAllLocations }
+export { getAll };

@@ -1,12 +1,13 @@
 import { Request, Response } from 'express';
 import pool from '../../db';
 
-const getAllPathways = async (_request: Request, response: Response): Promise<void> => {
+const getAll = async (_request: Request, response: Response): Promise<void> => {
     try {
         const result = await pool.query(`
             SELECT
                 pathway_id,
-                name,
+                sefirot_id,
+                names,
                 color,
                 symbol,
                 description
@@ -19,11 +20,11 @@ const getAllPathways = async (_request: Request, response: Response): Promise<vo
             data: result.rows,
         });
     } catch (error) {
-        console.error('❌ Error fetching pathway', error);
+        console.error('❌ Error fetching pathways:', error);
         response.status(500).json({
-            error: 'Failed to retrieve pathways from the database',
-        })
+            error: 'Failed to retrieve pathways from the database.',
+        });
     }
 };
 
-export { getAllPathways };
+export { getAll };

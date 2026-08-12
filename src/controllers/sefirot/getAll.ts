@@ -1,15 +1,16 @@
 import { Request, Response } from 'express';
 import pool from '../../db';
 
-const getAllFactions = async (_request: Request, response: Response): Promise<void> => {
+const getAll = async (_request: Request, response: Response): Promise<void> => {
     try {
         const result = await pool.query(`
             SELECT
-               faction_id,
+                sefirot_id,
                 name,
+                great_old_one,
                 description
-            FROM factions
-            ORDER BY faction_id ASC
+            FROM sefirot
+            ORDER BY sefirot_id ASC
         `);
 
         response.status(200).json({
@@ -17,11 +18,11 @@ const getAllFactions = async (_request: Request, response: Response): Promise<vo
             data: result.rows,
         });
     } catch (error) {
-        console.error('❌ Error fetching faction:', error);
+        console.error('❌ Error fetching sefirot:', error);
         response.status(500).json({
-            error: 'Failed to retrieve factions from the database.',
+            error: 'Failed to retrieve sefirot from the database.',
         });
     }
-}
+};
 
-export { getAllFactions };
+export { getAll };

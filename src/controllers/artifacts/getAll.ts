@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import pool from '../../db';
 
-const getAllArtifacts = async (_request: Request, response: Response): Promise<void> => {
+const getAll = async (_request: Request, response: Response): Promise<void> => {
     try {
         const result = await pool.query(`
             SELECT
@@ -18,11 +18,11 @@ const getAllArtifacts = async (_request: Request, response: Response): Promise<v
             data: result.rows,
         });
     } catch (error) {
-        console.error('❌ Error fetching series:', error);
+        console.error('❌ Error fetching artifacts:', error);
         response.status(500).json({
-            error: 'Failed to retrieve series from the database.',
+            error: 'Failed to retrieve artifacts from the database.',
         });
     }
 };
 
-export { getAllArtifacts };
+export { getAll };

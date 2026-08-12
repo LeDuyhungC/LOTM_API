@@ -1,17 +1,16 @@
 import { Request, Response } from 'express';
 import pool from '../../db';
 
-const getAllSeries = async (_request: Request, response: Response): Promise<void> => {
+const getAll = async (_request: Request, response: Response): Promise<void> => {
     try {
         const result = await pool.query(`
             SELECT
-                series_id,
+                material_id,
                 name,
                 description,
-                release_date,
-                end_date
-            FROM series
-            ORDER BY series_id ASC
+                rarity
+            FROM material
+            ORDER BY material_id ASC
         `);
 
         response.status(200).json({
@@ -19,11 +18,11 @@ const getAllSeries = async (_request: Request, response: Response): Promise<void
             data: result.rows,
         });
     } catch (error) {
-        console.error('❌ Error fetching series:', error);
+        console.error('❌ Error fetching materials:', error);
         response.status(500).json({
-            error: 'Failed to retrieve series from the database.',
+            error: 'Failed to retrieve materials from the database.',
         });
     }
 };
 
-export { getAllSeries };
+export { getAll };
