@@ -4,6 +4,7 @@ import cors from 'cors';
 import fs from 'fs';
 import YAML from 'yamljs';
 import './db';  // initializes the DB connection on startup
+import { apiRouter } from './routes';
 
 dotenv.config();
 
@@ -53,7 +54,8 @@ app.use(`/api-doc`, async (request: Request, response: Response, next: NextFunct
   }
 });
 
-// app.use(routes); --In Development
+// API Endpoints from ./routes/index.ts
+app.use(apiRouter);
 
 // 404 Handler
 app.use((err: unknown, _request: Request, response: Response, _next: NextFunction) => {
@@ -67,11 +69,6 @@ app.use((err: unknown, _request: Request, response: Response, _next: NextFunctio
   response.status(500).json({
     error: 'The server encountered an unexpected error while processing the request.',
   });
-});
-
-// Health check route
-app.get('/status', (req, res) => {
-  res.json({ message: '📖 LOTM API is running' });
 });
 
 // Start server

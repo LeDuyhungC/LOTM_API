@@ -8,15 +8,16 @@ const getById = async (request: Request<{ id: string }>, response: Response): Pr
         const result = await pool.query(`
             SELECT
                 series_id,
-                volume_number,
+                volumes_number,
                 title
             FROM volumes
             WHERE volume_id = $1
-            `, [id]);
+            `, [id]
+        );
 
         if (result.rowCount === 0) {
             response.status(404).json({
-                error: `Volume with id ${id} not found`,
+                error: `Volume ${id} not found`,
             });
             return;
         }
@@ -25,9 +26,9 @@ const getById = async (request: Request<{ id: string }>, response: Response): Pr
             data: result.rows[0],
         });
     } catch (error) {
-        console.error('❌ Error fetching volume:', error);
+        console.error(`❌ Error fetching volume:`, error);
         response.status(500).json({
-            error: 'Failed to retrieve volume from the database.',
+            error: `Failed to retieve volume from the database.`,
         });
     }
 };

@@ -19,7 +19,7 @@ CREATE TABLE series (
     end_date        DATE
 );
 
-CREATE TABLE sefirot (
+CREATE TABLE sefirots (
     sefirot_id      SERIAL          PRIMARY KEY,
     name            VARCHAR(255)    NOT NULL UNIQUE,
     great_old_one   INT,            -- FK to characters(character_id); add via ALTER TABLE after characters is created
@@ -34,7 +34,7 @@ CREATE TABLE epochs (
     description TEXT
 );
 
-CREATE TABLE material (
+CREATE TABLE materials (
     material_id SERIAL          PRIMARY KEY,
     name        VARCHAR(255)    NOT NULL UNIQUE,
     description TEXT,
@@ -99,7 +99,7 @@ CREATE TABLE locations (
 
 CREATE TABLE pathways (
     pathway_id  SERIAL          PRIMARY KEY,
-    sefirot_id  INT             NOT NULL REFERENCES sefirot(sefirot_id) ON DELETE RESTRICT,
+    sefirot_id  INT             NOT NULL REFERENCES sefirots(sefirot_id) ON DELETE RESTRICT,
     names       TEXT[]          NOT NULL,
     color       VARCHAR(100),
     symbol      TEXT,                                   -- URL to pathway symbol image (e.g. from LOTM wiki)
@@ -144,6 +144,13 @@ CREATE TABLE characters (
     epoch_end_id    INT             REFERENCES epochs(epoch_id) ON DELETE SET NULL  -- NULL = still alive
 );
 
+-- FK deferred: sefirots.great_old_one → characters (characters must exist first)
+ALTER TABLE sefirots
+    ADD CONSTRAINT fk_sefirot_great_old_one
+    FOREIGN KEY (great_old_one)
+    REFERENCES characters(character_id)
+    ON DELETE SET NULL;
+
 -- =============================================================
 --  ALIAS  (1:N — one character has many aliases)
 -- =============================================================
@@ -174,7 +181,7 @@ CREATE TABLE location_faction (
 -- SEQUENCES <-> MATERIAL  (N:M via sequence_material)
 CREATE TABLE sequence_material (
     sequence_id INT             NOT NULL REFERENCES sequences(sequence_id) ON DELETE CASCADE,
-    material_id INT             NOT NULL REFERENCES material(material_id) ON DELETE CASCADE,
+    material_id INT             NOT NULL REFERENCES materials(material_id) ON DELETE CASCADE,
     quantity    NUMERIC(10, 2)  NOT NULL DEFAULT 1,
     unit        VARCHAR(50)     NOT NULL,
     PRIMARY KEY (sequence_id, material_id)

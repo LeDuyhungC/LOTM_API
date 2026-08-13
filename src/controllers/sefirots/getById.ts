@@ -4,13 +4,17 @@ import pool from '../../db';
 const getById = async (request: Request<{ id: string }>, response: Response): Promise<void> => {
     try {
         const id = parseInt(request.params.id, 10);
+        if (isNaN(id)) {
+            response.status(400).json({ error: 'Invalid ID. Must be a positive integer.' });
+            return;
+        }
 
         const result = await pool.query(`
             SELECT
                 name,
                 great_old_one,
                 description
-            FROM sefirot
+            FROM sefirots
             WHERE sefirot_id = $1
             `, [id]);
 
@@ -25,9 +29,9 @@ const getById = async (request: Request<{ id: string }>, response: Response): Pr
             data: result.rows[0],
         });
     } catch (error) {
-        console.error('❌ Error fetching sefirot:', error);
+        console.error('❌ Error fetching sefirots:', error);
         response.status(500).json({
-            error: 'Failed to retrieve sefirot from the database.',
+            error: 'Failed to retrieve sefirots from the database.',
         });
     }
 };

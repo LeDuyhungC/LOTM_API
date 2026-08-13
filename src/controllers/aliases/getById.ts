@@ -4,6 +4,10 @@ import pool from '../../db';
 const getById = async (request: Request<{ id: string }>, response: Response): Promise<void> => {
     try {
         const id = parseInt(request.params.id, 10);
+        if (isNaN(id)) {
+            response.status(400).json({ error: 'Invalid ID. Must be a positive integer.' });
+            return;
+        }
 
         const result = await pool.query(`
             SELECT

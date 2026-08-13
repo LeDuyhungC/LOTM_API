@@ -9,7 +9,7 @@ const getAll = async (_request: Request, response: Response): Promise<void> => {
                 name,
                 description,
                 rarity
-            FROM material
+            FROM materials
             ORDER BY material_id ASC
         `);
 

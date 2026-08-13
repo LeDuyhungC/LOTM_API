@@ -10,7 +10,7 @@ const getById = async (request: Request<{ id: string }>, response: Response): Pr
                 name,
                 description,
                 rarity
-            FROM material
+            FROM materials
             WHERE material_id = $1
             `, [id]);
 
