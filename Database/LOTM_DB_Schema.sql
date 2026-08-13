@@ -46,6 +46,7 @@ CREATE TABLE artifacts (
     name        VARCHAR(255)    NOT NULL,
     description TEXT,
     code_name   VARCHAR(255)
+);
 
 CREATE TABLE factions (
     faction_id  SERIAL          PRIMARY KEY,
@@ -57,7 +58,7 @@ CREATE TABLE factions (
 --  VOLUME & CHAPTER  (depend on SERIES)
 -- =============================================================
 
-CREATE TABLE volume (
+CREATE TABLE volumes (
     volume_id       SERIAL  PRIMARY KEY,
     series_id       INT     NOT NULL REFERENCES series(series_id) ON DELETE CASCADE,
     volume_number   INT     NOT NULL,
@@ -65,9 +66,9 @@ CREATE TABLE volume (
     UNIQUE (series_id, volume_number)
 );
 
-CREATE TABLE chapter (
+CREATE TABLE chapters (
     chapter_id      SERIAL  PRIMARY KEY,
-    volume_id       INT     NOT NULL REFERENCES volume(volume_id) ON DELETE CASCADE,
+    volume_id       INT     NOT NULL REFERENCES volumes(volume_id) ON DELETE CASCADE,
     chapter_number  INT     NOT NULL,
     title           VARCHAR(255),
     UNIQUE (volume_id, chapter_number)
@@ -77,7 +78,7 @@ CREATE TABLE chapter (
 --  location  (depend on Epoch & parent_location)
 -- =============================================================
 
-CREATE TABLE location (
+CREATE TABLE locations (
     location_id         SERIAL          PRIMARY KEY,
     name                VARCHAR(255)    NOT NULL,
     region              VARCHAR(255),   
@@ -88,7 +89,7 @@ CREATE TABLE location (
 
     CONSTRAINT fk_parent_location
         FOREIGN KEY (parent_location_id)
-        REFERENCES location(location_id) 
+        REFERENCES locations(location_id)
         ON DELETE SET NULL
 );
 
@@ -152,8 +153,8 @@ CREATE TABLE alias (
     character_id        INT             NOT NULL REFERENCES characters(character_id) ON DELETE CASCADE,
     name                VARCHAR(255)    NOT NULL,           -- e.g. "Fool", "Moon", "Star"
     description         TEXT,
-    volume_start_id     INT             NOT NULL REFERENCES volume(volume_id) ON DELETE RESTRICT,
-    volume_end_id       INT             REFERENCES volume(volume_id) ON DELETE SET NULL,  -- NULL = still active
+    volume_start_id     INT             NOT NULL REFERENCES volumes(volume_id) ON DELETE RESTRICT,
+    volume_end_id       INT             REFERENCES volumes(volume_id) ON DELETE SET NULL,  -- NULL = still active
     UNIQUE (character_id, name)
 );
 
@@ -163,7 +164,7 @@ CREATE TABLE alias (
 
 -- LOCATION <-> FACTIONS  (N:M via location_faction)
 CREATE TABLE location_faction (
-    location_id     INT     NOT NULL REFERENCES location(location_id) ON DELETE CASCADE,
+    location_id     INT     NOT NULL REFERENCES locations(location_id) ON DELETE CASCADE,
     faction_id      INT     NOT NULL REFERENCES factions(faction_id) ON DELETE CASCADE,
     role            TEXT,
     is_headquarters BOOLEAN NOT NULL DEFAULT FALSE,
@@ -194,8 +195,8 @@ CREATE TABLE artifact_ability (
 CREATE TABLE char_fac_chapter_range (
     character_id        INT NOT NULL REFERENCES characters(character_id) ON DELETE CASCADE,
     faction_id          INT NOT NULL REFERENCES factions(faction_id) ON DELETE CASCADE,
-    chapter_start_id    INT NOT NULL REFERENCES chapter(chapter_id) ON DELETE RESTRICT,
-    chapter_end_id      INT          REFERENCES chapter(chapter_id) ON DELETE SET NULL,  -- NULL = still active
+    chapter_start_id    INT NOT NULL REFERENCES chapters(chapter_id) ON DELETE RESTRICT,
+    chapter_end_id      INT          REFERENCES chapters(chapter_id) ON DELETE SET NULL,  -- NULL = still active
     role                TEXT,
     PRIMARY KEY (character_id, faction_id, chapter_start_id)
 );
@@ -204,8 +205,8 @@ CREATE TABLE char_fac_chapter_range (
 CREATE TABLE char_seq_chapter_range (
     character_id        INT NOT NULL REFERENCES characters(character_id) ON DELETE CASCADE,
     sequence_id         INT NOT NULL REFERENCES sequences(sequence_id) ON DELETE CASCADE,
-    chapter_start_id    INT NOT NULL REFERENCES chapter(chapter_id) ON DELETE RESTRICT,
-    chapter_end_id      INT          REFERENCES chapter(chapter_id) ON DELETE SET NULL,  -- NULL = still active
+    chapter_start_id    INT NOT NULL REFERENCES chapters(chapter_id) ON DELETE RESTRICT,
+    chapter_end_id      INT          REFERENCES chapters(chapter_id) ON DELETE SET NULL,  -- NULL = still active
     PRIMARY KEY (character_id, sequence_id, chapter_start_id)
 );
 
@@ -213,8 +214,8 @@ CREATE TABLE char_seq_chapter_range (
 CREATE TABLE char_art_chapter_range (
     character_id        INT NOT NULL REFERENCES characters(character_id) ON DELETE CASCADE,
     artifact_id         INT NOT NULL REFERENCES artifacts(artifact_id) ON DELETE CASCADE,
-    chapter_start_id    INT NOT NULL REFERENCES chapter(chapter_id) ON DELETE RESTRICT,
-    chapter_end_id      INT          REFERENCES chapter(chapter_id) ON DELETE SET NULL,  -- NULL = still active
+    chapter_start_id    INT NOT NULL REFERENCES chapters(chapter_id) ON DELETE RESTRICT,
+    chapter_end_id      INT          REFERENCES chapters(chapter_id) ON DELETE SET NULL,  -- NULL = still active
     acquisition_type    TEXT,
     PRIMARY KEY (character_id, artifact_id, chapter_start_id)
 );
@@ -223,13 +224,13 @@ CREATE TABLE char_art_chapter_range (
 --  INDEXES  (for common query paths)
 -- =============================================================
 
-CREATE INDEX idx_volume_series          ON volume(series_id);
-CREATE INDEX idx_chapter_volume         ON chapter(volume_id);
+CREATE INDEX idx_volume_series          ON volumes(series_id);
+CREATE INDEX idx_chapter_volume         ON chapters(volume_id);
 CREATE INDEX idx_pathways_sefirot       ON pathways(sefirot_id);
 CREATE INDEX idx_sequences_pathway      ON sequences(pathway_id);
 CREATE INDEX idx_abilities_sequence     ON abilities(sequence_id);
 CREATE INDEX idx_alias_character        ON alias(character_id);
-CREATE INDEX idx_location_epoch_start   ON location(epoch_start_id);
+CREATE INDEX idx_location_epoch_start   ON locations(epoch_start_id);
 CREATE INDEX idx_character_epoch_start  ON characters(epoch_start_id);
 
 CREATE INDEX idx_char_fac_char       ON char_fac_chapter_range(character_id);

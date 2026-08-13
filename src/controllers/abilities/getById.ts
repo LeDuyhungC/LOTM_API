@@ -26,7 +26,7 @@ const getById = async (request: Request<{ id: string }>, response: Response): Pr
             data: result.rows[0],
         });
     } catch (error) {
-        console.error('❌ Error fetching ability:', error);
+        console.error(' Error fetching ability:', error);
         response.status(500).json({
             error: 'Failed to retrieve ability from the database.',
         });

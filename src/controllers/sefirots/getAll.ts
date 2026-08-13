@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import pool from '../../db';
 
-const getAllSefirots = async (_request: Request, response: Response): Promise<void> => {
+const getAll = async (_request: Request, response: Response): Promise<void> => {
     try {
         const result = await pool.query(`
             SELECT
@@ -25,4 +25,4 @@ const getAllSefirots = async (_request: Request, response: Response): Promise<vo
     }
 };
 
-export { getAllSefirots };
+export { getAll };
