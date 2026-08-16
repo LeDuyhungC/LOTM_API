@@ -22,15 +22,14 @@ CREATE TABLE series (
 CREATE TABLE sefirots (
     sefirot_id      SERIAL          PRIMARY KEY,
     name            VARCHAR(255)    NOT NULL UNIQUE,
-    great_old_one   INT,            -- FK to characters(character_id); add via ALTER TABLE after characters is created
+    great_old_one   INT,
     description     TEXT
 );
 
 CREATE TABLE epochs (
     epoch_id    SERIAL          PRIMARY KEY,
     name        VARCHAR(255)    NOT NULL UNIQUE,
-    start_year  INT,            
-    end_year    INT,            
+    years       INT,            
     description TEXT
 );
 

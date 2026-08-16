@@ -2,14 +2,6 @@
 --  LOTM API - Seed Data
 --  @author Duy-Hung Le
 --  VERSION 0.1 / AUG 2026
---
---  Insertion order respects FK constraints:
---    series -> sefirots -> epochs -> materials -> artifacts -> factions
---    -> volumes -> chapters -> locations -> pathways -> sequences
---    -> abilities -> characters -> alias
---    -> UPDATE sefirots (great_old_one FK)
---    -> junction / ternary tables
--- =============================================================
 
 
 -- =============================================================
@@ -19,14 +11,14 @@
 INSERT INTO series (name, description, release_date, end_date) VALUES
 (
     'Lord of the Mysteries',
-    'A dark fantasy web novel by Cuttlefish That Loves Diving. Klein Moretti, a modern-day graduate, transmigrates into the body of a down-on-his-luck citizen in a steampunk Victorian-era world teeming with Beyonders, ancient gods, and forbidden secrets.',
-    '2018-03-01',
-    '2021-07-21'
+    'A modern man named Zhou Mingrui reincarnates into an alternate world as Klein Moretti, navigating secret occult societies, powerful orthodox churches, and a dangerous path to godhood while seeking a way home.',
+    '2018-04-01',
+    '2020-04-01'
 ),
 (
     'Lord of the Mysteries 2: Circle of Inevitability',
-    '',
-    '2022-03-01',
+    'It follows protagonist Lumian Lee in a 1930s France-inspired setting blending vintage European aesthetics with cosmic horror, acting as a narrative bridge while Klein Moretti remains asleep',
+    '2023-03-04',
     NULL
 );
 
@@ -36,20 +28,27 @@ INSERT INTO series (name, description, release_date, end_date) VALUES
 -- =============================================================
 
 INSERT INTO sefirots (name, description) VALUES
-
-
+('Sefirah Castle', 'Governs the concepts of history, space, destiny, and the Spirit World.'),
+('Chaos Sea', 'Governs the concepts of omniscience, omnipotence, mind, and the Astral World.'),
+('River of Eternal Darkness', 'Governs the transition of life, erasure, and absolute quiet.'),
+('City of Calamity', 'Governs pure chaos, disaster, conflict, and physical devastation.'),
+('Nation of Disorder', 'Governs the creation, manipulation, and exploitation of universal laws.'),
+('Key of Light', 'Governs probability, luck, and the flow of time.'),
+('Brood Hive', 'Governs reproduction, evolution, decay, and the physical world.'),
+('Knowledge Moor', 'Governs information, hidden knowledge, and mystical logic.'),
+('Tenebrous World', 'Governs inner shadows, taboos, curses, and emotional manipulation.')
 
 -- =============================================================
 --  3. EPOCHS
 -- =============================================================
 
-INSERT INTO epochs (name, start_year, end_year, description) VALUES
-('Pre-Epoch', NULL, NULL, 'Earth in the 21st century.'),
-('First Epoch',  NULL, NULL, 'Era before the creation of the world. Dominated by the Outer Gods.'),
-('Second Epoch', NULL, NULL, 'Era dominated by the God of Knowledge and Wisdom. Ancient civilizations flourished.'),
-('Third Epoch',  NULL, NULL, 'Era of the Tudor dynasty and other ancient kingdoms. Many Sealed Artifacts originate here.'),
-('Fourth Epoch', NULL, NULL, 'The Cataclysm era, marked by divine wars, the fall of gods, and widespread destruction.'),
-('Fifth Epoch',  1,    NULL, 'The current era. An age of steam and industry, roughly analogous to the Victorian period. Klein Moretti''s story takes place around year 1349-1352 of this epoch.');
+INSERT INTO epochs (name, years, description) VALUES
+('Pre-Epoch', NULL, 'Unkown.'),
+('First Epoch', 981, 'The Age of Chaos, It began when the Original Creator fully awakened from slumber, destroying modern human civilization and shattering into the 22 Beyonder pathways and various Sephiroths.'),
+('Second Epoch',2561, 'The Dark Epoch or the Age of the Ancient Gods, It was a brutal era where humanity was weak and enslaved, and the world was ruled completely by powerful non-human races and innate Ancient Gods. The chaos of this brutal era eventually shifted during the cataclysmic conflicts that led to the rise of the Ancient Sun God.'),
+('Third Epoch', 1086 , 'Humanity finally stepped out from under the shadows and slavery of older, tyrannical alien races, outpacing them in growth. The epoch ended in a massive cataclysm triggered when the Ancient Sun God was betrayed by His own Kings of Angels and faced internal mental collapse from the awakening of the Primordial God Almighty. Civilization reset, and the continents were permanently fractured.'),
+('Fourth Epoch', 1233, 'the Epoch of the Gods. It began with the death of the Ancient Sun God and the appearance of the Second Blasphemy Slate, leading to an era where Sequence 0 deities and angels openly walked the earth and fought for supreme rule. Soloman first empire founded after the fall of the Ancient Sun God united the leftover continents after the collapse of the Soloman empire split empires were formed Soloman, Tudor Trunsoest, and Balam Empires. War of the Four Emperors resulted in the madness and death of the contending emperors, the reshaping of the continent''s political landscape, and the establishment of the current orthodox churches and kingdoms of the Fifth Epoch.'),
+('Fifth Epoch',  1349, 'The current era. An age of steam and industry, roughly analogous to the Victorian period. Klein Moretti''s story takes place around year 1349-1352 of this epoch.');
 
 
 -- =============================================================
@@ -78,14 +77,14 @@ INSERT INTO materials (name, description, rarity) VALUES
 -- =============================================================
 
 INSERT INTO artifacts (name, description, code_name) VALUES
-('Azik''s Copper Whistle',          'A small copper whistle belonging to the ancient postman Azik Eggers. When blown, it can summon and command the undead within range. Given to Klein by Azik himself.',  'SL 0-07'),
-('Interrogator',                    'A sealed artifact in the form of a revolver. Bullets fired compel targets to answer questions truthfully. Considered a Sequence 4 sealed artifact.',                   'SL 1-02'),
-('Biological Poison Bottle',        'A sealed artifact containing a self-replicating biological toxin. Highly dangerous; classified as a Sequence 2 sealed artifact.',                                      'SL 2-34'),
-('Antigonus Family Notebook',       'An ancient notebook containing classified knowledge of the Antigonus family. One of the most dangerous sealed artifacts. Possession alone causes madness over time.',  'SL 0-02'),
-('Siren''s Whistle',                'A whistle that mimics the call of a Siren, capable of luring and entrancing nearby targets. Classified Sequence 2.',                                                  'SL 2-17'),
-('Tinder''s Flames',                'A vial containing a fragment of the Eternal Blazing Sun''s fire. Devastating against darkness-type Beyonders.',                                                       'SL 1-11'),
-('Nightmare Realm Painting',        'A painting that drags viewers into a Nightmare Realm. Associated with the Moon pathway.',                                                                              'SL 1-09'),
-('Evernight Goddess Blessed Sword', 'A long sword blessed by the Evernight Goddess. Effective against the undead and creatures of darkness.',                                                               'SL 1-07');
+('Azik''s Copper Whistle',          'A small copper whistle belonging to the ancient postman Azik Eggers. When blown, it can summon and command the undead within range. Given to Klein by Azik himself.',  null),
+('Interrogator',                    'A sealed artifact in the form of a revolver. Bullets fired compel targets to answer questions truthfully. Considered a Sequence 4 sealed artifact.',                   '3-0782'),
+('Biological Poison Bottle',        'A sealed artifact containing a self-replicating biological toxin. Highly dangerous; classified as a Sequence 2 sealed artifact.',                                      '3-0622'),
+('Antigonus Family Notebook',       'An ancient notebook containing classified knowledge of the Antigonus family. One of the most dangerous sealed artifacts. Possession alone causes madness over time.',  null),
+('Siren''s Whistle',                'A whistle that mimics the call of a Siren, capable of luring and entrancing nearby targets. Classified Sequence 2.',                                                  null),
+('Tinder''s Flames',                'A vial containing a fragment of the Eternal Blazing Sun''s fire. Devastating against darkness-type Beyonders.',                                                       null),
+('Nightmare Realm Painting',        'A painting that drags viewers into a Nightmare Realm. Associated with the Moon pathway.',                                                                              '1-42'),
+('Evernight Goddess Blessed Sword', 'A long sword blessed by the Evernight Goddess. Effective against the undead and creatures of darkness.',                                                               '0-012');
 
 
 -- =============================================================
@@ -114,8 +113,9 @@ INSERT INTO factions (name, description) VALUES
 --  7. VOLUMES  (series_id = 1 for Lord of the Mysteries)
 -- =============================================================
 
-INSERT INTO volumes (series_id, volume_number, title) VALUES
-
+COPY volumes (series_id, volume_number, title)
+FROM '/docker-entrypoint-initdb.d/volumes.csv'
+DELIMITER ',' CSV HEADER;
 
 
 -- =============================================================
@@ -123,8 +123,9 @@ INSERT INTO volumes (series_id, volume_number, title) VALUES
 --     volume_id: 1=Vol1 .. 9=Vol9
 -- =============================================================
 
-INSERT INTO chapters (volume_id, chapter_number, title) VALUES
-
+COPY chapters (volume_id, chapter_number, title)
+FROM '/docker-entrypoint-initdb.d/chapters.csv'
+DELIMITER ',' CSV HEADER;
 
 
 -- =============================================================

@@ -12,6 +12,8 @@ services:
     volumes:
       - lotm_db_data:/var/lib/postgresql/data
       - ./Database/LOTM_DB_Schema.sql:/docker-entrypoint-initdb.d/schema.sql
+      - ./Database/chapters.csv:/docker-entrypoint-initdb.d/chapters.csv
+      - ./Database/volumes.csv:/docker-entrypoint-initdb.d/volumes.csv
 
   pgadmin:
     image: dpage/pgadmin4
