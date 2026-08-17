@@ -1,0 +1,502 @@
+483
+New Identity
+484
+Asymmetrical
+485
+Rich Information
+486
+Klein's Conjectures
+487
+The Growing Tarot Club
+488
+Living Expenses
+489
+Held Up Suggestion
+490
+Warning of a Former Sailor
+491
+The Sherlock Moriarty in the Investigation Report
+492
+Adventurer
+493
+Hunting
+494
+A Bite of Murloc
+495
+Legend of Treasure
+496
+The Promising Sea
+497
+The Wall of Rewards
+498
+Persona
+499
+Solicitation
+500
+Interrogating White Shark
+501
+Bait
+502
+The Scene in Azik's Memories
+503
+Hostage
+504
+Red Skull Pirate Crew
+505
+A Servant Worth 3,000 Pounds
+506
+The Weather Museum
+507
+Bansy Harbor in the Wind
+508
+Don't Go Out
+509
+Request
+510
+The Returning Bishop
+511
+"Snitch Halo"
+512
+The End of Things?
+513
+Intimidation
+514
+Legends of Ancient Gods
+515
+Harvests for Everyone
+516
+The Hanged Man's Guess
+517
+City of Generosity
+518
+On the Brink of Death
+519
+Naming
+520
+Admiral of Blood
+521
+Bold Assumption
+522
+Colony
+523
+Cooperation
+524
+Meeting
+525
+The Calm Squall
+526
+Dream of Eternity
+527
+A Quick Battle
+528
+Grazing
+529
+Tacitness
+530
+Chronicles
+531
+Great Acting
+532
+Lord "Caucasian"
+533
+Mr. 4,200 Pounds
+534
+A Dream Lesson
+535
+Fond of Teaching
+536
+Local Faith
+537
+Excessive Spiritual Perception
+538
+Dispel
+539
+Late-night Operations
+540
+Suppression
+541
+Visitor
+542
+Bayam Under Curfew
+543
+The Reality That Exceeds Expectations
+544
+Expert
+545
+The Enraged Kalvetua
+546
+Spirit World
+547
+Priest
+548
+Trick to Dealing with Large Creatures
+549
+High Elf
+550
+The Negative Effects of the Sealed Artifact
+551
+The Ten Commandments
+552
+Pomp
+553
+Danitz's Hard Work
+554
+Acting as God
+555
+The Message Late at Night
+556
+Discriminatory Treatment
+557
+Planting a Cue on Herself
+558
+Search for Abnormalities
+559
+Meeting on the Way
+560
+The Hanged Man Gets Fleeced
+561
+"Recruitment Fair"
+562
+Helene
+563
+The Fool's "Blessing"
+564
+Knowledge as a Pursuer
+565
+Eye of Mystery Prying
+566
+The Details of Clothes
+567
+Source of the Matter
+568
+Subsidiary "Gods"
+569
+A Straw Will Show Which Way the Wind Blows
+570
+Not Admitting or Denying
+571
+Huge Pressure
+572
+Recite My Name
+573
+Teaching a Lesson in Reality
+574
+Fail to Accomplish
+575
+Golden Dream
+576
+Vice Admiral Iceberg's Collector's Room
+577
+Book from More Than 3,000 Years Ago
+578
+"Abduction"
+579
+Academic Question
+580
+Wormtongue
+581
+Both Getting into Character and Detachment
+582
+"Provocation"
+583
+Contingency Plan
+584
+Scapegoat
+585
+Buying Medicine
+586
+Farewell and Reunion
+587
+Confusing
+588
+Old Acquaintance
+589
+"Sowing Discord"
+590
+Arrodes's Bottom Line
+591
+Making Good Use of Things
+592
+Three Advancements in a Week
+593
+Solution
+594
+The World's Commission
+595
+Domain
+596
+Clue
+597
+Klein's Plan
+598
+Windfall
+599
+Dragon Might
+600
+Clearing the Place
+601
+Scaring Oneself
+602
+Becoming Famous
+603
+Conditions
+604
+A Different Enemy
+605
+"Judgment"
+606
+Intimidation
+607
+Discovering an Abnormality
+608
+Professional
+609
+Paying a Visit
+610
+Throwing the Die
+611
+Fate Councilor
+612
+In Hand
+613
+Leonard's Investigation
+614
+Adventurer Association
+615
+Grayish-white Fog
+616
+Silver Lining
+617
+The Mysterious Adam
+618
+Volunteer Work
+619
+Unable to Speak
+620
+Stand-in Mission
+621
+Governor-general's Office Banquet
+622
+Temporary Contract
+623
+First Night
+624
+Warning
+625
+Successful First Day
+626
+Amyrius's Decision
+627
+Late into the Night
+628
+Prohibition
+629
+Naturism Sect
+630
+Timeline
+631
+Three Days of Absence
+632
+Finishing Up
+633
+Two Types of Parasitizing
+634
+City of White
+635
+Meeting
+636
+Slaughterer
+637
+The Future
+638
+Poison Expert
+639
+Name List
+640
+Female Pirate
+641
+A Well Mouth That Humans Can't Pass
+642
+Killing Three Birds With One Stone
+643
+Klein's Version of "Magic Mirror Divination"
+644
+Laughter
+645
+Calming Method
+646
+Leymano's Spellbook
+647
+Sea of Ruins
+648
+Noon and Night
+649
+Black Cloister
+650
+The Unlucky Anderson
+651
+Meeting Again
+652
+Mermaid Clues
+653
+Black-faced, Black-handed
+654
+Prisoner and Guard
+655
+Dream Analysis
+656
+Crazy Mutations
+657
+Terrifying Vitality
+658
+55,000 Pounds
+659
+This Beyonder Power is Very Powerful
+660
+Behind the Mask
+661
+Approaching
+662
+Powerful Aura
+663
+False Alarm
+664
+Every Second Counts
+665
+Spirit Body Threads
+666
+Afternoon Town
+667
+Prayer
+668
+Confidence Might Also Be a Weakness
+669
+Exchange of Information
+670
+Repenter
+671
+The Fourth Name
+672
+Bystander
+673
+Blood Text
+674
+Leaving the Ship
+675
+Building Ties
+676
+Tripartite Transaction
+677
+Falling to the Ground
+678
+Punishment
+679
+Murder Request
+680
+New Thoughts
+681
+Indirect Answer
+682
+Seeking "Food"
+683
+So You Are Here as Well
+684
+Battle Encounter
+685
+From A Delay to Disconnection
+686
+A Hard-to-complete Ritual
+687
+Blatherer
+688
+Fruitless Wait
+689
+That's It?
+690
+Miss Messenger
+691
+Meeting
+692
+Suspect
+693
+Attempt
+694
+Burn Upon Chanting
+695
+Stark Contrast
+696
+Giant Guardian
+697
+Story's Progress
+698
+Fifth King of Angels
+699
+Boss Fight
+700
+Excellent Teamwork
+701
+Giants Never Retreat
+702
+Epilogue
+703
+Thank-you Present
+704
+Origins
+705
+Mythical Creature
+706
+That Man
+707
+Danitz's Request
+708
+Revolver Worth 9,000 Pounds
+709
+Elland's Warning
+710
+Plan
+711
+The Storm Attacks
+712
+The Loyal Alger
+713
+Three Questions
+714
+New Diary Pages
+715
+Madness in His Later Years
+716
+Island and Ruins
+717
+The World and Hero Bandit
+718
+Characters in the Book
+719
+Dream Tour
+720
+Philosopher
+721
+Klein's Guidance
+722
+An Unpeaceful Night
+723
+Another Good Deed Today
+724
+The True Meaning Behind the Warning
+725
+Morning
+726
+Preparations Are Very Important
+727
+Lucky One
+728
+Triple Combo
+729
+Chaos
+730
+Handling the Latent Risk
+731
+Gains
+732
+Destination
+733
+The Return

@@ -1,0 +1,482 @@
+495
+Distribution
+496
+Sin
+497
+The Fragment's Origins
+498
+Suspicious Attitude
+499
+Minor Arcana Card
+500
+"Nonexistent" City
+501
+Honorific Name
+502
+Messenger Ritual
+503
+Penitent
+504
+"Breakup"
+505
+Departure
+506
+Illness
+507
+Dead End
+508
+Patient Zero
+509
+Ironclad Merchant Ship
+510
+First Day at Sea
+511
+Warning
+512
+Strange Pirate Ship
+513
+Worry
+514
+Huge Wave
+515
+Strange Fish
+516
+Questioning Method
+517
+Prominent Merchant
+518
+Merchant's Entrustment
+519
+One Event A Day
+520
+Demon Warlock
+521
+Guidance of Fate?
+522
+Excellent Scheme
+523
+Eye of Illusory
+524
+Infighting
+525
+Repair Fee
+526
+Resolution
+527
+Immersion
+528
+Treasure Legend
+529
+Irrational
+530
+Beginning
+531
+Depths of Death
+532
+"Real" Map
+533
+Forgotten
+534
+Over the Mountain
+535
+Reply
+536
+One in the Light and One in the Dark
+537
+Charm
+538
+Historical Origins
+539
+Information on the Sea Prayer Ritual
+540
+Entrustee
+541
+Simple Entrustment
+542
+Abnormal Situation
+543
+Same Dream
+544
+Threat
+545
+Order
+546
+Monitor
+547
+Source of Familiarity
+548
+Governor of the Sea
+549
+True Purpose
+550
+Effects of the Sea Prayer Ritual
+551
+Coming One After Another
+552
+Fake and Reality
+553
+Half-Fairy
+554
+Favor
+555
+Monster Illustrated
+556
+Violent Beating
+557
+Purpose
+558
+Tamara Family
+559
+Top-Notch Collaborator
+560
+Traces
+561
+Language of the Stars
+562
+Changed Plans
+563
+Another Attempt
+564
+Individual Roles
+565
+Possible Breakthrough
+566
+Gathered Clues
+567
+Possible Leaker
+568
+Patterns of the "Ancestors"
+569
+Language Interpretation
+570
+Festival
+571
+Key Details
+572
+The Real Target
+573
+Bard
+574
+Heavy
+575
+"Handover"
+576
+Palace
+577
+Same Thoughts
+578
+Marionettes
+579
+Energy Passage
+580
+Theft
+581
+Gap
+582
+Efficient Person-Locator
+583
+Celestial Worthy's Revelation
+584
+"Helper"
+585
+Repeated "Betrayal"
+586
+Gnawing
+587
+"Deceived"
+588
+Degree of Madness
+589
+Object Within the Nest
+590
+The Truth Behind the Seal
+591
+Information Gap
+592
+Bluff
+593
+Fooled
+594
+Execution
+595
+Spoils of War
+596
+Lord's Revelation?
+597
+Too Dirty
+598
+Confrontation and Reconciliation
+599
+If You Have "Power," Use It
+600
+Correct Reaction
+601
+Strange Patient
+602
+"Surgery"
+603
+Organs Again
+604
+School of God's Descent
+605
+Lingering Effects
+606
+Faith Conversion
+607
+Smell of Food
+608
+The Way to Find Prey
+609
+Useful Armor
+610
+"New Life"
+611
+True Name
+612
+Daybreak
+613
+New Commission
+614
+Under-the-table Transaction
+615
+Descendants
+616
+"Love"
+617
+Transaction
+618
+Divination Ritual
+619
+Chronicles
+620
+Abnormality in the Abyss
+621
+Hanth Island
+622
+Smell of Death
+623
+Grave Digging
+624
+More Than One?
+625
+Repentance
+626
+Blatant Malice
+627
+Treatment Plan?
+628
+Terrifying Dream
+629
+Corruption Removal
+630
+Day Tour
+631
+Devilogy
+632
+Conspiracy
+633
+West Balam
+634
+Fresh Off The Boat
+635
+Man-Eating Flower
+636
+Catharsis
+637
+Unexpected Information
+638
+Possible Enemy
+639
+Bribe
+640
+Commonality
+641
+Information From Eating
+642
+Visit
+643
+Target Suspect
+644
+Patrol Team
+645
+"Gifts"
+646
+Indoor Fight
+647
+"Inexplicable Action"
+648
+Teamwork
+649
+Conspiracy Showcase
+650
+Reaper
+651
+An Unfulfilled Conspiracy
+652
+"Extreme Joy Begets Sorrow"
+653
+Lumian's Choice
+654
+Bounty
+655
+Pleasure
+656
+Choosing a Reward
+657
+Tizamo Town
+658
+Deep Desire
+659
+Poor "Monster"
+660
+Across the Door
+661
+"Reconnaissance Tools"
+662
+Those Words
+663
+Late Night
+664
+Confirming the Boundary
+665
+Clues
+666
+New Information
+667
+Approaching Gentleness
+668
+Dream Person?
+669
+Connivance
+670
+Sudden Arrival
+671
+Beginning
+672
+Greater Trouble
+673
+"Sealing" Spell
+674
+Manor
+675
+Evil
+676
+You Intisians
+677
+Last Year's Dream Festival
+678
+Absurd Orgy
+679
+Spirit Medium
+680
+Combat Experience
+681
+Tomb
+682
+Cull
+683
+Dance
+684
+Two Answers
+685
+Illusion
+686
+Illusion and Reality
+687
+Gaining Immortality
+688
+Preparations
+689
+Precision
+690
+Death's Symphony
+691
+Pursuer
+692
+Death before Rebirth
+693
+Golden Corpse
+694
+A "Deal"
+695
+Kolobo's Worry
+696
+Feathers
+697
+Madam Magician's Explanation
+698
+Aftermath
+699
+Who is to Blame?
+700
+Return
+701
+The Cheerful Franca
+702
+Fate Appropriator
+703
+Fused Ability
+704
+Fragment of Fate
+705
+Past
+706
+The Utility of Delicacies
+707
+Compulsion
+708
+Remnant Influence
+709
+"Chef"
+710
+"Communication"
+711
+Choice
+712
+"Accusation"
+713
+Between White and Black
+714
+The Fractured Tamara Family
+715
+Shadow Merchant
+716
+Bullets
+717
+Supervision?
+718
+Another Warning
+719
+Advancing
+720
+Unexpected "Helper"
+721
+Exhausting the Substitutes
+722
+He Knows
+723
+Secret of Immortality
+724
+Leader
+725
+The Mirror World's Third Level
+726
+Fragment of Fate
+727
+Arrival
+728
+Tracking
+729
+Purpose
+730
+Struggle
+731
+Another Good Job
+732
+Protection and Trust
+733
+Praise You
+734
+My Weapon
+735
+I Have Sinned

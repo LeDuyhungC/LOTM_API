@@ -1,0 +1,427 @@
+
+1
+Crimson
+2
+Situation
+3
+Melissa
+4
+Divination
+5
+Ritual
+6
+Beyonder
+7
+Code Names
+8
+A New Era
+9
+The Notebook
+10
+The Norm
+11
+Real Culinary Skills
+12
+Here Again
+13
+Nighthawk
+14
+The Medium
+15
+The Invitation
+16
+Rat-Baiting With Dogs
+17
+Special Operations Department
+18
+Origin and Cause
+19
+Sealed Artifacts
+20
+The Forgetful Dunn
+21
+An Old Friend In A Different World
+22
+Starting Sequence
+23
+Side Arm
+24
+Penny-pincher
+25
+Cathedral
+26
+Practice
+27
+Siblings' Dinner
+28
+Secret Order
+29
+"Jobs" and Rentals Are Serious Business
+30
+Brand New Beginning
+31
+Potion
+32
+Spirit Vision
+33
+Switch
+34
+Advance Payment
+35
+Exchange of Information
+36
+A Simple Question
+37
+The Club
+38
+Novice Hobbyist
+39
+Interesting Trick
+40
+Mysticism Curriculum
+41
+Audrey and Her Susie
+42
+Butler Klee
+43
+Search
+44
+Fate
+45
+Returning
+46
+Portrait
+47
+Old Neil's Lack of Money
+48
+Hanass Vincent
+49
+Divination Art
+50
+Old Neil's Method of Repayment
+51
+The Grounded Ritualistic Magic
+52
+Spectator
+53
+Listener
+54
+The First Divination Requester
+55
+Revelation
+56
+Escape from the Sea
+57
+Organization and Summary
+58
+A Train of Thought
+59
+Roselle's Origins
+60
+Second Blasphemy Slate
+61
+Strange Symbol
+62
+The Seer's Suggestion
+63
+Dream Interpretation
+64
+Instigator
+65
+Beyonder Information
+66
+Demoness Sect
+67
+Response
+68
+Monster
+69
+Protection Amulet
+70
+2-049's Arrival
+71
+Sluggish Phenomenon
+72
+Tracking
+73
+First Battle
+74
+Ray Bieber
+75
+Saving himself
+76
+Dealing With The Aftermath
+77
+Remnant Items
+78
+Trauma
+79
+Another Murmuring
+80
+Banquet Invitation
+81
+Finally Meeting
+82
+Herb Store
+83
+Carving
+84
+Elizabeth
+85
+Urgency
+86
+Prayer
+87
+Exhortation
+88
+Report
+89
+A Simple Mission
+90
+Findings By Sight
+91
+Solution
+92
+Psychological Expert
+93
+New Diary Page
+94
+Hidden Sage
+95
+The Supplicant
+96
+Daly's Guess
+97
+Combat Teacher
+98
+Mr. Azik
+99
+Red Chimney
+100
+Interpreting Symbols
+101
+Unexpected Clue
+102
+Cloth Merchant
+103
+Doing As the Heart Willed
+104
+Mr. Z
+105
+Spirit Channeling
+106
+Artist Klein
+107
+Fors
+108
+Deep Into The Night
+109
+Deduction
+110
+Confirmation
+111
+Letting Slip
+112
+Azik's Explanation
+113
+Request
+114
+The Standards of a Member
+115
+Cheat
+116
+Lanevus's Child
+117
+Contact
+118
+August
+119
+The True Lower Street
+120
+Workhouse
+121
+Leonard's Hypothesis
+122
+Target Building
+123
+Beyonder Battle
+124
+Wrapping Up Work
+125
+Bold Idea
+126
+Divination Isn't All-Powerful
+127
+Laying the Foundations
+128
+The Impoverished Fool
+129
+Rampager
+130
+Backlund's Secret Gathering
+131
+Transaction
+132
+Meeting the Monster Again
+133
+Expensive Charms
+134
+It's Been More Than A Minute
+135
+Portrait of a Baron
+136
+The Stumped Klein
+137
+City of Silver
+138
+Giant Pathway
+139
+Studying 3-0782
+140
+Expert At Courting Death
+141
+Nightmare
+142
+Association
+143
+The Fool's Real-time Translator
+144
+Three-Way Deal
+145
+Request for Cooperation
+146
+Creeping Hunger
+147
+Night Visitor
+148
+Messenger
+149
+Direct Hint
+150
+Azik's Discovery
+151
+Klein's Request
+152
+Nice Attempt
+153
+Final Act of Laying the Foundation
+154
+Sharing "Experience"
+155
+Urgent Meeting
+156
+Melissa Who Takes the Long View
+157
+Item of His Dreams
+158
+Preparedness Averts Peril
+159
+Bestowment and Sacrifice
+160
+Seizing the Opportunity
+161
+Inverted Mausoleum
+162
+Intense Sunlight
+163
+Various Signs
+164
+Miserable Wretches
+165
+Epitaph
+166
+Examination
+167
+Holy Artifact
+168
+Clown Potion
+169
+New Abilities
+170
+Copper Whistle
+171
+Promotion and Pay Raise
+172
+"Autopsy"
+173
+Zombiefication
+174
+Madam Sharon
+175
+Deduction
+176
+Letter
+177
+Sudden Turn of Events
+178
+The Subsequent Ideas
+179
+Praising Mr. Fool
+180
+A Smart Person Always Overthinks
+181
+Different State
+182
+Wanderer Klein
+183
+A Lesson on Mediumship
+184
+Behind the Gate
+185
+Spiritual World
+186
+The Handsome Captain
+187
+Azik's Warning
+188
+Ball
+189
+Prayers and Replies
+190
+The Assortment of Abilities
+191
+Unclear Motives
+192
+Attention
+193
+Coming To A Close
+194
+Infiltration
+195
+"Lockpicking Expert" Klein
+196
+Spirit Medium Mirror
+197
+Operation
+198
+Appropriating Uniqueness
+199
+Successful Toss of the Die
+200
+The Demoness of Pleasure
+201
+Inquiry
+202
+Confirming the Situation
+203
+Mutant
+204
+Visitor
+205
+Urgent Arrangement
+206
+Grade 2 Sealed Artifacts
+207
+Guardian
+208
+Cry
+209
+Light
+210
+Story
+211
+Funeral
+212
+Avenger
+213
+Another Look
