@@ -655,135 +655,108 @@ INSERT INTO locations (name, region, description, parent_location_id, epoch_star
  10, 5, NULL);
 
 -- =============================================================
---  10. PATHWAYS  (sefirot_id maps 1:1 with sefirots insertion order)
+--  10. PATHWAYS 
 -- =============================================================
+
+('Sefirah Castle', 'Governs the concepts of history, space, destiny, and the Spirit World.'),
+('Chaos Sea', 'Governs the concepts of omniscience, omnipotence, mind, and the Astral World.'),
+('River of Eternal Darkness', 'Governs the transition of life, erasure, and absolute quiet.'),
+('City of Calamity', 'Governs pure chaos, disaster, conflict, and physical devastation.'),
+('Nation of Disorder', 'Governs the creation, manipulation, and exploitation of universal laws.'),
+('Key of Light', 'Governs probability, luck, and the flow of time.'),
+('Brood Hive', 'Governs reproduction, evolution, decay, and the physical world.'),
+('Knowledge Moor', 'Governs information, hidden knowledge, and mystical logic.'),
+('Tenebrous World', 'Governs inner shadows, taboos, curses, and emotional manipulation.')
 
 INSERT INTO pathways (sefirot_id, names, color, description) VALUES
-
-(1,  ARRAY['Fool', 'Visionary', 'Trickster'],          'Grey',    'The most mysterious pathway. Klein Moretti''s path. Associated with fate, trickery, and all-knowing mystique.'),
-(2,  ARRAY['Magician', 'Elementalist'],                 'Red',     'Pathway of fire and elemental forces. Practical and battle-focused.'),
-(3,  ARRAY['High Priestess', 'Knower'],                 'Silver',  'Pathway of silence and forbidden knowledge.'),
-(4,  ARRAY['Empress', 'Life'],                          'Green',   'Pathway of life force, plants, and nature.'),
-(5,  ARRAY['Emperor', 'Authoritarian'],                 'Gold',    'Pathway of authority, control, and governance.'),
-(6,  ARRAY['Hierophant', 'Blessed'],                    'White',   'Pathway of faith, prayer, and divine blessing.'),
-(7,  ARRAY['Lovers', 'Seducer'],                        'Pink',    'Pathway of charm, desire, and mental seduction. Rosago''s pathway.'),
-(8,  ARRAY['Chariot', 'Warrior'],                       'Bronze',  'Pathway of physical strength and combat.'),
-(9,  ARRAY['Justice', 'Spectator'],                     'Purple',  'Pathway of law, judgment, and mental abilities. Audrey Hall''s pathway.'),
-(10, ARRAY['Hermit', 'Calamity'],                       'Brown',   'Pathway of immense wisdom and catastrophic destructive power.'),
-(11, ARRAY['Wheel of Fortune', 'Gambler'],              'Yellow',  'Pathway of luck, probability, and fate.'),
-(12, ARRAY['Strength', 'Beastmaster'],                  'Orange',  'Pathway of wild power and animal affinity.'),
-(13, ARRAY['Hanged Man', 'Sailor', 'Seafarer'],         'Blue',    'Pathway of the sea and sacrifice. Alger Wilson''s pathway.'),
-(14, ARRAY['Death', 'Undying'],                         'Black',   'Pathway of death and spiritual power. Miss Sharron''s pathway.'),
-(15, ARRAY['Temperance', 'Alchemist', 'Machinery'],     'Cyan',    'Pathway of balance, alchemy, and the fusion of man and machine.'),
-(16, ARRAY['Devil', 'Demon'],                           'Crimson', 'Pathway of desire, corruption, and demonic power.'),
-(17, ARRAY['Tower', 'Lightning'],                       'Violet',  'Pathway of destruction, lightning, and unstoppable force.'),
-(18, ARRAY['Star', 'Astrologer'],                       'Indigo',  'Pathway of the cosmos, astral travel, and dreams. Cattleya''s pathway.'),
-(19, ARRAY['Moon', 'Nightmare'],                        'Silver',  'Pathway of the night, illusions, and lunar power. Emlyn White''s pathway.'),
-(20, ARRAY['Sun', 'Light'],                             'Gold',    'Pathway of solar light, truth, and purification. Derrick Berg''s pathway.'),
-(21, ARRAY['Judgement', 'Angel'],                       'White',   'Pathway of divine judgment and angelic power.'),
-(22, ARRAY['World', 'Space'],                           'Void',    'Pathway of totality and omnipresence. The most complete of all pathways.');
+-- Sephirot: Safirah Castle
+(1, ['Fool', 'Seer'], '#808080', 'Change, history, secrets, concealment, puppet-strings, and the unknown.'),
+(1, ['Door', 'Aprentice'], '#0B132B', 'Space, sealing, wandering, copying, and conceptual passage.'),
+(1, ['Error', 'Marauder'], '#EBF1F5', 'Time, loopholes, parasitism, theft, deception, and avatars.'),
+-- Sephirot: Chaos Sea
+(2, ['Sun', 'Bard'], '#FFD700', 'Light, purification, contracts, oaths, and absolute righteousness.'),
+(2, ['Visionary', 'Spectator'], '#70D6FF', 'Mind, imagination, creation, virtual reality, and psychological manipulation.'),
+(2, ['Tyrant', 'Sailor'], '#001F54', 'Storms, lightning, water, absolute authority, and raw physical destruction.'),
+(2, ['Hanged Man', 'Secrets Suppliant'], '#800000', 'Sacrifice, degenerated flesh, grazing/absorbing powers, and spiritual degeneration.'),
+(2, ['White Tower', 'Reader'], '#E0FBFC', 'Omniscience, learning, imitation, analysis, and prophetic deduction.'),
+-- River of Eternal Darkness
+(3, ['Darkness', 'Sleepless'], '#1A0A2A', 'Night, peaceful sleep, misfortune, horror, and permanent erasure.'),
+(3, ['Death', 'Corpse Collector'], '#3D3D3D', 'The underworld, souls, structural decay, animation, and eternal rest.'),
+(3, ['Twilight Giant, 'Warrior'], '#FF4500', 'Combat, defense, physical decay, the end, and honor.'),
+-- City of Calamity
+(4, ['Red Priest', 'Hunter'], '#B22222', 'War, fire, tactical conspiracy, provocateering, and collective military force.'),
+(4, ['Demoness', 'Assassin'], '#111111', 'Catastrophe, disease, mirrors, temptation, physical transmutation, and frost.'),
+-- Nation of Disorder
+(5, ['Justiciar, Arbitor'], '#005f73', 'Absolute rules, prohibition, judgment, execution, and unyielding order.'),
+(5, ['Dark Emperor', 'Lawyer'], '#000000', 'Distortion, law manipulation, shadow order, magnification, and rebirth.'),
+-- Key of Light
+(6, ['Monster', 'Wheel of Fortune'], '#FFDF00', 'Fate, luck, probability, reincarnation, and destiny.'),
+-- Brood Hive
+(7, ['Mother', 'Planter'], '#2E7D32', 'Earth, nature, fertility, plant life, and physical growth.'),
+(7, ['Moon', 'Apothecary'], '#990000', 'Life energy, blood, potions/herbs, and reproductive cycles.'),
+-- Knowledge Moor
+(8, ['Hermit', 'Mystery Pryer'], '#480082', 'Mysticism, information stream, ancient hidden knowledge, and hidden fairy-tales.'),
+(8, ['Paragon', 'Savant'], '#6A0DAD', 'Technology, mechanics, civilization, craftsmanship, and physical creation.'),
+-- Tenebrous World
+(9, ['Prisoner', 'Mutant'], '#4A3B32', 'Desires, physical restraint, spiritual release, and primal beasts.'),
+(9, ['Abyss', 'Criminal'], '#A9A9A9', 'Corruption, pure malice, continuous degradation, and dark desires.')
 
 -- =============================================================
---  11. SEQUENCES  (position 9 = entry level, 0 = apex/godhood)
---
---  Pathway IDs (by insertion order above):
---    Fool=1  Magician=2  HighPriestess=3  Empress=4  Emperor=5
---    Hierophant=6  Lovers=7  Chariot=8  Justice=9  Hermit=10
---    WheelOfFortune=11  Strength=12  HangedMan=13  Death=14
---    Temperance=15  Devil=16  Tower=17  Star=18  Moon=19  Sun=20
---    Judgement=21  World=22
+--  11. SEQUENCES 
 -- =============================================================
 
--- ── The Fool Pathway (pathway_id = 1) — Klein Moretti ────────
+-- SEQUENCE OF PATHWAY: FOOL
 INSERT INTO sequences (pathway_id, position, name, description) VALUES
-(1, 9, ARRAY['Seer'],                   'Entry level. Grants divination, danger intuition, spirit vision, and minor luck manipulation.'),
-(1, 8, ARRAY['Clown'],                  'Gains abilities of performance, deception, laughter plague, and perfect imitation.'),
-(1, 7, ARRAY['Magician'],               'Gains powerful illusionary abilities and more complex mystical manipulation.'),
-(1, 6, ARRAY['Faceless'],               'Can perfectly replicate the appearance and surface abilities of any target.'),
-(1, 5, ARRAY['Nimblewright Master'],    'Can create and remotely control nimblewright mechanical constructs.'),
-(1, 4, ARRAY['Bizarro Sorcerer'],       'Reality-bending powers and bizarre transformations that defy natural laws.'),
-(1, 3, ARRAY['Miracle Invoker'],        'Can invoke large-scale miracles and meaningfully alter fate itself.'),
-(1, 2, ARRAY['Attendant of Mysteries'],'Near-divine servant of cosmic mystery. Power approaches that of lesser gods.'),
-(1, 1, ARRAY['Mystery Pryer'],          'One step below true godhood. Bridges the mortal and divine realms.'),
-(1, 0, ARRAY['The Fool'],              'Apex of the pathway. A true God seated above the grey fog.');
+(1, 9, 'Seer',                   'Remain a neutral interpreter of the spirit world. Avoid arrogance, and remember that divination offers probabilities, not absolute absolute certainties'),
+(1, 8, 'Clown',                  'Bring laughter to others while masking your own true pain, terror, and helplessness behind a colorful, deliberate performance.'),
+(1, 7, 'Magician',               'A magician always commands the stage, distracts the audience with illusions, and relies on precise preparation to turn the impossible into reality.'),
+(1, 6, 'Faceless',               'Fully immerse yourself in other identities to understand their lives, but keep a firm grip on your original anchor.'),
+(1, 5, 'Nimblewright Master',    'Manipulate and choreograph the actions of your targets from the shadows, maintaining absolute detachment while pulling the strings.'),
+(1, 4, 'Bizarro Sorcerer',       'Act as a terrifying director of a grotesque spectacle, using fear to manipulate reality and break the mental defense of your enemies.'),
+(1, 3, 'Scholar of Yore',        'Resurrect historical truths, respect the weight of past eras, and maintain complete neutrality without getting emotionally entangled in modern events.'),
+(1, 2, 'Miracle Invoker',        'Act as a wish-granting deity. The profound contrast between fulfilling the impossible for ordinary humans while gaining nothing yourself.'),
+(1, 1, 'Attendant of Mysteries', 'Maintain the boundaries of reality and the spirit world, manipulating hidden concepts while acting as a loyal steward of the cosmos.'),
+(1, 0, 'The Fool',               'Blind the world to actual truths by establishing massive, universe-altering conceptual deceptions, ultimately liberating reality from its rigid rules.');
 
--- ── Justice Pathway (pathway_id = 9) — Audrey Hall ──────────
+-- SEQUENCE OF PATHWAY: DOOR
 INSERT INTO sequences (pathway_id, position, name, description) VALUES
-(9, 9, ARRAY['Spectator'],              'Gains passive emotion reading and the ability to observe surface thoughts.'),
-(9, 8, ARRAY['Telepathist'],            'Gains limited telepathy and the ability to subtly plant suggestions.'),
-(9, 7, ARRAY['Psychiatrist'],           'Gains deeper mental influence and the ability to reshape emotional states.'),
-(9, 6, ARRAY['Hypnotist'],              'Gains powerful hypnosis, mental domination, and memory manipulation.'),
-(9, 5, ARRAY['Witch'],                  'Gains formidable mental powers and a degree of fate-level influence.'),
-(9, 4, ARRAY['Arbiter'],                'Embodies justice and judgment; can enforce psychic verdicts on targets.'),
-(9, 3, ARRAY['Judge'],                  'Can pronounce and supernaturally enforce absolute judgments.'),
-(9, 2, ARRAY['Justiciar'],              'Near-divine arbiter operating at the level of cosmic law.'),
-(9, 1, ARRAY['Dark Side of the Universe'], 'A terrifying existence embodying the shadow side of justice.'),
-(9, 0, ARRAY['Justice'],               'Apex of the pathway. The Goddess of Justice herself.');
+(2, 9, 'Seer',                   'Remain a neutral interpreter of the spirit world. Avoid arrogance, and remember that divination offers probabilities, not absolute absolute certainties'),
+(2, 8, 'Clown',                  'Bring laughter to others while masking your own true pain, terror, and helplessness behind a colorful, deliberate performance.'),
+(2, 7, 'Magician',               'A magician always commands the stage, distracts the audience with illusions, and relies on precise preparation to turn the impossible into reality.'),
+(2, 6, 'Faceless',               'Fully immerse yourself in other identities to understand their lives, but keep a firm grip on your original anchor.'),
+(2, 5, 'Nimblewright Master',    'Manipulate and choreograph the actions of your targets from the shadows, maintaining absolute detachment while pulling the strings.'),
+(2, 4, 'Bizarro Sorcerer',       'Act as a terrifying director of a grotesque spectacle, using fear to manipulate reality and break the mental defense of your enemies.'),
+(2, 3, 'Scholar of Yore',        'Resurrect historical truths, respect the weight of past eras, and maintain complete neutrality without getting emotionally entangled in modern events.'),
+(2, 2, 'Miracle Invoker',        'Act as a wish-granting deity. The profound contrast between fulfilling the impossible for ordinary humans while gaining nothing yourself.'),
+(2, 1, 'Attendant of Mysteries', 'Maintain the boundaries of reality and the spirit world, manipulating hidden concepts while acting as a loyal steward of the cosmos.'),
+(2, 0, 'The Fool',               'Blind the world to actual truths by establishing massive, universe-altering conceptual deceptions, ultimately liberating reality from its rigid rules.');
 
--- ── Hanged Man Pathway (pathway_id = 13) — Alger Wilson ─────
+-- SEQUENCE OF PATHWAY: ERROR
 INSERT INTO sequences (pathway_id, position, name, description) VALUES
-(13, 9, ARRAY['Sailor'],                'Entry level. Gains water-affinity, superior navigation, and sea-creature empathy.'),
-(13, 8, ARRAY['Folk of Rage'],          'Gains enhanced physical strength and a berserker fury amplified at sea.'),
-(13, 7, ARRAY['Seafarer'],              'Gains mastery over sea currents, waves, and aquatic lifeforms.'),
-(13, 6, ARRAY['Catcher'],               'Gains the ability to restrain and immobilize powerful supernatural entities.'),
-(13, 5, ARRAY['Squall'],                'Can summon and ride powerful sea storms. Significant area-effect power.'),
-(13, 4, ARRAY['Cataclysmic Interrer'],  'Can invoke catastrophic oceanic events: maelstroms, tsunamis.'),
-(13, 3, ARRAY['Beyonder King of the Sea'], 'Commands a vast oceanic domain and all creatures within it.'),
-(13, 2, ARRAY['Pirate Admiral'],        'Commands immense oceanic forces and can alter weather on a continental scale.'),
-(13, 1, ARRAY['Sea King'],              'Near-divine ruler of all seas. Power is absolute within ocean domains.'),
-(13, 0, ARRAY['Hanged Man'],            'Apex of the pathway. God of the Sea and Sacrifice.');
+(2, 9, 'Seer',                   'Remain a neutral interpreter of the spirit world. Avoid arrogance, and remember that divination offers probabilities, not absolute absolute certainties'),
+(2, 8, 'Clown',                  'Bring laughter to others while masking your own true pain, terror, and helplessness behind a colorful, deliberate performance.'),
+(2, 7, 'Magician',               'A magician always commands the stage, distracts the audience with illusions, and relies on precise preparation to turn the impossible into reality.'),
+(2, 6, 'Faceless',               'Fully immerse yourself in other identities to understand their lives, but keep a firm grip on your original anchor.'),
+(2, 5, 'Nimblewright Master',    'Manipulate and choreograph the actions of your targets from the shadows, maintaining absolute detachment while pulling the strings.'),
+(2, 4, 'Bizarro Sorcerer',       'Act as a terrifying director of a grotesque spectacle, using fear to manipulate reality and break the mental defense of your enemies.'),
+(2, 3, 'Scholar of Yore',        'Resurrect historical truths, respect the weight of past eras, and maintain complete neutrality without getting emotionally entangled in modern events.'),
+(2, 2, 'Miracle Invoker',        'Act as a wish-granting deity. The profound contrast between fulfilling the impossible for ordinary humans while gaining nothing yourself.'),
+(2, 1, 'Attendant of Mysteries', 'Maintain the boundaries of reality and the spirit world, manipulating hidden concepts while acting as a loyal steward of the cosmos.'),
+(2, 0, 'The Fool',               'Blind the world to actual truths by establishing massive, universe-altering conceptual deceptions, ultimately liberating reality from its rigid rules.');
 
--- ── Sun Pathway (pathway_id = 20) — Derrick Berg ────────────
+-- SEQUENCE OF PATHWAY: DOOR
 INSERT INTO sequences (pathway_id, position, name, description) VALUES
-(20, 9, ARRAY['Bard'],                  'Entry level. Gains enhanced music abilities, inspiring light, and minor solar empathy.'),
-(20, 8, ARRAY['Light Suppliant'],       'Gains light-based healing, purification, and resistance to darkness.'),
-(20, 7, ARRAY['Solar High Priest'],     'Conducts powerful solar rituals and channels blinding divine light.'),
-(20, 6, ARRAY['Sun Hunter'],            'Hunts creatures of darkness with concentrated solar-powered abilities.'),
-(20, 5, ARRAY['Dawn Paladin'],          'A radiant warrior with powerful light attacks and a strong healing aura.'),
-(20, 4, ARRAY['Unshadowed'],            'Completely immune to all darkness and shadow-based powers and attacks.'),
-(20, 3, ARRAY['Light Emperor'],         'Commands armies of light and can purge entire regions of darkness.'),
-(20, 2, ARRAY['Eternal Blazing Sun''s Apostle'], 'Near-divine emissary of the Sun god. Radiance visible from great distances.'),
-(20, 1, ARRAY['Saintess of White Night'], 'Bearer of divine solar light. One step removed from full godhood.'),
-(20, 0, ARRAY['The Sun'],              'Apex of the pathway. The Eternal Blazing Sun, God of Light.');
+(2, 9, 'Seer',                   'Remain a neutral interpreter of the spirit world. Avoid arrogance, and remember that divination offers probabilities, not absolute absolute certainties'),
+(2, 8, 'Clown',                  'Bring laughter to others while masking your own true pain, terror, and helplessness behind a colorful, deliberate performance.'),
+(2, 7, 'Magician',               'A magician always commands the stage, distracts the audience with illusions, and relies on precise preparation to turn the impossible into reality.'),
+(2, 6, 'Faceless',               'Fully immerse yourself in other identities to understand their lives, but keep a firm grip on your original anchor.'),
+(2, 5, 'Nimblewright Master',    'Manipulate and choreograph the actions of your targets from the shadows, maintaining absolute detachment while pulling the strings.'),
+(2, 4, 'Bizarro Sorcerer',       'Act as a terrifying director of a grotesque spectacle, using fear to manipulate reality and break the mental defense of your enemies.'),
+(2, 3, 'Scholar of Yore',        'Resurrect historical truths, respect the weight of past eras, and maintain complete neutrality without getting emotionally entangled in modern events.'),
+(2, 2, 'Miracle Invoker',        'Act as a wish-granting deity. The profound contrast between fulfilling the impossible for ordinary humans while gaining nothing yourself.'),
+(2, 1, 'Attendant of Mysteries', 'Maintain the boundaries of reality and the spirit world, manipulating hidden concepts while acting as a loyal steward of the cosmos.'),
+(2, 0, 'The Fool',               'Blind the world to actual truths by establishing massive, universe-altering conceptual deceptions, ultimately liberating reality from its rigid rules.');
 
--- ── Death Pathway (pathway_id = 14) — Miss Sharron ──────────
-INSERT INTO sequences (pathway_id, position, name, description) VALUES
-(14, 9, ARRAY['Gravedigger'],           'Entry level. Gains abilities over death rituals and minor undead command.'),
-(14, 8, ARRAY['Corpse Collector'],      'Can reanimate and control multiple corpses simultaneously.'),
-(14, 7, ARRAY['Undying'],               'Gains extraordinary resistance to injury and death. Regeneration at high speed.'),
-(14, 6, ARRAY['Wraith'],                'Can shift into a partially incorporeal wraith-like state.'),
-(14, 5, ARRAY['Zombie'],                'Gains powerful undead-like physical abilities while retaining consciousness.'),
-(14, 4, ARRAY['Death Consul'],          'Commands large armies of undead and can project a death aura over a wide area.'),
-(14, 3, ARRAY['Gatekeeper'],            'Guards and controls the boundary between the living and the dead.'),
-(14, 2, ARRAY['Ferryman'],              'Guides souls and commands the very passage of death itself.'),
-(14, 1, ARRAY['Death'],                 'Embodies death itself. One step from ascension to godhood.'),
-(14, 0, ARRAY['Death'],                'Apex of the pathway. God of Death.');
-
--- ── Star Pathway (pathway_id = 18) — Cattleya ───────────────
-INSERT INTO sequences (pathway_id, position, name, description) VALUES
-(18, 9, ARRAY['Astrologer'],            'Entry level. Gains stargazing prophetic abilities and basic astral sense.'),
-(18, 8, ARRAY['Midnight Poet'],         'Gains powerful dream-walking and creative reality-bending through words.'),
-(18, 7, ARRAY['Dreamless'],             'Can enter and manipulate the dreamscape of others.'),
-(18, 6, ARRAY['Wanderer'],              'Can astrally project across great distances and slip between planes.'),
-(18, 5, ARRAY['Discerner'],             'Gains deep cosmic insight and the ability to perceive hidden truths.'),
-(18, 4, ARRAY['Secrets Sorcerer'],      'Commands classified cosmic secrets and forbidden stellar knowledge.'),
-(18, 3, ARRAY['Prophet'],               'Can perceive fixed points of fate and make near-certain predictions.'),
-(18, 2, ARRAY['Lore Master'],           'Commands near-complete knowledge of the cosmos and its hidden history.'),
-(18, 1, ARRAY['Inevitability'],         'Embodies the concept of inevitability itself in the universe.'),
-(18, 0, ARRAY['The Star'],             'Apex. God of the Stars and Cosmic Fate.');
-
--- ── Moon Pathway (pathway_id = 19) — Emlyn White ────────────
-INSERT INTO sequences (pathway_id, position, name, description) VALUES
-(19, 9, ARRAY['Vampire'],               'Entry level. Gains vampiric traits: strength, speed, blood-drinking, sunlight sensitivity.'),
-(19, 8, ARRAY['Shaman King'],           'Gains shamanic powers: spirit communication, totemic animal bonding.'),
-(19, 7, ARRAY['Zombie'],                'Gains powerful undead-like physical abilities with retained consciousness.'),
-(19, 6, ARRAY['Zombie Sovereign'],      'Commands lesser undead and gains formidable territorial domain abilities.'),
-(19, 5, ARRAY['Nightmare'],             'Can pull targets into personalized nightmares born from their deepest fears.'),
-(19, 4, ARRAY['Howler'],                'Emits devastating sound-based attacks that resonate with primal lunar energy.'),
-(19, 3, ARRAY['Moon Priest'],           'Commands the moon''s tides and the rhythms of nature tied to lunar cycles.'),
-(19, 2, ARRAY['Lunar Realm Master'],    'Commands a full lunar domain with near-divine authority over night and illusions.'),
-(19, 1, ARRAY['Moon Witch'],            'Near-divine embodiment of the moon. Controls night itself.'),
-(19, 0, ARRAY['The Moon'],             'Apex of the pathway. God of the Moon and Nightmares.');
 
 
 -- =============================================================

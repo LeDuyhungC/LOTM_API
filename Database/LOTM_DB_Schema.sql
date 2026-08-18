@@ -113,7 +113,7 @@ CREATE TABLE sequences (
     sequence_id SERIAL      PRIMARY KEY,
     pathway_id  INT         NOT NULL REFERENCES pathways(pathway_id) ON DELETE CASCADE,
     position    SMALLINT    NOT NULL CHECK (position BETWEEN 0 AND 9),
-    name        TEXT[]      NOT NULL,
+    name        VARCHAR(255)      NOT NULL,
     description TEXT,
     UNIQUE (pathway_id, position)
 );
