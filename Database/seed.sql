@@ -43,7 +43,6 @@ INSERT INTO sefirots (name, description) VALUES
 -- =============================================================
 
 INSERT INTO epochs (name, years, description) VALUES
-('Pre-Epoch', NULL, 'Unkown.'),
 ('First Epoch', 981, 'The Age of Chaos, It began when the Original Creator fully awakened from slumber, destroying modern human civilization and shattering into the 22 Beyonder pathways and various Sephiroths.'),
 ('Second Epoch',2561, 'The Dark Epoch or the Age of the Ancient Gods, It was a brutal era where humanity was weak and enslaved, and the world was ruled completely by powerful non-human races and innate Ancient Gods. The chaos of this brutal era eventually shifted during the cataclysmic conflicts that led to the rise of the Ancient Sun God.'),
 ('Third Epoch', 1086 , 'Humanity finally stepped out from under the shadows and slavery of older, tyrannical alien races, outpacing them in growth. The epoch ended in a massive cataclysm triggered when the Ancient Sun God was betrayed by His own Kings of Angels and faced internal mental collapse from the awakening of the Primordial God Almighty. Civilization reset, and the continents were permanently fractured.'),
@@ -132,59 +131,528 @@ DELIMITER ',' CSV HEADER;
 --  9. LOCATIONS
 -- =============================================================
 
-INSERT INTO locations (name, region, description, parent_location_id, epoch_start_id) VALUES
+INSERT INTO locations (name, region, description, parent_location_id, epoch_start_id, epoch_end_id) VALUES
 -- Top-level (no parent)
+-- ID: 1
 ('Northern Continent', NULL,
  'The primary continent where most of the story takes place. Home to the Loen Kingdom, Feysac Empire, and Intis Republic.',
- NULL, 1),
+ NULL, 1, NULL),
+-- ID: 2
 ('Southern Continent', NULL,
  'A continent to the south, known for its warmer climates and distinct cultures.',
- NULL, 1),
-('The Endless Sea', NULL,
- 'The vast ocean separating the continents. Home to sea monsters, pirates, and maritime mysteries.',
- NULL, 1),
+ NULL, 1, NULL),
+-- ID: 3
+('Eastern Continent', NULL,
+ 'Forsaken Land of the Gods a desolate, fog-shrouded landmass trapped behind a divine barrier. Fill with ancient ruins, monsters, and decayed old gods.',
+ NULL, 1, NULL),
+-- ID: 4
+('Western Continent', NULL,
+ 'Isolated homeland of the ancient elves, hidden and sealed away from the rest of the world with a completely separate mystical system then the main story.',
+ NULL, 1, NULL),
+-- ID: 5
+('Beserk Sea', NULL,
+ 'Vast ocean with violent storms and sea monsters. A dangerous region known for its shipwrecks and piracy located between the Southern Continent and the North Continent.',
+ NULL, 1, NULL),
+-- ID: 6
+('Sonia Sea', NULL,
+ 'Northern Continent, containing major trading routes, islands like the Rorsted Archipelago, popular area for pirates.',
+ NULL, 1, NULL),
+-- ID: 7
+('Fog Sea', NULL,
+ 'A misty, hazard-prone maritime region associated with ghostly legends and hidden routes. Home to rare, near-extinct Beyonder creatures and ancient ruins tied to primal or outer deity worship',
+ NULL, 1, NULL),
+-- ID: 8
+('North Sea', NULL,
+ 'Known for its harsh, freezing, and severe polar conditions matching the high-latitude climate of the northern region.',
+ NULL, 1, NULL),
+-- ID: 9
+('Polar Sea', NULL,
+ 'The freezing ocean located at the southernmost part of the map, bordering the bottom edge of the Southern Continent',
+ NULL, 1, NULL),
+-- ID: 10
+('Sea Of Ruins', NULL,
+ 'A dangerous, structurally fractured body of water located to the extreme east of the Sonia Sea. It acts as a transitional boundary leading toward the sealed Eastern Continent.',
+ NULL, 1, NULL),
 
--- Regions within Northern Continent (parent_location_id = 1)
-('Loen Kingdom', 'Northern Continent',
- 'The dominant kingdom of the Northern Continent. Center of steam-powered industry and Beyonder politics.',
- 1, 4),
-('Feysac Empire', 'Northern Continent',
- 'A large northern empire. Analogous to Tsarist Russia.',
- 1, 4),
-('Intis Republic', 'Northern Continent',
- 'A western republic with a revolutionary history, analogous to France.',
- 1, 4),
-('Rorsted Archipelago', 'Southern Seas',
- 'An archipelago in the southern seas, a colonial territory of the Loen Kingdom. Klein operates here as Gehrman Sparrow.',
- 3, 4),
+-- Third epoch
+-- ID: 11
+('The Divine Kingdom of the Ancient Sun God', NULL,
+ 'In the whole of the third epoch this kingdom ruled over the North, South, and East continents, with the King of the Ancient Sun God as their leader for the whole epoch.',
+ NULL, 3, 3),
 
--- Cities within Loen Kingdom (parent_location_id = 4)
-('Tingen City', 'Loen Kingdom',
- 'A mid-sized industrial city. Where Klein Moretti first awakens as a Beyonder and joins the Nighthawks.',
- 4, 4),
-('Backlund', 'Loen Kingdom',
- 'The capital and largest city of the Loen Kingdom, analogous to Victorian London. Center of high-level Beyonder activity.',
- 4, 4),
-('Pritz Harbor', 'Loen Kingdom',
- 'A major port city in the Loen Kingdom. Gateway to maritime routes.',
- 4, 4),
-
--- City within Rorsted Archipelago (parent_location_id = 7)
-('Bayam', 'Rorsted Archipelago',
- 'The main city of the Rorsted Archipelago. Klein operates here as the fearsome bounty hunter Gehrman Sparrow.',
- 7, 4),
-
--- Supernatural / Beyond locations (no physical parent)
-('Above the Grey Fog', NULL,
- 'A mysterious metaphysical space accessible only to beings of immense power. Klein uses it as the Tarot Club meeting hall, projecting an ancient Outer God persona from here.',
- NULL, NULL),
-('City of Silver', NULL,
- 'A hidden community of Beyonders who have lived in isolation in the beyond for generations. Home of Derrick Berg.',
- NULL, 4),
+-- Regions within Northern Continent
+-- ID: 12 | parent: 1 (Northern Continent)
 ('Hornacis Mountain Range', 'Northern Continent',
  'A dangerous mountain range home to various demonic cults and powerful Beyonders.',
- 1, 4);
+ 1, 5, NULL),
 
+-- Fourth epoch: geopolitical boundaries
+-- ID: 13 | parent: 1 (Northern Continent)
+('Solomon Empire', 'Northern Continent',
+ 'The empire that ruled the whole of the Northern Continent during the first half of the fourth epoch, Backed by the king of angles',
+ 1, 4, 4),
+-- ID: 14 | parent: 1
+('Tudor Empire', 'Northern Continent',
+ 'After the break of Solomon empire Tudor and Trunsoest empire was formed as a dual leadership of the two families that ruled the majority of the North continent then broke off as the Tudor empire covering the western and central parts of the north continent',
+ 1, 4, 4),
+-- ID: 15 | parent: 1
+('Trunsoest Empire', 'Northern Continent',
+ 'After the break of Solomon empire Tudor and Trunsoest empire was formed as a dual leadership of the two families that ruled the majority of the North continent then broke off as the Trunsoest empire covering the eastern and southern parts of the north continent.',
+ 1, 4, 4),
+-- ID: 16 | parent: 1
+('Second Solomon Empire', 'Northern Continent',
+ 'After the Solomon empire collapsed, the remaining loyalists established a new empire in the southern parts of the northern continent called the second Solomon empire',
+ 1, 4, 4),
+
+-- Fifth epoch: geopolitical boundaries
+-- ID: 17 | parent: 1 (Northern Continent)
+('Loen Kingdom', 'Northern Continent',
+ 'The dominant kingdom of the Northern Continent that is most of the eastern coast of the continent stretching to the west up to the hornacis mountain range. With colonies in the East Balam and islands in the Rorsted Archipelago.',
+ 1, 5, NULL),
+
+    -- Cities within Loen Kingdom
+    -- ID: 18 | parent: 17 (Loen Kingdom)
+    ('Tingen City', 'Loen Kingdom',
+    'A mid-sized industrial city, but more known for its universities and education second to Backlund the city capital.',
+    17, 5, NULL),
+        --Places within Tingen City
+        -- ID: 19 | parent: 18 (Tingen City)
+        ('Blackthorn Security Company', 'Tingen City',
+        'Located at No. 2 Zouteland Street. Contains the underground Chanis Gate, which stores dangerous Sealed Artifacts.',
+        18, 5, NULL),
+        -- ID: 20 | parent: 18
+        ('No. 3 Welch Street', 'Tingen City',
+        'A secluded villa.',
+        18, 5, NULL),
+        -- ID: 21 | parent: 18
+        ('Tingen University', 'Tingen City',
+        'A prestigious academic institution that is known for its history and literature department.',
+        18, 5, NULL),
+        -- ID: 22 | parent: 18
+        ('Khoy University', 'Tingen City',
+        'Another major local university located in the city, known for its academic rivalry with Tingen University.',
+        18, 5, NULL),
+        -- ID: 23 | parent: 18
+        ('Daffodil Street Residence', 'Tingen City',
+        'No. 2 Daffodil Street is the charming town residence.',
+        18, 5, NULL),
+        -- ID: 24 | parent: 18
+        ('The Hound Pub', 'Tingen City',
+        'A rowdy tavern in the suburbs of the city.',
+        18, 5, NULL),
+
+    -- ID: 25 | parent: 17 (Loen Kingdom)
+    ('Backlund', 'Loen Kingdom',
+    'The capital and largest city of the Loen Kingdom, Heavy industry city, filled with smog.',
+    17, 5, NULL),
+        --Places within Backlund
+        -- ID: 26 | parent: 25 (Backlund)
+        ('Empress Borough', 'Backlund',
+        'The ultra-wealthy district home to the royal family, nobility, and high-ranking officials.',
+        25, 5, NULL),
+        -- ID: 27 | parent: 25
+        ('Cherwood Borough', 'Backlund',
+        'A middle-class residential area.',
+        25, 5, NULL),
+        -- ID: 28 | parent: 25
+        ('North Borough', 'Backlund',
+        'Location of the St. Samuel Cathedral and the municipal government.',
+        25, 5, NULL),
+        -- ID: 29 | parent: 25
+        ('East Borough', 'Backlund',
+        'The heavily polluted, poverty-stricken slums where the working class lives.',
+        25, 5, NULL),
+        -- ID: 30 | parent: 25
+        ('Hillston Borough', 'Backlund',
+        'A wealthy commercial and residential hub hosting the Backlund Stock Exchange and upscale clubs.',
+        25, 5, NULL),
+        -- ID: 31 | parent: 25
+        ('Backlund Bridge District', 'Backlund',
+        'A bustling transportation hub split by the Tussock River, heavily populated by the lower-middle class.',
+        25, 5, NULL),
+        -- ID: 32 | parent: 25
+        ('Cathedral of the Holy Wind', 'Backlund',
+        'The main bastion for the Church of the Lord of Storms located in the Cherwood Borough.',
+        25, 5, NULL),
+        -- ID: 33 | parent: 25
+        ('St. Samuel Cathedral', 'Backlund',
+        'The regional headquarters of the Church of the Evernight Goddess located in North Borough.',
+        25, 5, NULL),
+        -- ID: 34 | parent: 25
+        ('Harvest Church', 'Backlund',
+        'A modest, peaceful church located south of the Tussock River in the East Borough praising the God of Harvest.',
+        25, 5, NULL),
+        -- ID: 35 | parent: 25
+        ('Sodom Palace', 'Backlund',
+        'The grand royal palace where King George III resides. It is the political heart of the Loen Kingdom and the site of major late-game conspiracies.',
+        25, 5, NULL),
+        -- ID: 36 | parent: 25
+        ('House of Lords and House of Commons', 'Backlund',
+        'The dual houses of parliament where the kingdoms laws, taxes, and political policies are debated and enacted.',
+        25, 5, NULL),
+        -- ID: 37 | parent: 25
+        ('Backlund Stock Exchange', 'Backlund',
+        'The economic epicenter of the kingdom located in Hillston Borough. It acts as a frequent meeting point for wealthy industrialists and influential investors.',
+        25, 5, NULL),
+        -- ID: 38 | parent: 25
+        ('Braveheart Bar', 'Backlund',
+        'A gritty, rowdy tavern located in the Backlund Bridge District. It features underground boxing matches and serves as a major hub for bounty hunters, informants, and Beyonder gatherings.',
+        25, 5, NULL),
+        -- ID: 39 | parent: 25
+        ('The Odora Family Villa', 'Backlund',
+        'An elegant estate in Hillston Borough. It acts as the secret meeting ground for the Backlund Sanguines.',
+        25, 5, NULL),
+
+    -- ID: 40 | parent: 17 (Loen Kingdom)
+    ('Pritz Harbor', 'Loen Kingdom',
+    'A major port city in the Loen Kingdom. Gateway to maritime routes.',
+    17, 5, NULL),
+        --Places within Pritz Harbor
+        -- ID: 41 | parent: 40 (Pritz Harbor)
+        ('The Royal Navy Docks', 'Pritz Harbor',
+        'The highly fortified, restricted sector of the harbor that serves as the main base for the Loen Kingdom''s navy.',
+        40, 5, NULL),
+        -- ID: 42 | parent: 40
+        ('The Pritz', 'Pritz Harbor',
+        'A massive, state-of-the-art ironclad battleship. It represents the pinnacle of Loen''s industrial and military might.',
+        40, 5, NULL),
+        -- ID: 43 | parent: 40
+        ('The White Agate Route', 'Pritz Harbor',
+        'The primary commercial docks where massive merchant vessels, passenger ships, and ocean liners depart for the Berserk Sea and the Southern Continent.',
+        40, 5, NULL),
+        -- ID: 44 | parent: 40
+        ('The Maritime Trade Exchange', 'Pritz Harbor',
+        'A bustling economic hub where shipping magnates, spice traders, and colony investors negotiate international shipping contracts.',
+        40, 5, NULL),
+        -- ID: 45 | parent: 40
+        ('The Sailor''s Tavern', 'Pritz Harbor',
+        'A rugged, rowdy pub heavily frequented by sailors, adventurers, and off-duty Mandated Punishers.',
+        40, 5, NULL),
+        -- ID: 46 | parent: 40
+        ('Smuggler''s Cove', 'Pritz Harbor',
+        'A dangerous, unpatrolled network of coastal caves and docks used by underground syndicates to transport illegal black-market colonial goods.',
+        40, 5, NULL),
+
+    -- ID: 47 | parent: 17 (Loen Kingdom)
+    ('Constant City', 'Loen Kingdom',
+    'Second largest city in the Loen Kingdom and a Industrial location for the Loen Kingdom',
+    17, 5, NULL),
+    -- ID: 48 | parent: 17
+    ('Belltaine City', 'Loen Kingdom',
+    'A port city located in the Rorsted Archipelago, it is the starting city of Klein Moretti',
+    17, 5, NULL),
+    -- ID: 49 | parent: 17
+    ('Limon City', 'Loen Kingdom',
+    'A city that is a trade hub for interior Loen Kingdom',
+    17, 5, NULL),
+    -- ID: 50 | parent: 17
+    ('Limud Town', 'Loen Kingdom',
+    'A historical town located near an abandoned castle from the Tudor Family',
+    17, 5, NULL),
+
+-- ID: 51 | parent: 1 (Northern Continent)
+('Feysac Empire', 'Northern Continent',
+ 'Frozen empire in the north known for its physically imposing citizens and brutal, unyielding military might.',
+ 1, 5, NULL),
+    -- Cities within Feysac Empire
+    -- ID: 52 | parent: 51 (Feysac Empire)
+    ('St. Millom', 'Feysac Empire',
+    'The capital city of the Feysac Empire coastal along the eastern',
+    51, 5, NULL),
+    -- ID: 53 | parent: 51
+    ('Indaw', 'Feysac Empire',
+    'Northwest port city that does trade the inlet body of water between Feysac'' two main bodies of land.',
+    51, 5, NULL),
+    -- ID: 54 | parent: 51
+    ('Rolls', 'Feysac Empire',
+    'East coast of the empire known for regional trade and industries like canned wolf-fish.',
+    51, 5, NULL),
+    -- ID: 55 | parent: 51
+    ('Raklev City', 'Feysac Empire',
+    'A religous city that is near Lake Dalsh and a heavily militarized zone.',
+    51, 5, NULL),
+
+-- ID: 56 | parent: 1 (Northern Continent)
+('Intis Republic', 'Northern Continent',
+ 'A coastal republic in the west that stretches all the way to the Hornacis mountain range, known for its revolutionary history, unique political structure and powerful Beyonder organizations. Colonized West Balam after Roselle found a way to the Southern Continent.',
+ 1, 5, NULL),
+    --Cities within Intis Republic
+    -- ID: 57 | parent: 56 (Intis Republic)
+    ('Trier', 'Intis Republic',
+    'Capital of the Intis Republic known as the capital of joy and the city of fashion. It sits on the 2 rivers Ryan and Srenzo.',
+    56, 5, NULL),
+        --Zones in Trier
+        -- ID: 58 | parent: 57 (Trier)
+        ('Underground Trier', 'Trier',
+        'Located directly beneath the modern capital. It is a layered, highly dangerous subterranean landscape containing the corrupted ruins of old Trier which was the capital of the Tudor empire',
+        57, 4, NULL),
+        -- ID: 59 | parent: 57
+        ('Bigorre', 'Trier',
+        'The provincial capital city of Riston Province, a administrative center.',
+        57, 5, NULL),
+        -- ID: 60 | parent: 57
+        ('Dariège', 'Trier',
+        'Border city situated near the Dariège Mountain Range.',
+        57, 5, NULL),
+        -- ID: 61 | parent: 57
+        ('Cordu Village', 'Trier',
+        'Mountain village located within the broader territory of Dariège mountain range.',
+        57, 5, NULL),
+        -- ID: 62 | parent: 57
+        ('Quartier du Gentleman', 'Trier',
+        'An upscale, highly affluent commercial and residential area. It hosts rich financiers, luxury boutiques, and the high-society clubs frequented by nobility and corrupt politicians.',
+        57, 5, NULL),
+        -- ID: 63 | parent: 57
+        ('Le Marché du Quartier', 'Trier',
+        'A bustling, chaotic, lower-middle-class hub dense with markets, bars, and street dancers.',
+        57, 5, NULL),
+        -- ID: 64 | parent: 57
+        ('Quartier de la Cathédrale', 'Trier',
+        'The religious epicenter of the city containing towering cathedrals and administrative headquarters for the orthodox churches.',
+        57, 5, NULL),
+        -- ID: 65 | parent: 57
+        ('Quartier des Beaux-Arts', 'Trier',
+        'A vibrant, bohemian district filled with theaters, operational galleries, and independent studios where world-class artists, musicians, and novelists gather.',
+        57, 5, NULL),
+        -- ID: 66 | parent: 57
+        ('The Élysée Palace', 'Trier',
+        'The political core of the Intis Republic, serving as the official residence of the President and the center of the nation''s governance.',
+        57, 5, NULL),
+        -- ID: 67 | parent: 57
+        ('Sauron''s Castle / The Imperial Palace', 'Trier',
+        'A grand historic castle heavily tied to the ancient Sauron Angel Family and the remnants of Emperor Roselle''s era.',
+        57, 5, NULL),
+        -- ID: 68 | parent: 57
+        ('Eternal Blazing Sun Cathedrals', 'Trier',
+        'Massive, gold-adorned structures that act as the main bases of operations for the Church of the Eternal Blazing Sun and their enforcement arm, the Purifiers.',
+        57, 5, NULL),
+        -- ID: 69 | parent: 57
+        ('The Steam Cathedral', 'Trier',
+        'The local headquarters for the Church of the God of Steam and Machinery, acting as a testament to the city''s advanced industrial architecture.',
+        57, 5, NULL),
+        -- Underground Trier sub-levels (parent: 58 — Underground Trier)
+        -- NOTE: The Fourth Level inserted before The Samaritan Women's Spring so the spring can reference it as its parent
+        -- ID: 70 | parent: 58 (Underground Trier)
+        ('The Fourth Level', 'Underground Trier',
+        'A broader underground tier housing hidden, dangerous ruins belonging to the legendary Fourth Epoch Angel Families—including Amon, Zoroast, Jacob, and Abraham.',
+        58, 4, NULL),
+        -- ID: 71 | parent: 70 (The Fourth Level)
+        ('The Samaritan Women''s Spring', 'Underground Trier',
+        'Hidden in the deep recesses of the fourth level, this mysterious and highly hazardous spring is a focal point of corruption and mystical phenomenon.',
+        70, 4, NULL),
+        -- ID: 72 | parent: 58 (Underground Trier)
+        ('The Third Level', 'Underground Trier',
+        'A deeper, dangerous tier containing a cobblestone square decorated with ancient religious pillars and tombs belonging to the historical Tamara Family.',
+        58, 4, NULL),
+
+-- ID: 73 | parent: 1 (Northern Continent)
+('Feynapotter Kingdom', 'Northern Continent',
+ 'Agrarian, and highly traditional kingdom located in the southern region of the Northern Continent, utilizing its massive agricultural output as geopolitical leverag. After the World War Feynapotter gains parts of West Balam',
+ 1, 5, NULL),
+    --Cities within Feynapotter Kingdom
+    -- ID: 74 | parent: 73 (Feynapotter Kingdom)
+    ('Feynapotter City', 'Feynapotter Kingdom',
+    'Capital of the Feynapotter Kingdom, founded by the Castiya Family during the Fourth Epoch.',
+    73, 5, NULL),
+    -- ID: 75 | parent: 73
+    ('Port Santa', 'Feynapotter Kingdom',
+    'Crucial coastal port city, it acts as a primary naval gateway for trade, diplomatic movement, and military shipping for the kingdom.',
+    73, 5, NULL),
+
+-- ID: 76 | parent: 1 (Northern Continent)
+('Lenburg Kingdom', 'Northern Continent',
+ 'Small kingdom that is north of Feynapotter and south of the Intis Republic. Seperated from the Feynapotter Kingdom after the Battle of Violated Oath.',
+ 1, 4, 5),
+    --Cities within Lenburg Kingdom
+    -- ID: 77 | parent: 76 (Lenburg Kingdom)
+    ('Azshara', 'Lenburg Kingdom',
+    'Capital of the Lenburg Kingdom, The city''s culture, infrastructure, and leadership are fundamentally structured around academia, research, and the accumulation of knowledge.',
+    76, 5, NULL),
+
+-- ID: 78 | parent: 1 (Northern Continent)
+('Masin Kingdom', 'Northern Continent',
+ 'Landlocked small nation that is near the border of Feynapotter and Lenburg Kingdom. Seperated from the Feynapotter Kingdom after the Battle of Violated Oath.',
+ 1, 5, NULL),
+    --Cities within Masin Kingdom
+    -- ID: 79 | parent: 78 (Masin Kingdom)
+    ('Avelcourt', 'Masin Kingdom',
+    'Capital of the Masin Kingdom,',
+    78, 5, NULL),
+
+-- ID: 80 | parent: 1 (Northern Continent)
+('Segar  Kingdom', 'Northern Continent',
+ 'Landlocked small nation that is near the border of Feynapotter and Lenburg Kingdom. Seperated from the Feynapotter Kingdom after the Battle of Violated Oath.',
+ 1, 5, NULL),
+
+-- Regions within Southern Continent
+
+-- Fourth epoch
+-- ID: 81 | parent: 2 (Southern Continent)
+('Balam Empire', 'Southern Continent',
+ 'A empire that ruled the majority of the Southern Continent during the fourth epoch.',
+ 2, 4, 4),
+-- ID: 82 | parent: 2
+('Paz Valley', 'Southern Continent',
+ 'A valley between the east and west sides of the southern continent, rich in plants and other materials. Ruled by the paz kingdom, but bent the knee to the Balam empire.',
+ 2, 4, 5),
+
+-- Fifth epoch
+-- ID: 83 | parent: 2 (Southern Continent)
+('East Balam', 'Southern Continent',
+ 'After the fall of the Balam empire, the south continent was split into two, East Balam was the eastern half of the Southern Continent.',
+ 2, 5, NULL),
+-- ID: 84 | parent: 2
+('West Balam', 'Southern Continent',
+ 'After the fall of the Balam empire, the south continent was split into two, West Balam was the western half of the Southern Continent.',
+ 2, 5, NULL),
+
+-- Regions within Eastern Continent
+-- ID: 85 | parent: 3 (Eastern Continent)
+('The City of Silver', 'Eastern Continent',
+ 'A pitch-black, weed-overgrown city, one of the only living signs of humanity withing the Eastern Continent after the fall of the Ancient Sun God.',
+ 3, 3, 5),
+-- ID: 86 | parent: 3
+('Moon City', 'Eastern Continent',
+ 'A mysterious city that seems to exist within the forsaken lands through desperate means.',
+ 3, 3, 5),
+-- ID: 87 | parent: 3
+('The Giant King''s Court', 'Eastern Continent',
+ 'A majestic, mythical palace complex frozen in a perpetual state of sunset. It is located on a massive mountain range and served as the ancient capital of the Giant King Aurmir during the Second Epoch.',
+ 3, 2, 2),
+-- ID: 88 | parent: 3
+('Nois City', 'Eastern Continent',
+ 'A massive ghost town that managed to survive in the deep darkness until recent history. Its entire population was tragically massacred and transformed into soulless marionettes.',
+ 3, 3, 5),
+-- ID: 89 | parent: 3
+('Afternoon Town', 'Eastern Continent',
+ 'An ancient town frozen in the afternoon sunlight just outside the border of the Giant King''s Court. It is densely populated by grotesque, invisible shadow monsters and mutated entities left behind from the Third Epoch cataclysm.',
+ 3, 3, 3),
+-- ID: 90 | parent: 3
+('Chernobyl', 'Eastern Continent',
+ 'The holy residence and birthplace of the Ancient Sun God. Kept under a preservation field, it contains the literal ruins of a real-world pre-epoch nuclear power plant.',
+ 3, 1, 1),
+-- ID: 91 | parent: 3
+('The True Creator''s Temple', 'Eastern Continent',
+ 'A blasphemous, blood-stained cathedral that serves as the anchoring base of the True Creator within the sealed continent.',
+ 3, 4, 5),
+
+--Locations in Berserk Sea
+-- ID: 92 | parent: 5 (Berserk Sea)
+('Hanth island', 'Berserk Sea',
+ 'A strategic transit port controlled by the Feynapotter Kingdom with a natural deepwater port used for trade between the two continents.',
+ 5, 5, NULL),
+-- ID: 93 | parent: 5
+('Utopia', 'Berserk Sea',
+ 'A mysterious, anomalous island location grafted into the Berserk Sea featuring key sites like the Saint Arianna Cathedral and a local harbor.',
+ 5, 5, 5),
+-- ID: 94 | parent: 5
+('Poto Harbor', 'Berserk Sea',
+ 'A key waypoint and harbor location utilized during spirit world and maritime navigation across the turbulent waters.',
+ 5, 5, NULL),
+-- ID: 95 | parent: 5
+('Waypoint island', 'Berserk Sea',
+ 'One of the few stable navigational stops amid the chaotic magnetic fields and permanent lightning storms.',
+ 5, 5, NULL),
+
+--Locations in Sonia Sea
+-- ID: 96 | parent: 6 (Sonia Sea)
+('Sonia Island', 'Sonia Sea',
+ 'The largest island in the sea and its namesake. It is a massive, continent-like landmass heavily fortified and fought over by the Feysac Empire',
+ 6, 5, NULL),
+-- ID: 97 | parent: 6
+('Rorsted Archipelago', 'Sonia Sea',
+ 'A crucial chain of islands, heavily contested territory by nations and pirates.',
+ 6, 5, 5),
+    --Locations in Rorsted Archipelago
+    -- ID: 98 | parent: 97 (Rorsted Archipelago)
+    ('Bayam', 'Rorsted Archipelago',
+    'Known as the "City of Generosity," it serves as the capital of the Rorsted Archipelago and acts as a central hub for pirates, adventurers, and merchants.',
+    97, 5, NULL),
+    -- ID: 99 | parent: 97
+    ('New City of Silver', 'Rorsted Archipelago',
+    'Established by the survivors of the Forsaken Land of the Gods after they successfully escaped into the real world.',
+    97, 5, NULL),
+    -- ID: 100 | parent: 97
+    ('New Moon City', 'Rorsted Archipelago',
+    'Established by the survivors of the Forsaken Land of the Gods after they successfully escaped into the real world.',
+    97, 5, NULL),
+
+-- ID: 101 | parent: 6 (Sonia Sea)
+('Sea of Ruins', 'Sonia Sea',
+ 'Located at the easternmost edge of the Sonia Sea, this anomalous area features golden skies and water even without a sun. It is the historical battlefield where the Rose Redemption assassinated the Ancient Sun God, triggering the Cataclysm. It also hides the gateway leading back to the Forsaken Land of the Gods.',
+ 6, 5, NULL),
+-- ID: 102 | parent: 6
+('Bansy Harbor', 'Sonia Sea',
+ 'A crucial resupply port with dark, deep-seated anomalies tied to the Medici family, the Hunter pathway, and secret sacrificial rituals.',
+ 6, 5, NULL),
+-- ID: 103 | parent: 6
+('Gargas Archipelago', 'Sonia Sea',
+ 'A northern island chain under the control of the Feysac Empire, marking the start of a safe navigational route that leads eastward toward the Sea of Ruins.',
+ 6, 5, NULL),
+-- ID: 104 | parent: 6
+('Oravi Island', 'Sonia Sea',
+ 'A lawless island famous for its bustling underground trade markets, frequently populated by bounty hunters, pirates, and black-market Beyonder dealers.',
+ 6, 5, NULL),
+-- ID: 105 | parent: 6
+('Primitive Island', 'Sonia Sea',
+ 'An uncharted, dangerous island away from the main shipping lanes.',
+ 6, 5, NULL),
+-- ID: 106 | parent: 6
+('Pasu Island', 'Sonia Sea',
+ 'A heavily guarded island that serves as the secret, primary headquarters for the Church of the Lord of Storms.',
+ 6, 5, NULL),
+
+--Locations in Fog Sea
+-- ID: 107 | parent: 7 (Fog Sea)
+('Fog Sea Archipelago', 'Fog Sea',
+ 'The first overseas colony of the Intis Republic, chosen due to its proximity to the mainland.',
+ 7, 5, NULL),
+    --Locations in Fog Sea Archipelago
+    -- ID: 108 | parent: 107 (Fog Sea Archipelago)
+    ('Farim', 'Fog Sea Archipelago',
+    'The capital of the Fog Sea Archipelago, situated specifically on Saint Tick Island. It functions as a vital trading and resupply port for ships operating along the Intis-Feynapotter maritime route.',
+    107, 5, NULL),
+
+-- ID: 109 | parent: 7 (Fog Sea)
+('La Cha Island', 'Fog Sea',
+ 'A secluded island deep within the Fog Sea''s dense mists, home to Queen Mystic Bernadette Gustav.',
+ 7, 5, NULL),
+-- ID: 110 | parent: 109 (La Cha Island)
+('Emerald City', 'La Cha Island',
+ 'The majestic, hidden palace of Queen Mystic Bernadette Gustav. It is tucked away on La Cha Island deep within the sea''s dense mists.',
+ 109, 5, NULL),
+-- ID: 111 | parent: 7 (Fog Sea)
+('Primitive Island', 'Fog Sea',
+ 'A dangerous, isolated island where the native inhabitants worship the Outer Deity known as the Mother Goddess of Depravity.',
+ 7, 5, NULL),
+-- ID: 112 | parent: 7
+('Banamo Island', 'Fog Sea',
+ 'A notorious pirate haven and a port where outlaws, smugglers, and individuals with hidden identities gather.',
+ 7, 5, NULL),
+-- ID: 113 | parent: 7
+('Abyss Entrance', 'Fog Sea',
+ 'Nautical legends claim that a physical rift or gateway descending into the corrupted Abyss is hidden somewhere deep within the western reaches of the Fog Sea.',
+ 7, 1, NULL),
+
+-- Locations in North Sea
+-- ID: 114 | parent: 8 (North Sea)
+('Avalon', 'North Sea',
+ 'The most prominent location in the North Sea. It served as the highly secretive, hidden headquarters of the Moses Ascetic Order.',
+ 8, 4, 5),
+
+-- Locations in Sea of Ruins
+-- ID: 115 | parent: 10 (Sea Of Ruins)
+('Black Cloister', 'Sea of Ruins',
+ 'A supernatural, multi-level architectural anomaly manifested within the sea. Each building and floor represents a different part of the surrounding waters, and behind its final door lies the Ancient Sun God''s last dream.',
+ 10, 3, 5),
+-- ID: 116 | parent: 10
+('Giant King''s Court Shadow', 'Sea of Ruins',
+ 'A massive, illusory reflection of the Giant King''s Court that stands on an ethereal mountain peak over the sea. The physical gateway into the Forsaken Land of the Gods is hidden inside this shadow.',
+ 10, 3, 5),
+-- ID: 117 | parent: 10
+('Gargas Archipelago', 'Sea of Ruins',
+ 'A northern island chain under Feysac control that marks the edge of the safe, established maritime route used to sail northeast directly into the Sea of Ruins.',
+ 10, 5, NULL);
 
 -- =============================================================
 --  10. PATHWAYS  (sefirot_id maps 1:1 with sefirots insertion order)
