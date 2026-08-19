@@ -17,7 +17,7 @@ INSERT INTO series (name, description, release_date, end_date) VALUES
 ),
 (
     'Lord of the Mysteries 2: Circle of Inevitability',
-    'It follows protagonist Lumian Lee in a 1930s France-inspired setting blending vintage European aesthetics with cosmic horror, acting as a narrative bridge while Klein Moretti remains asleep',
+    'It follows protagonist Lumian Lee in a 1930s France-inspired setting blending vintage European aesthetics with cosmic horror,  as a narrative bridge while Klein Moretti remains asleep',
     '2023-03-04',
     NULL
 );
@@ -36,7 +36,7 @@ INSERT INTO sefirots (name, description) VALUES
 ('Key of Light', 'Governs probability, luck, and the flow of time.'),
 ('Brood Hive', 'Governs reproduction, evolution, decay, and the physical world.'),
 ('Knowledge Moor', 'Governs information, hidden knowledge, and mystical logic.'),
-('Tenebrous World', 'Governs inner shadows, taboos, curses, and emotional manipulation.')
+('Tenebrous World', 'Governs inner shadows, taboos, curses, and emotional manipulation.');
 
 -- =============================================================
 --  3. EPOCHS
@@ -428,7 +428,7 @@ INSERT INTO locations (name, region, description, parent_location_id, epoch_star
         57, 5, NULL),
         -- ID: 69 | parent: 57
         ('The Steam Cathedral', 'Trier',
-        'The local headquarters for the Church of the God of Steam and Machinery, acting as a testament to the city''s advanced industrial architecture.',
+        'The local headquarters for the Church of the God of Steam and Machinery,  as a testament to the city''s advanced industrial architecture.',
         57, 5, NULL),
         -- Underground Trier sub-levels (parent: 58 — Underground Trier)
         -- NOTE: The Fourth Level inserted before The Samaritan Women's Spring so the spring can reference it as its parent
@@ -657,57 +657,46 @@ INSERT INTO locations (name, region, description, parent_location_id, epoch_star
 -- =============================================================
 --  10. PATHWAYS 
 -- =============================================================
-
-('Sefirah Castle', 'Governs the concepts of history, space, destiny, and the Spirit World.'),
-('Chaos Sea', 'Governs the concepts of omniscience, omnipotence, mind, and the Astral World.'),
-('River of Eternal Darkness', 'Governs the transition of life, erasure, and absolute quiet.'),
-('City of Calamity', 'Governs pure chaos, disaster, conflict, and physical devastation.'),
-('Nation of Disorder', 'Governs the creation, manipulation, and exploitation of universal laws.'),
-('Key of Light', 'Governs probability, luck, and the flow of time.'),
-('Brood Hive', 'Governs reproduction, evolution, decay, and the physical world.'),
-('Knowledge Moor', 'Governs information, hidden knowledge, and mystical logic.'),
-('Tenebrous World', 'Governs inner shadows, taboos, curses, and emotional manipulation.')
-
 INSERT INTO pathways (sefirot_id, names, color, description) VALUES
--- Sephirot: Safirah Castle
-(1, ['Fool', 'Seer'], '#808080', 'Change, history, secrets, concealment, puppet-strings, and the unknown.'),
-(1, ['Door', 'Aprentice'], '#0B132B', 'Space, sealing, wandering, copying, and conceptual passage.'),
-(1, ['Error', 'Marauder'], '#EBF1F5', 'Time, loopholes, parasitism, theft, deception, and avatars.'),
+-- Sephirot: Sefirah Castle
+(1, ARRAY['Fool', 'Seer'],                   '#808080', 'Change, history, secrets, concealment, puppet-strings, and the unknown.'),
+(1, ARRAY['Door', 'Apprentice'],              '#0B132B', 'Space, sealing, wandering, copying, and conceptual passage.'),
+(1, ARRAY['Error', 'Marauder'],               '#EBF1F5', 'Time, loopholes, parasitism, theft, deception, and avatars.'),
 -- Sephirot: Chaos Sea
-(2, ['Sun', 'Bard'], '#FFD700', 'Light, purification, contracts, oaths, and absolute righteousness.'),
-(2, ['Visionary', 'Spectator'], '#70D6FF', 'Mind, imagination, creation, virtual reality, and psychological manipulation.'),
-(2, ['Tyrant', 'Sailor'], '#001F54', 'Storms, lightning, water, absolute authority, and raw physical destruction.'),
-(2, ['Hanged Man', 'Secrets Suppliant'], '#800000', 'Sacrifice, degenerated flesh, grazing/absorbing powers, and spiritual degeneration.'),
-(2, ['White Tower', 'Reader'], '#E0FBFC', 'Omniscience, learning, imitation, analysis, and prophetic deduction.'),
+(2, ARRAY['Sun', 'Bard'],                    '#FFD700', 'Light, purification, contracts, oaths, and absolute righteousness.'),
+(2, ARRAY['Visionary', 'Spectator'],          '#70D6FF', 'Mind, imagination, creation, virtual reality, and psychological manipulation.'),
+(2, ARRAY['Tyrant', 'Sailor'],                '#001F54', 'Storms, lightning, water, absolute authority, and raw physical destruction.'),
+(2, ARRAY['Hanged Man', 'Secrets Suppliant'], '#800000', 'Sacrifice, degenerated flesh, grazing/absorbing powers, and spiritual degeneration.'),
+(2, ARRAY['White Tower', 'Reader'],           '#E0FBFC', 'Omniscience, learning, imitation, analysis, and prophetic deduction.'),
 -- River of Eternal Darkness
-(3, ['Darkness', 'Sleepless'], '#1A0A2A', 'Night, peaceful sleep, misfortune, horror, and permanent erasure.'),
-(3, ['Death', 'Corpse Collector'], '#3D3D3D', 'The underworld, souls, structural decay, animation, and eternal rest.'),
-(3, ['Twilight Giant, 'Warrior'], '#FF4500', 'Combat, defense, physical decay, the end, and honor.'),
+(3, ARRAY['Darkness', 'Sleepless'],           '#1A0A2A', 'Night, peaceful sleep, misfortune, horror, and permanent erasure.'),
+(3, ARRAY['Death', 'Corpse Collector'],       '#3D3D3D', 'The underworld, souls, structural decay, animation, and eternal rest.'),
+(3, ARRAY['Twilight Giant', 'Warrior'],       '#FF4500', 'Combat, defense, physical decay, the end, and honor.'),
 -- City of Calamity
-(4, ['Red Priest', 'Hunter'], '#B22222', 'War, fire, tactical conspiracy, provocateering, and collective military force.'),
-(4, ['Demoness', 'Assassin'], '#111111', 'Catastrophe, disease, mirrors, temptation, physical transmutation, and frost.'),
+(4, ARRAY['Red Priest', 'Hunter'],            '#B22222', 'War, fire, tactical conspiracy, provocateering, and collective military force.'),
+(4, ARRAY['Demoness', 'Assassin'],            '#111111', 'Catastrophe, disease, mirrors, temptation, physical transmutation, and frost.'),
 -- Nation of Disorder
-(5, ['Justiciar, Arbitor'], '#005f73', 'Absolute rules, prohibition, judgment, execution, and unyielding order.'),
-(5, ['Dark Emperor', 'Lawyer'], '#000000', 'Distortion, law manipulation, shadow order, magnification, and rebirth.'),
+(5, ARRAY['Justiciar', 'Arbitor'],            '#005f73', 'Absolute rules, prohibition, judgment, execution, and unyielding order.'),
+(5, ARRAY['Dark Emperor', 'Lawyer'],          '#000000', 'Distortion, law manipulation, shadow order, magnification, and rebirth.'),
 -- Key of Light
-(6, ['Monster', 'Wheel of Fortune'], '#FFDF00', 'Fate, luck, probability, reincarnation, and destiny.'),
+(6, ARRAY['Monster', 'Wheel of Fortune'],     '#FFDF00', 'Fate, luck, probability, reincarnation, and destiny.'),
 -- Brood Hive
-(7, ['Mother', 'Planter'], '#2E7D32', 'Earth, nature, fertility, plant life, and physical growth.'),
-(7, ['Moon', 'Apothecary'], '#990000', 'Life energy, blood, potions/herbs, and reproductive cycles.'),
+(7, ARRAY['Mother', 'Planter'],               '#2E7D32', 'Earth, nature, fertility, plant life, and physical growth.'),
+(7, ARRAY['Moon', 'Apothecary'],              '#990000', 'Life energy, blood, potions/herbs, and reproductive cycles.'),
 -- Knowledge Moor
-(8, ['Hermit', 'Mystery Pryer'], '#480082', 'Mysticism, information stream, ancient hidden knowledge, and hidden fairy-tales.'),
-(8, ['Paragon', 'Savant'], '#6A0DAD', 'Technology, mechanics, civilization, craftsmanship, and physical creation.'),
+(8, ARRAY['Hermit', 'Mystery Pryer'],         '#480082', 'Mysticism, information stream, ancient hidden knowledge, and hidden fairy-tales.'),
+(8, ARRAY['Paragon', 'Savant'],               '#6A0DAD', 'Technology, mechanics, civilization, craftsmanship, and physical creation.'),
 -- Tenebrous World
-(9, ['Prisoner', 'Mutant'], '#4A3B32', 'Desires, physical restraint, spiritual release, and primal beasts.'),
-(9, ['Abyss', 'Criminal'], '#A9A9A9', 'Corruption, pure malice, continuous degradation, and dark desires.')
+(9, ARRAY['Prisoner', 'Mutant'],              '#4A3B32', 'Desires, physical restraint, spiritual release, and primal beasts.'),
+(9, ARRAY['Abyss', 'Criminal'],               '#A9A9A9', 'Corruption, pure malice, continuous degradation, and dark desires.');
 
 -- =============================================================
---  11. SEQUENCES 
+--  11. SEQUENCES
 -- =============================================================
 
 -- SEQUENCE OF PATHWAY: FOOL
 INSERT INTO sequences (pathway_id, position, name, description) VALUES
-(1, 9, 'Seer',                   'Remain a neutral interpreter of the spirit world. Avoid arrogance, and remember that divination offers probabilities, not absolute absolute certainties'),
+(1, 9, 'Seer',                   'Remain a neutral interpreter of the spirit world. Avoid arrogance, and remember that divination offers probabilities, not absolute certainties.'),
 (1, 8, 'Clown',                  'Bring laughter to others while masking your own true pain, terror, and helplessness behind a colorful, deliberate performance.'),
 (1, 7, 'Magician',               'A magician always commands the stage, distracts the audience with illusions, and relies on precise preparation to turn the impossible into reality.'),
 (1, 6, 'Faceless',               'Fully immerse yourself in other identities to understand their lives, but keep a firm grip on your original anchor.'),
@@ -715,69 +704,281 @@ INSERT INTO sequences (pathway_id, position, name, description) VALUES
 (1, 4, 'Bizarro Sorcerer',       'Act as a terrifying director of a grotesque spectacle, using fear to manipulate reality and break the mental defense of your enemies.'),
 (1, 3, 'Scholar of Yore',        'Resurrect historical truths, respect the weight of past eras, and maintain complete neutrality without getting emotionally entangled in modern events.'),
 (1, 2, 'Miracle Invoker',        'Act as a wish-granting deity. The profound contrast between fulfilling the impossible for ordinary humans while gaining nothing yourself.'),
-(1, 1, 'Attendant of Mysteries', 'Maintain the boundaries of reality and the spirit world, manipulating hidden concepts while acting as a loyal steward of the cosmos.'),
+(1, 1, 'Attendant of Mysteries', 'Maintain the boundaries of reality and the spirit world, manipulating hidden concepts while serving as a loyal steward of the cosmos.'),
 (1, 0, 'The Fool',               'Blind the world to actual truths by establishing massive, universe-altering conceptual deceptions, ultimately liberating reality from its rigid rules.');
 
 -- SEQUENCE OF PATHWAY: DOOR
 INSERT INTO sequences (pathway_id, position, name, description) VALUES
-(2, 9, 'Seer',                   'Remain a neutral interpreter of the spirit world. Avoid arrogance, and remember that divination offers probabilities, not absolute absolute certainties'),
-(2, 8, 'Clown',                  'Bring laughter to others while masking your own true pain, terror, and helplessness behind a colorful, deliberate performance.'),
-(2, 7, 'Magician',               'A magician always commands the stage, distracts the audience with illusions, and relies on precise preparation to turn the impossible into reality.'),
-(2, 6, 'Faceless',               'Fully immerse yourself in other identities to understand their lives, but keep a firm grip on your original anchor.'),
-(2, 5, 'Nimblewright Master',    'Manipulate and choreograph the actions of your targets from the shadows, maintaining absolute detachment while pulling the strings.'),
-(2, 4, 'Bizarro Sorcerer',       'Act as a terrifying director of a grotesque spectacle, using fear to manipulate reality and break the mental defense of your enemies.'),
-(2, 3, 'Scholar of Yore',        'Resurrect historical truths, respect the weight of past eras, and maintain complete neutrality without getting emotionally entangled in modern events.'),
-(2, 2, 'Miracle Invoker',        'Act as a wish-granting deity. The profound contrast between fulfilling the impossible for ordinary humans while gaining nothing yourself.'),
-(2, 1, 'Attendant of Mysteries', 'Maintain the boundaries of reality and the spirit world, manipulating hidden concepts while acting as a loyal steward of the cosmos.'),
-(2, 0, 'The Fool',               'Blind the world to actual truths by establishing massive, universe-altering conceptual deceptions, ultimately liberating reality from its rigid rules.');
+(2, 9, 'Apprentice',             'Learning, seeking hidden knowledge, and trying to open literal and metaphorical closed doors.'),
+(2, 8, 'Trickster',              'Bypassing obstacles through unorthodox methods, making fun of rigid rules, and finding unexpected solutions.'),
+(2, 7, 'Astrologer',             'Observing patterns, reading the positions of celestial objects, and mapping out the predictable movements of targets.'),
+(2, 6, 'Scribe',                 'Recording, duplicating, and documenting the unique events, history, and powers of other Beyonders.'),
+(2, 5, 'Traveler',               'Wandering across different regions, crossing spatial thresholds, and experiencing diverse, unfamiliar environments.'),
+(2, 4, 'Secrets Sorcerer',       'Hiding secrets within hidden dimensions, and controlling access to hidden areas.'),
+(2, 3, 'Wanderer',               'Exploring the deep, uncharted Cosmos and leaving permanent conceptual footprints.'),
+(2, 2, 'Planeswalker',           'Establishing permanent travel markers across various planes, dimensions, and unique spiritual worlds.'),
+(2, 1, 'Key of Stars',           'Becoming the absolute conceptual gateway of reality—controlling all physical, spiritual, and dimensional barriers.'),
+(2, 0, 'Miracle Invoker',        'Managing what remains sealed or unsealed in the universe.');
 
 -- SEQUENCE OF PATHWAY: ERROR
 INSERT INTO sequences (pathway_id, position, name, description) VALUES
-(2, 9, 'Seer',                   'Remain a neutral interpreter of the spirit world. Avoid arrogance, and remember that divination offers probabilities, not absolute absolute certainties'),
-(2, 8, 'Clown',                  'Bring laughter to others while masking your own true pain, terror, and helplessness behind a colorful, deliberate performance.'),
-(2, 7, 'Magician',               'A magician always commands the stage, distracts the audience with illusions, and relies on precise preparation to turn the impossible into reality.'),
-(2, 6, 'Faceless',               'Fully immerse yourself in other identities to understand their lives, but keep a firm grip on your original anchor.'),
-(2, 5, 'Nimblewright Master',    'Manipulate and choreograph the actions of your targets from the shadows, maintaining absolute detachment while pulling the strings.'),
-(2, 4, 'Bizarro Sorcerer',       'Act as a terrifying director of a grotesque spectacle, using fear to manipulate reality and break the mental defense of your enemies.'),
-(2, 3, 'Scholar of Yore',        'Resurrect historical truths, respect the weight of past eras, and maintain complete neutrality without getting emotionally entangled in modern events.'),
-(2, 2, 'Miracle Invoker',        'Act as a wish-granting deity. The profound contrast between fulfilling the impossible for ordinary humans while gaining nothing yourself.'),
-(2, 1, 'Attendant of Mysteries', 'Maintain the boundaries of reality and the spirit world, manipulating hidden concepts while acting as a loyal steward of the cosmos.'),
-(2, 0, 'The Fool',               'Blind the world to actual truths by establishing massive, universe-altering conceptual deceptions, ultimately liberating reality from its rigid rules.');
+(3, 9, 'Marauder',               'Taking things from others, specializing in literal physical theft and stealth.'),
+(3, 8, 'Swindler',               'Deceiving targets, manipulating interactions, and capturing info to make others choose wrongly.'),
+(3, 7, 'Cryptologist',           'Decode and decrypt hidden information, trying to completely understand targets.'),
+(3, 6, 'Prometheus',             'Stealing vital resources/abilities from others, extending the concept of theft to power.'),
+(3, 5, 'Dream Stealer',          'Stealing, manipulating, and distorting the thoughts, intentions, and dreams of targets.'),
+(3, 4, 'Parasite',               'Silently attaching to a host (physically or metaphorically) and extracting benefits without being noticed.'),
+(3, 3, 'Mentor of Deceit',       'Masking true intentions entirely, letting targets walk into traps of their own miscalculation.'),
+(3, 2, 'Trojan Horse of Destiny','Taking abstract concepts like fate, identity, and self-awareness from an individual.'),
+(3, 1, 'Worm of Time',           'Becoming the ultimate bug in reality—exploiting, modifying, and creating loopholes in the fundamental rules and time of the universe.'),
+(3, 0, 'Error',                  'Creating the fundamental flaw in reality that prevents absolute perfection.');
 
--- SEQUENCE OF PATHWAY: DOOR
+-- SEQUENCE OF PATHWAY: SUN
 INSERT INTO sequences (pathway_id, position, name, description) VALUES
-(2, 9, 'Seer',                   'Remain a neutral interpreter of the spirit world. Avoid arrogance, and remember that divination offers probabilities, not absolute absolute certainties'),
-(2, 8, 'Clown',                  'Bring laughter to others while masking your own true pain, terror, and helplessness behind a colorful, deliberate performance.'),
-(2, 7, 'Magician',               'A magician always commands the stage, distracts the audience with illusions, and relies on precise preparation to turn the impossible into reality.'),
-(2, 6, 'Faceless',               'Fully immerse yourself in other identities to understand their lives, but keep a firm grip on your original anchor.'),
-(2, 5, 'Nimblewright Master',    'Manipulate and choreograph the actions of your targets from the shadows, maintaining absolute detachment while pulling the strings.'),
-(2, 4, 'Bizarro Sorcerer',       'Act as a terrifying director of a grotesque spectacle, using fear to manipulate reality and break the mental defense of your enemies.'),
-(2, 3, 'Scholar of Yore',        'Resurrect historical truths, respect the weight of past eras, and maintain complete neutrality without getting emotionally entangled in modern events.'),
-(2, 2, 'Miracle Invoker',        'Act as a wish-granting deity. The profound contrast between fulfilling the impossible for ordinary humans while gaining nothing yourself.'),
-(2, 1, 'Attendant of Mysteries', 'Maintain the boundaries of reality and the spirit world, manipulating hidden concepts while acting as a loyal steward of the cosmos.'),
-(2, 0, 'The Fool',               'Blind the world to actual truths by establishing massive, universe-altering conceptual deceptions, ultimately liberating reality from its rigid rules.');
+(4, 9, 'Bard',                   'Sing and perform to boost the morale of allies. Use music and poetry to dispel fear, sorrow, and despair in others. Act as a source of emotional warmth and inspiration in dark times.'),
+(4, 8, 'Light Supplicant',       'Sincerely praise and pray to the light or the Creator. Direct holy light to cleanse corruption, rot, and undead entities. Maintain an aura of purity and resist temptation or dark influences.'),
+(4, 7, 'Solar High Priest',      'Guide believers, preach the doctrines of light, and lead religious rituals. Exorcise evil spirits and banish shadows from haunted or corrupted areas. Act as a strict, unyielding representative of the sun''s burning judgment.'),
+(4, 6, 'Notary',                 'Bear witness to contracts, promises, and legal agreements between parties. Use powers to approve and temporarily boost the abilities of allies. Nullify and strip away the fraudulent or illegal powers of enemies. Strictly uphold personal honesty and punish deceit.'),
+(4, 5, 'Priest of Light',        'Bring hidden secrets, plots, and conspiracies into the open light. Illuminate dark, dangerous ruins or underground areas to make them safe. Use intense holy light to completely melt away malice and shadows.'),
+(4, 4, 'Unshadowed',             'Strip away corruption, external traits, and madness from targets or items. Leave no room for ambiguity, shadows, or gray areas in judgment. Maintain absolute internal transparency, ensuring no dark desires remain hidden within yourself.'),
+(4, 3, 'Justice Mentor',         'Establish rules, laws, and boundaries that others must follow. Act as an impartial judge who metes out inescapable punishment to lawbreakers. Enforce systemic order over chaotic environments.'),
+(4, 2, 'Light Seeker',           'Act as a savior for those who have lost all hope. Bear the burdens of others to guide them toward a hopeful future. Forge new paths where hope has been entirely extinguished.'),
+(4, 1, 'Author of Order',        'Define what is right, orderly, and true for the entire universe. Radiate supreme authority, burning away all conceptual darkness, chaos, and heresy.'),
+(4, 0, 'Sun',                    'Act as the unmoving center of the world''s moral and physical order.');
 
+-- SEQUENCE OF PATHWAY: VISIONARY
+INSERT INTO sequences (pathway_id, position, name, description) VALUES
+(5, 9, 'Spectator',              'Quietly watch people''s body language, expressions, and choices from the sidelines. Gain deep insights into human nature while remaining detached. Never become the center of attention or actively join the drama.'),
+(5, 8, 'Telepathist',            'Listen to the surface thoughts, desires, and anxieties of targets. Use psychological cues to gently guide someone''s decisions without them realizing it. Maintain a calm, unreadable mind to prevent others from reading you.'),
+(5, 7, 'Psychiatrist',           'Diagnose, treat, and pacify mental trauma, mania, and Beyonder psychological breakdowns. Plunge enemies into madness by exposing and triggering their deepest traumas and phobias. Balance your own mental health while absorbing the chaotic emotions of patients.'),
+(5, 6, 'Hypnotist',              'Direct the subconscious minds of targets to make them perform specific actions. Make targets ignore obvious clues or completely forget critical events. Establish hidden psychological triggers in others that activate later.'),
+(5, 5, 'Dream Walker',           'Guide targets by interacting with them inside their own dreams. Travel across different minds through the shared sea of human consciousness. Alter a target''s core personality traits by reshaping their dreamscapes.'),
+(5, 4, 'Manipulator',            'Orchestrate elaborate social scenarios where targets willingly walk into your traps. Fuel specific emotions to control crowds. Hide your presence so completely that your targets believe your desires are their own ideas.'),
+(5, 3, 'Disciple of Light',      'Guide large populations toward a specific philosophy, religion, or belief system. Illuminate hidden psychological complexes to force societal change. Act as an intellectual or spiritual beacon that shapes the public mindset.'),
+(5, 2, 'Dragon of Mind',         'Project your own imagination into the physical world as tangible objects or creatures. Create complex, living psychological personas that can act independently of you. Hide your true physical body entirely within the collective subconscious.'),
+(5, 1, 'Author',                 'Design massive, sweeping historical trends and global events through subtle psychological seeds. Write scripts for the world where envisioned futures naturally become absolute reality.'),
+(5, 0, 'Visionary',              'The power to rewrite existence by dictating and enforcing the world''s true script.');
 
+-- SEQUENCE OF PATHWAY: TYRANT
+INSERT INTO sequences (pathway_id, position, name, description) VALUES
+(6, 9, 'Sailor',                 'Master the volatile ocean environment. Develop excellent balance and agility on stormy seas. Exhibit bravery and composure when facing dangerous waters and marine creatures.'),
+(6, 8, 'Folk Of Rage',           'Channel raw physical anger to overpower obstacles. Engage in direct, physical confrontations without hesitation. Intimidate opponents using overwhelming aggression and outbursts of fury.'),
+(6, 7, 'Seafarer',               'Navigate, predict weather, and command maritime voyages. Accurately read meteorological signs, wind currents, and star patterns. Safely guide crews through uncharted or challenging waters.'),
+(6, 6, 'Wind-Blessed',           'Command the winds and sky as an extension of yourself. Listen to and interpret the whispers of the wind. Harness aerial currents to glide, maneuver, or shield allies.'),
+(6, 5, 'Ocean Songster',         'Channel the mesmerizing, powerful music of the deep. Perform melodies that evoke intense emotions like awe or overwhelming fear in listeners. Use your voice to influence marine life and the surrounding waters.'),
+(6, 4, 'Cataclysmic Intermediary','Act as a bridge bringing natural forces to reality. Summon and direct large-scale maritime and atmospheric phenomena. Demonstrate the overwhelming scale of natural forces compared to individual human life.'),
+(6, 3, 'Sea King',               'Establish authority over the world''s oceans. Govern maritime territories, islands, and naval trade routes. Require marine entities and sea voyagers to recognize your presence and authority.'),
+(6, 2, 'Calamity Venerable',     'Embody significant change and upheaval on a broad scale. Bring transformative or disruptive events to entire civilizations or geographical regions. Act as an inevitable force that resets or alters established societal structures.'),
+(6, 1, 'Thunder God',            'Demand total, unquestioning obedience from all entities within your domain. Swiftly suppress any form of rebellion, heresy, or defiance.'),
+(6, 0, 'Tyrant',                 'Demand total, unquestioning obedience from all entities within your domain. Swiftly suppress any form of rebellion, heresy, or defiance.');
 
--- =============================================================
---  12. ABILITIES
---  Sequence IDs (SERIAL, by insertion order above, 10 per pathway):
---    Fool:    Seer=1  Clown=2  Magician=3  Faceless=4  NimblewrightMaster=5
---             BizarroSorcerer=6  MiracleInvoker=7  AttendantOfMysteries=8
---             MysteryPryer=9  TheFool=10
---    Justice: Spectator=11  Telepathist=12  Psychiatrist=13  Hypnotist=14
---             Witch=15  Arbiter=16  Judge=17  Justiciar=18  DarkSide=19  Justice=20
---    Hanged:  Sailor=21  FolkOfRage=22  Seafarer=23  Catcher=24  Squall=25
---             CataclysmicInterrer=26  BeyonderKing=27  PirateAdmiral=28  SeaKing=29  HangedMan=30
---    Sun:     Bard=31  LightSuppliant=32  SolarHighPriest=33  SunHunter=34  DawnPaladin=35
---             Unshadowed=36  LightEmperor=37  Apostle=38  SaintessOfWhiteNight=39  TheSun=40
---    Death:   Gravedigger=41  CorpseCollector=42  Undying=43  Wraith=44  Zombie=45
---             DeathConsul=46  Gatekeeper=47  Ferryman=48  Death=49  Death(god)=50
---    Star:    Astrologer=51  MidnightPoet=52  Dreamless=53  Wanderer=54  Discerner=55
---             SecretsSorcerer=56  Prophet=57  LoreMaster=58  Inevitability=59  TheStar=60
---    Moon:    Vampire=61  ShamanKing=62  Zombie(moon)=63  ZombieSovereign=64  Nightmare=65
---             Howler=66  MoonPriest=67  LunarRealmMaster=68  MoonWitch=69  TheMoon=70
--- =============================================================
+-- SEQUENCE OF PATHWAY: HANGED MAN
+INSERT INTO sequences (pathway_id, position, name, description) VALUES
+(7, 9, 'Secrets Supplicant',     'Listen to hidden cosmic lore. Patiently listen to obscure revelations and esoteric whispers. Keep dangerous secrets hidden safely from those who might be harmed by them.'),
+(7, 8, 'Listener',               'Direct communion with complex and chaotic information. Channel and interpret difficult communications from higher states of being. Maintain focus while experiencing overwhelming sensory or auditory input.'),
+(7, 7, 'Shadow Ascetic',         'Practice humility and merge with the darkness. Lead a life of simplicity and move through the world without seeking recognition. Utilize the shadows to remain unseen and inconspicuous.'),
+(7, 6, 'Rose Bishop',            'Integration, concealment, and biological manipulation. Hide your presence by physically blending into your environment or other biological forms. Perform complex rituals involving biological elements to sustain your influence.'),
+(7, 5, 'Shepherd',               'Manage and utilize the spiritual traces of the deceased. Incorporate the characteristics of fallen Beyonders into your spiritual repertoire. Direct and utilize these captured traits in a coordinated manner.'),
+(7, 4, 'Black Knight',           'A silent enforcer who handles internal shadows. Act as a grim guardian who neutralizes threats and suppresses false hope. Identify and manipulate the regrets or internal struggles of targets to influence them.'),
+(7, 3, 'Trinity Templar',        'Balance multiple, contradictory states of existence. Effectively manage multiple conflicting roles or identities simultaneously. Utilize complex spiritual patterns to maintain stability despite internal contradictions.'),
+(7, 2, 'Profane Presbyter',      'Counter divinity and spread spiritual influence. Neutralize the influence of sacred artifacts and challenge established divine connections. Lead secret organizations that thrive on unconventional or forbidden beliefs.'),
+(7, 1, 'Dark Angel',             'Bear the symbolic weight of universal corruption and collective struggles. Act as a permanent, sacrificial authority figure who endures for the sake of others.'),
+(7, 0, 'Hanged Man',             'Supreme sacrifice and bearing the world''s burdens. Bear the symbolic weight of universal corruption and collective struggles. Act as a permanent, sacrificial authority figure who endures for the sake of others.');
+
+-- SEQUENCE OF PATHWAY: WHITE TOWER
+INSERT INTO sequences (pathway_id, position, name, description) VALUES
+(8, 9, 'Reader',                 'Consume and comprehend vast amounts of text. Study history, science, and the occult extensively. Develop a sharp mind capable of recalling and analyzing complex details.'),
+(8, 8, 'Learner',                'Methodically collect and organize information. Gather fragments of lost history, gossip, and obscure lore. Categorize knowledge to find hidden links between seemingly unrelated events.'),
+(8, 7, 'Knowledge Keeper',       'Safeguard dangerous lore. Memorize volatile secrets that would overwhelm an average mind. Ensure that protected information is only shared with those prepared for it.'),
+(8, 6, 'Polymath',               'Master multiple disciplines and mimic other abilities. Learn the fundamental principles behind various magical and physical systems. Deconstruct an opponent''s technique and recreate it using your own logic.'),
+(8, 5, 'Cognizance Sage',        'Discern truth and see through illusions. Expose falsehoods and reveal hidden traps or deceptions. Maintain an objective and analytical perspective in complex situations.'),
+(8, 4, 'Alchemist',              'Understand and alter the fundamental composition of matter. Break down materials or traits into their base spiritual components. Reassemble these components into new, highly functional items.'),
+(8, 3, 'Prophet',                'Calculate and predict the outcome of events. Analyze variables to accurately forecast future crises or shifts. State your conclusions clearly, letting your logic influence the unfolding of events.'),
+(8, 2, 'Wisdom Angel',           'Serve as a living record of universal knowledge. Function as an archive for the concepts, history, and laws of reality. Provide insights that can shift the developmental course of entire civilizations.'),
+(8, 1, 'Omniscient Eye',         'Embody absolute knowledge and ultimate logic. Understand all things and analyze reality through a lens of perfect logic. Use reasoned principles to counter or neutralize the rules of the universe.'),
+(8, 0, 'White Tower',            'Embody absolute knowledge and ultimate logic. Understand all things and analyze reality through a lens of perfect logic. Use reasoned principles to counter or neutralize the rules of the universe.');
+
+-- SEQUENCE OF PATHWAY: DARKNESS
+INSERT INTO sequences (pathway_id, position, name, description) VALUES
+(9, 9, 'Sleepless',              'Master the night hours. Stay active, vigilant, and alert when the rest of the world sleeps. Protect or patrol environments during the dark hours.'),
+(9, 8, 'Midnight Poet',          'Embody the quiet, melancholic beauty of the night. Express emotions through arts or poetry that evoke tranquility and reflection. Soothe agitated minds and quiet chaotic environments.'),
+(9, 7, 'Nightmare',              'Govern the dream realm and the subconscious. Enter, observe, and manipulate the dreams of sleeping targets. Pull targets into waking illusions or trap them within their own subconscious fears.'),
+(9, 6, 'Soul Assassin',          'Eliminate threats silently and invisibly. Execute operations with perfect stealth, leaving no physical traces. Attack the target''s spirit or soul directly rather than their physical body.'),
+(9, 5, 'Spirit Guide',           'Guide souls and soothe the dead. Help lingering spirits find peace and move on to the afterlife. Commune with the spiritual world without disturbing its balance.'),
+(9, 4, 'Nightcatcher',           'Erase and conceal physical and conceptual targets. Trap entities, objects, or locations inside pockets of isolated darkness. Make events or targets completely disappear from immediate awareness.'),
+(9, 3, 'Horror Bishop',          'Spread primordial fear and psychological quietude. Evoke deep, unexplainable dread in enemies by personifying the unknown. Enforce absolute, terrifying silence over chaotic or noisy situations.'),
+(9, 2, 'Servant of Concealment', 'Erase information from history and memory. Conceal secrets, identities, or historical truths so thoroughly that they cease to exist in public memory. Operate as an invisible hand guiding reality from behind a veil.'),
+(9, 1, 'Knight of Misfortune',   'Embody ultimate oblivion and misfortune. Bring misfortune, endings, and bad luck to those who defy natural cycles. Act as the final, quiet void that absorbs and erases all light, life, and meaning.'),
+(9, 0, 'Darkness',               'Embody ultimate oblivion and misfortune. Bring misfortune, endings, and bad luck to those who defy natural cycles. Act as the final, quiet void that absorbs and erases all light, life, and meaning.');
+
+-- SEQUENCE OF PATHWAY: DEATH
+INSERT INTO sequences (pathway_id, position, name, description) VALUES
+(10, 9, 'Corpse Collector',      'Safely handle and respect the dead. Collect, clean, and properly bury human remains. Maintain high resistance to corpse toxins and negative spiritual energies.'),
+(10, 8, 'Gravedigger',           'Prepare the final resting places and manage gravesites. Dig graves and construct secure tombs to keep the dead sealed. Identify and neutralize roaming undead or defiled graves.'),
+(10, 7, 'Necromancer',           'Commune with and command spirits. Summon ghosts, wraiths, and natural spirits to perform tasks. Extract information from the souls of the recently deceased.'),
+(10, 6, 'Spirit Dance',          'Harmonize with spiritual frequencies through movement. Perform specialized rituals and movements to channel spiritual energy. Allow spirits to temporarily assist or augment your physical actions.'),
+(10, 5, 'Gatekeeper',            'Guard the threshold between the real world and the Underworld. Ensure that dead spirits do not escape into the land of the living. Prevent unauthorized living people from entering spiritual domains.'),
+(10, 4, 'Undying',               'Cycle through life, death, and resurrection. Experience physical death and adapt to resurrecting with altered traits or memories. Maintain your core identity across multiple cyclical lifetimes.'),
+(10, 3, 'Ferryman',              'Transport souls across the River of Eternal Darkness. Guide massive waves of dead spirits safely deeper into the Underworld. Safeguard the collective transition of souls out of physical reality.'),
+(10, 2, 'Pale Emperor',          'Rule over the undead and dictate decay. Command vast legions of skeletal, zombie, or ghostly entities as a monarch. Inflict a state of withering, rot, and aging upon living systems.'),
+(10, 1, 'Pale Angel',            'Embody the absolute end of all living things. Bring inevitable, impartial, and cold endings to entities, civilizations, or eras. Act as the universal standard that returns all animate matter back to stillness.'),
+(10, 0, 'Death',                 'Embody the absolute end of all living things. Bring inevitable, impartial, and cold endings to entities, civilizations, or eras. Act as the universal standard that returns all animate matter back to stillness.');
+
+-- SEQUENCE OF PATHWAY: TWILIGHT GIANT
+INSERT INTO sequences (pathway_id, position, name, description) VALUES
+(11, 9, 'Warrior',               'Master physical combat and personal defense. Train your body to absolute peak physical condition. Engage in disciplined, face-to-face martial combat.'),
+(11, 8, 'Gladiator',             'Perform and win in high-stakes combat arenas. Fight efficiently while managing the attention and pressure of an audience. Master a wide variety of melee weapons and tactical maneuvers.'),
+(11, 7, 'Dawn Paladin',          'Protect others using bright, defensive energy. Act as an unyielding frontline shield for your companions. Summon dawn-like light to shatter enemy armor and dark magic.'),
+(11, 6, 'Guardian',              'Take on damage to keep a specific target safe. Swear oaths to protect specific people, locations, or items. Absorb strikes and injuries meant for those under your protection.'),
+(11, 5, 'Demon Hunter',          'Track and methodically eliminate mutated or corrupt threats. Study the specific weaknesses of monsters, devils, and mutants. Execute precise, lethal hunts utilizing custom tools and preparations.'),
+(11, 4, 'Silver Knight',         'Achieve physical incorruptibility and tactical leadership. Lead military formations or knightly orders into heavy combat. Maintain an unwavering, rigid code of honor and inner discipline.'),
+(11, 3, 'Ashen Knight',          'Persist through ruin and destruction. Guard crumbling ruins, dead civilizations, or lost causes without abandoning your post. Embody heavy resilience when all surrounding hope has turned to ash.'),
+(11, 2, 'Glory Crown',           'Lead civilizations through their final, defining eras. Accept leadership positions during times of severe historical decline. Inspire others to achieve greatness and honor before their time runs out.'),
+(11, 1, 'Hand of God',           'Embody the sunset of existence and absolute physical weight. Enforce the twilight or decline of opposing powers, setting a definitive limit to their lifespan. Act as an immovable, titanic force of cosmic law and final defense.'),
+(11, 0, 'Twilight Giant',        'Embody the sunset of existence and absolute physical weight. Enforce the twilight or decline of opposing powers, setting a definitive limit to their lifespan. Act as an immovable, titanic force of cosmic law and final defense.');
+
+-- SEQUENCE OF PATHWAY: RED PRIEST
+INSERT INTO sequences (pathway_id, position, name, description) VALUES
+(12, 9, 'Hunter',                'Track targets and exploit environmental traps. Patiently track prey, study terrain, and use traps rather than raw force. Maintain high awareness of your surroundings to avoid becoming the prey.'),
+(12, 8, 'Provoker',              'Manipulate enemies into losing emotional control. Use words, gestures, and insults to trigger blind rage in targets. Exploit the emotional slips of angry enemies to make them walk into traps.'),
+(12, 7, 'Pyromaniac',            'Release and control destructive fire. Use fire to cleanse obstacles, flush out hidden targets, or cause panic. Understand the volatile nature of flames without letting them consume you.'),
+(12, 6, 'Conspirator',           'Interweave lies, truths, and trends into inescapable traps. Orchestrate complex setups where even an enemy''s correct choices help your goal. Guide people and events using hidden strings so targets trap themselves.'),
+(12, 5, 'Reaper',                'Deliver efficient, lethal strikes by finding vital weaknesses. Analyze an opponent''s physical or spiritual defenses to find one critical vulnerability. Execute sudden, overwhelming attacks that end combat instantly.'),
+(12, 4, 'Iron-Blooded Knight',   'Forge individuals into a single, disciplined military force. Lead a team, gang, or army, binding their morale and strength to your own. Enforce strict discipline, shared sacrifice, and collective courage under fire.'),
+(12, 3, 'War Bishop',            'Coordinate massive, multi-layered battlefronts. Manage large-scale conflicts, balancing logistics, traps, and open combat. Turn entire cities or regions into active tactical chessboards.'),
+(12, 2, 'Weather Warlock',       'Adapt and weaponize macro-environmental conditions for war. Alter localized weather patterns to completely ruin enemy army movements. Create perfect natural opportunities for your own forces to strike.'),
+(12, 1, 'Conqueror',             'Embody the concept of war, victory, and total conquest. Lead sweeping global or conceptual campaigns to subjugate opposing factions. Act as the supreme commander of conflict, turning all reality into a theater of war.'),
+(12, 0, 'Red Priest',            'Embody the concept of war, victory, and total conquest. Lead sweeping global or conceptual campaigns to subjugate opposing factions. Act as the supreme commander of conflict, turning all reality into a theater of war.');
+
+-- SEQUENCE OF PATHWAY: DEMONESS
+INSERT INTO sequences (pathway_id, position, name, description) VALUES
+(13, 9, 'Assassin',              'Conceal yourself to eliminate high-value targets. Blend into crowds or shadows to strike unsuspecting targets cleanly. Escape smoothly without leaving identifying traces or clues behind.'),
+(13, 8, 'Instigator',            'Create internal rifts and social chaos. Whisper rumors and exploit minor arguments to turn friends into bitter enemies. Trigger riots, rebellions, or family feuds from behind the scenes.'),
+(13, 7, 'Witch',                 'Use charms, mirror magic, and black flames to manipulate reality. (Note: This sequence forces a physical gender transition to female). Utilize physical beauty, charms, and social grace to control powerful individuals. Master mirror illusions and curses to trap or redirect harm.'),
+(13, 6, 'Pleasure Demoness',     'Entrap targets through intense desires and emotional dependence. Provide targets with their deepest physical or emotional desires to make them compliant. Weaponize love, lust, and obsession to hollow out an enemy''s willpower.'),
+(13, 5, 'Affliction Demoness',   'Spread physical and emotional pain. Cultivate, breed, and spread localized plagues, sicknesses, and viruses. Feast on and digest the genuine despair, grief, and agony of affected populations.'),
+(13, 4, 'Demoness of Unaging',   'Freeze your own state of being while watching others decay. Maintain perfect youth and beauty across long spans of time. Sacrifice the youth, life force, or vitality of others to sustain your own static immortality.'),
+(13, 3, 'Demoness of Deception', 'Twist truths and obscure perceptions to cause structural collapse. Deceive entire organizations or nations into acting against their own survival. Make catastrophic threats appear completely harmless until it is too late.'),
+(13, 2, 'Demoness of Catastrophe','Trigger sudden, large-scale disasters. Manifest major natural and social crises like earthquakes, famines, or sudden collapses. Act as the direct trigger for historical tragedies that ruin civilizations.'),
+(13, 1, 'Demoness of Apocalypse','Bring the absolute end, chaos, and destruction to the universe. Guide the entire world toward total corruption, madness, and eventual annihilation. Act as the ultimate feminine entity of destruction, turning order back into primordial chaos.'),
+(13, 0, 'Primordial Demoness',   'Bring the absolute end, chaos, and destruction to the universe. Guide the entire world toward total corruption, madness, and eventual annihilation. Act as the ultimate feminine entity of destruction, turning order back into primordial chaos.');
+
+-- SEQUENCE OF PATHWAY: JUSTICIAR
+INSERT INTO sequences (pathway_id, position, name, description) VALUES
+(14, 9, 'Arbiter',               'Settle disputes and enforce fairness. Mediate conflicts between individuals or groups neutrally. Establish a reputation for being trustworthy and fair.'),
+(14, 8, 'Sheriff',               'Maintain public order and apprehend criminals. Patrol communities to deter crime and hunt down lawbreakers. Enforce local laws, rules, and regulations strictly.'),
+(14, 7, 'Interrogator',          'Extract hidden truths and break mental defenses. Use verbal pressure and psychological techniques to make targets confess. Uncover hidden motives, contraband, or secret plots.'),
+(14, 6, 'Judge',                 'Pass official verdicts and define crimes. Weigh evidence objectively and issue appropriate punishments. Pronounce what acts are legally prohibited in a given area.'),
+(14, 5, 'Disciplinarian',        'Strict enforcement of rules and behavioral correction. Punish infractions swiftly to reform bad behavior. Ensure groups or organizations follow rigid protocols without deviation.'),
+(14, 4, 'Imperative Mage',       'Make your spoken commands act as physical laws. Issue verbal decrees that targets are forced to physically obey. Ban specific actions or elements from a battlefield using your authority.'),
+(14, 3, 'Balance Worker',        'Maintain equilibrium and correct systemic anomalies. Weaken forces that are too strong and bolster those that are failing. Act as a stabilizing weight in highly chaotic or volatile situations.'),
+(14, 2, 'Hand of Order',         'Reshape the physical and spiritual layout of reality. Reorganize chaotic environments into structured, predictable systems. Manipulate spatial and logical connections to uphold institutional control.'),
+(14, 1, 'Justiciar',             'Enforce ultimate justice and absolute order. Become the living embodiment of law and fairness. Punish all wrongdoing with finality and absolute authority.'),
+(14, 0, 'Prince of Abolition',   'Define, modify, and rewrite the laws of the universe. Abolish old, ineffective rules and establish absolute new cosmic decrees. Act as the ultimate, impartial executioner of absolute justice across reality.');
+
+-- SEQUENCE OF PATHWAY: DARK EMPEROR
+INSERT INTO sequences (pathway_id, position, name, description) VALUES
+(15, 9, 'Lawyer',                'Use language and rules to your advantage. Argue effectively to bend rules without breaking them. Find technicalities in agreements to favor your clients or yourself.'),
+(15, 8, 'Barbarian',             'Break through conventional social rules using raw dominance. Ignore refined manners and use aggressive, blunt force to bypass obstacles. Impose your personal will over weaker-willed individuals.'),
+(15, 7, 'Briber',                'Use transactional exchanges to distort rules and morality. Give gifts or favors to alter someone''s judgment and duties. Turn rigid systems into transactional games where everything has a price.'),
+(15, 6, 'Baron of Corruption',   'Distort the intentions behind actions and laws. Twist a target''s positive actions so they cause harmful results. Exploit systemic corruption to build your personal wealth and influence.'),
+(15, 5, 'Mentor of Confusion',   'Disorient targets by scrambling logic and directions. Make targets lose their physical direction or logical train of thought. Create chaotic social or mental scenarios where standard rules no longer apply.'),
+(15, 4, 'Earl of The Fallen',    'Magnify dark desires and induce moral decay. Encourage individuals or communities to give in to their deepest, hidden vices. Watch civilized societies collapse into chaotic lawlessness.'),
+(15, 3, 'Frenzy Mage',           'Trigger uncontained, amplified chaos. Drive groups into a state of mass hysteria, panic, or wild rebellion. Overwhelm orderly systems by introducing explosive, unpredictable variables.'),
+(15, 2, 'Duke of Distortion',    'Twist physical, spiritual, and conceptual realities. Distort distances, timeframes, or spell effects to confuse and defeat enemies. Make a false statement function temporarily as an absolute truth.'),
+(15, 1, 'Prince of Distortions', 'Rule as a tyrannical monarch who resurrects through the laws they impose. Establish a massive, self-serving empire with laws tied directly to your life force. Use cosmic loopholes to cheat death and return to life through your citizens'' memory of your laws.'),
+(15, 0, 'Black Emperor',         'Rule as a tyrannical monarch who resurrects through the laws they impose. Establish a massive, self-serving empire with laws tied directly to your life force. Use cosmic loopholes to cheat death and return to life through your citizens'' memory of your laws.');
+
+-- SEQUENCE OF PATHWAY: MONSTER
+INSERT INTO sequences (pathway_id, position, name, description) VALUES
+(16, 9, 'Monster',               'Perceive the overwhelming, hidden terrors of reality. Silently endure the frightening illusions and whispers only you can see. Behave oddly or speak in riddles due to the strange information you process.'),
+(16, 8, 'Robot',                 'Use cold, detached logic to suppress overwhelming spiritual input. Act with absolute precision, suppressing your emotional outbursts. Calculate mathematical and environmental variables to predict immediate physical dangers.'),
+(16, 7, 'Lucky One',             'Rely entirely on the unseen guidance of fate. Make blind choices without planning and let coincidence save you. Benefit constantly from improbable, fortunate strokes of luck.'),
+(16, 6, 'Calamity Priest',       'Predict and survive sudden, localized disasters. Sense incoming accidents, fires, or collapses right before they happen. Position yourself safely while others are caught in the chaos.'),
+(16, 5, 'Winner',                'Accumulate and actively spend luck like a currency. Take massive risks in gambling, combat, or life, relying on fate to guarantee victory. Balance your high luck with moments of severe, intentional misfortune to reset the scales.'),
+(16, 4, 'Chaos Crawler',         'Navigate the shifting, unpredictable timelines of destiny. Move safely through chaotic spiritual spaces where cause and effect are broken. Observe multiple possible futures without letting your mind shatter from the variations.'),
+(16, 3, 'Weaver of Fate',        'Intertwine and manipulate the luck of others. Connect the destinies of separate people so their successes or failures match. Give your bad luck to enemies while stealing the good fortune of targets.'),
+(16, 2, 'Snake of Mercury',      'Embody the cyclical nature of time and reincarnation. Reboot your life cycle by resetting your age, memories, and physical state when facing crises. Observe the world as a repeating, endless loop of cause and effect.'),
+(16, 1, 'Key of Destiny',        'Master the absolute flow of probability and destiny. Spin the metaphorical wheel to decide the absolute luck or ruin of entire civilizations. Act as the unmoving axis around which all universal probability, fate, and chance rotate.'),
+(16, 0, 'Wheel of Fortune',      'Master the absolute flow of probability and destiny. Spin the metaphorical wheel to decide the absolute luck or ruin of entire civilizations. Act as the unmoving axis around which all universal probability, fate, and chance rotate.');
+
+-- SEQUENCE OF PATHWAY: MOTHER
+INSERT INTO sequences (pathway_id, position, name, description) VALUES
+(17, 9, 'Planter',               'Care for soil and nurture plant life. Cultivate crops, identify herbs, and maximize agricultural yields. Develop a deep, physical connection to the earth and natural seasons.'),
+(17, 8, 'Doctor',                'Treat physical illnesses and save lives. Diagnose illnesses, brew medicines, and heal wounds meticulously. Value the preservation of living tissue and fight against premature death.'),
+(17, 7, 'Harvest Priest',        'Celebrate abundance and spread agricultural knowledge. Teach communities efficient farming techniques to prevent famine. Lead joyful seasonal festivals thanking nature for its bounty.'),
+(17, 6, 'Biologist',             'Study, crossbreed, and modify living organisms. Experiment with flora and fauna to create resilient, useful new species. Understand the anatomical and biological rules governing life.'),
+(17, 5, 'Druid',                 'Channel the raw vitality of nature and shapeshift. Commune deeply with forests, wild animals, and natural ecosystems. Adopt animal traits to survive and protect the environment from artificial ruin.'),
+(17, 4, 'Nature Scholar',        'Command the environment and breathe life into inanimate objects. Make barren lands bloom instantly with dense vegetation. Grant temporary consciousness or life to stones, water, or wooden structures.'),
+(17, 3, 'Lifesaver',             'Reverse deathly conditions and maximize cellular healing. Pull individuals back from the brink of absolute biological death. Cure widespread, catastrophic plagues by accelerating immune cellular growth.'),
+(17, 2, 'Desolate Matriarch',    'Govern territorial fertility and manage species reproduction. (Note: This sequence forces a physical gender transition to female). Control the birth rates, growth cycles, and population metrics of entire regions. Turn desolate, dead lands into rich, self-sustaining ecosystems.'),
+(17, 1, 'Goddess of Nature',     'Embody the supreme source of all biological creation and life force. Create entirely new biological concepts, species, and ecosystems out of raw energy. Act as the universal matriarch who sustains, heals, and breeds all physical matter in existence.'),
+(17, 0, 'Mother',                'Embody the supreme source of all biological creation and life force. Create entirely new biological concepts, species, and ecosystems out of raw energy. Act as the universal matriarch who sustains, heals, and breeds all physical matter in existence.');
+
+-- SEQUENCE OF PATHWAY: MOON
+INSERT INTO sequences (pathway_id, position, name, description) VALUES
+(18, 9, 'Apothecary',            'Craft herbal remedies and simple treatments. Diagnose common ailments and mix custom herbal salves or pills. Sell medicine to the needy, gaining a reputation as a helpful local healer.'),
+(18, 8, 'Beast Tamer',           'Commune with and control wild animals. Tame, breed, and train dangerous creatures or guard animals. Understand the basic instincts and fears of beasts to neutralize them.'),
+(18, 7, 'Vampire',               'Balance long life, beauty, and nocturnal hunting instincts. (Note: This sequence morphs the user into a Sanguine-like physiology). Adapt to a nocturnal lifestyle, maintaining high elegance and social grace. Manage your reliance on blood without letting feral instincts take over.'),
+(18, 6, 'Potions Professor',     'Mass-produce complex, magical liquid mixtures. Discover and refine secret recipes for specialized magical potions. Teach others the meticulous chemistry and rules of brewing spiritual items.'),
+(18, 5, 'Scarlet Scholar',       'Draw directly upon the mystical attributes of the moon. Perform rituals that change in power according to the lunar cycle. Create illusory or physical crimson dreamscapes to trap targets.'),
+(18, 4, 'Shaman',                'Serve as a bridge to spirits and nature gods. Lead tribes or occult groups in worshiping ancient, primordial forces. Invite spirits to temporarily possess your body to deliver vital messages.'),
+(18, 3, 'High Vampire',          'Command lesser nocturnal species and rule the dark. Govern clans of Sanguine, bats, wolves, and other creatures of the night. Establish absolute territory where your dark authority cannot be challenged.'),
+(18, 2, 'Moon Angel',            'Radiate a distorting, beautiful lunar divinity. (Note: This sequence forces a physical gender transition to female). Hypnotize whole populations using overwhelming, divine beauty and charm. Corrupt or alter the biology of things exposed to your moonlight.'),
+(18, 1, 'Beauty Goddess / Moon', 'Embody the absolute concept of the moon, reproduction, and nocturnal mystery. Control the tides, lunar cycles, and reproductive instincts of all mortal races. Act as the ultimate, seductive source of beauty and hidden nocturnal power in the cosmos.'),
+(18, 0, 'Moon',                  'Embody the absolute concept of the moon, reproduction, and nocturnal mystery. Control the tides, lunar cycles, and reproductive instincts of all mortal races. Act as the ultimate, seductive source of beauty and hidden nocturnal power in the cosmos.');
+
+-- SEQUENCE OF PATHWAY: HERMIT
+INSERT INTO sequences (pathway_id, position, name, description) VALUES
+(19, 9, 'Mystery Pryer',         'Peer into the hidden, underlying magic of the world. Study ancient symbols, rare runes, and the secret geometry of reality. Examine magical phenomena from a safe distance to avoid going mad from the view.'),
+(19, 8, 'Melee Scholar',         'Combine deep book knowledge with fast physical combat. Use analytical calculations to predict and counter an enemy''s physical strikes. Fight efficiently while wearing classic scholarly or academic attire.'),
+(19, 7, 'Warlock',               'Master custom, versatile spellcasting formulas. Mix different elemental spells, curses, and hexes to handle unpredictable situations. Experiment with raw, volatile magic without relying on gods.'),
+(19, 6, 'Scroll Professor',      'Create, store, and preserve powerful magical items. Inscribe highly volatile spells onto paper scrolls or charms for later use. Build a secure archive of rare, magical literature.'),
+(19, 5, 'Constellation Scholar', 'Connect your spellcasting power to cosmic star patterns. Map the movement of stars to calculate when specific spells will be strongest. Draw down the mystical, crushing gravity or light of distant galaxies.'),
+(19, 4, 'Mysticologist',         'Turn fairy tales, myths, and folklore into literal magic. Analyze common legends and recreate their logic to force specific outcomes. Live out parts of classic stories to anchor your magical powers.'),
+(19, 3, 'Clarity Sage',          'Pierce through the deep illusions of the cosmos. See through hidden historical cover-ups and the disguises of demigods. Keep your mind perfectly objective while sorting through maddening cosmic data.'),
+(19, 2, 'Sage of Knowledge',     'Function as a living, thinking encyclopedia of reality. Inject massive amounts of pure information into enemy minds to paralyze them. Pass down complex, advanced knowledge to guide the progress of mortal societies.'),
+(19, 1, 'Peerless Scholar',      'Become the absolute text, code, and hidden engine of the universe. Read the entire universe as a giant book, modifying its words to change reality. Act as the final, silent guardian of all hidden knowledge and cosmic secrets.'),
+(19, 0, 'Hermit',                'Become the absolute text, code, and hidden engine of the universe. Read the entire universe as a giant book, modifying its words to change reality. Act as the final, silent guardian of all hidden knowledge and cosmic secrets.');
+
+-- SEQUENCE OF PATHWAY: PARAGON
+INSERT INTO sequences (pathway_id, position, name, description) VALUES
+(20, 9, 'Savant',                'Master traditional craft skills and simple tools. Build, repair, and optimize everyday items like clocks, locks, and carriages. Help communities build better infrastructure to make life easier.'),
+(20, 8, 'Archaeologist',         'Dig up and reconstruct lost technology from ancient ruins. Explore dangerous underground traps to find forgotten historical items. Clean, translate, and preserve ancient tech schematics.'),
+(20, 7, 'Appraiser',             'Identify the exact functions and flaws of any object. Determine the history, value, and weak points of weapons or artifacts. Find the structural vulnerabilities in an enemy''s defensive armor.'),
+(20, 6, 'Alchemist / Gearologist','Combine metallurgy with steam and gear machinery. Build autonomous mechanical items, weapons, or complex steam engines. Standardize factory parts to help trigger industrial progress.'),
+(20, 5, 'Astronomer',            'Build precision lenses to observe the vast physical cosmos. Construct advanced telescopes to calculate the movements of physical planets. Apply stellar mathematics to invent highly accurate navigation tools.'),
+(20, 4, 'Spiritual Alchemist',   'Infuse artificial machines with living human spirits or souls. Build massive, complex clockwork golems or thinking machines. Bridge the gap between cold metal and biological consciousness.'),
+(20, 3, 'Master of Mechanics',   'Automate vast, interconnected factory systems. Design entire manufacturing networks that run without human help. Standardize major industrial systems across cities.'),
+(20, 2, 'Knowledge Archangel',   'Inspire inventors to trigger massive industrial revolutions. Plant advanced scientific ideas into the minds of mortal engineers. Guide a society''s transition from primitive eras into highly advanced technological ages.'),
+(20, 1, 'God of Steam',          'Embody the ultimate spirit of invention, logic, and material creation. Define the absolute physical laws of technology, structure, and engineering for reality. Act as the perfect, logical mind that crafts the material future of the cosmos.'),
+(20, 0, 'Paragon',               'Embody the ultimate spirit of invention, logic, and material creation. Define the absolute physical laws of technology, structure, and engineering for reality. Act as the perfect, logical mind that crafts the material future of the cosmos.');
+
+-- SEQUENCE OF PATHWAY: PRISONER
+INSERT INTO sequences (pathway_id, position, name, description) VALUES
+(21, 9, 'Mutant',                'Adapt to a warped, physically irregular body. Survive and fight using irregular physical adaptations. Live on the edges of society where irregular appearances are ignored.'),
+(21, 8, 'Lunatic',               'Release short, controlled bursts of absolute madness. Fight with wild, unpredictable fury, completely ignoring your own physical pain. Let chaotic thoughts clear out mental blocks before pulling yourself back to reality.'),
+(21, 7, 'Werewolf',              'Balance bloodlust with animal loyalty. Transform into a feral form to hunt down targets efficiently. Form close-knit packs or groups, defending your allies fiercely.'),
+(21, 6, 'Zombie',                'Embody a cold, unfeeling, and rigid physical state. Ignore freezing weather, heavy physical injuries, and emotional pressure. Command basic skeletons or corpses to serve as mindless assistants.'),
+(21, 5, 'Wraith',                'Leave your physical shell behind to exist as an invisible spirit. Fly through solid walls and remain completely invisible to normal eyes. Possess human targets, forcing them to do things against their will.'),
+(21, 4, 'Puppet',                'Treat your own physical body like a lifeless tool. Control your limbs with perfect, robotic precision, cutting off all pain signals. Turn enemies into literal wooden or flesh puppets by hijacking their nerves.'),
+(21, 3, 'Disciple of Delights',  'Gorge on indulgences to understand the absolute limits of desire. Give in completely to wild physical pleasures, food, or luxury. Understand how desire traps the mind, learning to drop it entirely when needed.'),
+(21, 2, 'Confrere of Malice',    'Spread heavy, structural restrictions to trap others. Build curses, traps, and legal/spiritual chains that lock targets down. Force entire communities to follow highly restrictive, painful rules.'),
+(21, 1, 'God of Chained',        'Achieve complete spiritual freedom by putting your body in a permanent, absolute cage. Lock away your desires and physical form behind endless rules, seals, and restrictions. Act as the supreme paradox: an entity that holds ultimate spiritual freedom precisely because it is completely chained.'),
+(21, 0, 'Chained',               'Achieve complete spiritual freedom by putting your body in a permanent, absolute cage. Lock away your desires and physical form behind endless rules, seals, and restrictions. Act as the supreme paradox: an entity that holds ultimate spiritual freedom precisely because it is completely chained.');
+
+-- SEQUENCE OF PATHWAY: ABYSS
+INSERT INTO sequences (pathway_id, position, name, description) VALUES
+(22, 9, 'Criminal',              'Break human laws and social contracts without remorse. Commit calculated crimes while avoiding law enforcement. Identify and exploit the security gaps in houses or banks.'),
+(22, 8, 'Cold-Blooded Killer',   'Eliminate human targets with zero emotional attachment. Execute targets cleanly, ignoring their begs, tears, or pleas for mercy. Keep your heart rate and emotions perfectly flat during dangerous combat.'),
+(22, 7, 'Serial Killer',         'Turn your acts of violence into precise, structured rituals. Plan and execute a series of thematic murders to feed a dark spiritual pattern. Leave specialized signatures or clues to mock law enforcement.'),
+(22, 6, 'Devil',                 'Sense incoming danger and trick others into signing bad deals. Listen to your internal radar to escape police traps right before they close. Convince targets to willingly sign contracts that swap their souls for temporary wealth.'),
+(22, 5, 'Desire Apostle',        'Control and weaponize the active emotional vices of targets. Find a target''s core weakness—like greed or envy—and blow it out of proportion. Make targets destroy themselves by giving in to their own out-of-control passions.'),
+(22, 4, 'Demon of Terror',       'Personify pure, inescapable physical and spiritual dread. Paralyze entire towns or large groups using raw aura and terrifying threats. Feed on the authentic panic and horror of those trapped in your domain.'),
+(22, 3, 'Duke of Despair',       'Destroy hope and make communities give up completely. Orchestrate long, exhausting crises that force populations into pure apathy. Watch civilized groups abandon their morals to survive a dark crisis.'),
+(22, 2, 'Monarch of Malice',     'Establish a permanent, cruel empire built on fear. Govern territories using brutal laws, public executions, and heavy surveillance. Crush any trace of kindness or rebellion with immediate, extreme force.'),
+(22, 1, 'Dark Angel',            'Embody the absolute bottomless pit of universal corruption, filth, and malice. Turn orderly worlds back into twisted, chaotic hellscapes. Act as the ultimate, corrupting weight that pulls all light and virtue down into a bottomless abyss.'),
+(22, 0, 'Abyss',                 'Embody the absolute bottomless pit of universal corruption, filth, and malice. Turn orderly worlds back into twisted, chaotic hellscapes. Act as the ultimate, corrupting weight that pulls all light and virtue down into a bottomless abyss.');
 
 -- ── Seer (sequence_id = 1) ────────────────────────────────────
 INSERT INTO abilities (sequence_id, name, type, description) VALUES
@@ -934,6 +1135,4 @@ INSERT INTO alias (character_id, name, description, volume_start_id, volume_end_
 UPDATE sefirots
 SET great_old_one = 12
 WHERE sefirot_id = 1;
-
-
 

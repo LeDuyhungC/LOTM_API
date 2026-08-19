@@ -11,7 +11,8 @@ services:
       - "5432:5432"
     volumes:
       - lotm_db_data:/var/lib/postgresql/data
-      - ./Database/LOTM_DB_Schema.sql:/docker-entrypoint-initdb.d/schema.sql
+      - ./Database/LOTM_DB_Schema.sql:/docker-entrypoint-initdb.d/01_schema.sql
+      - ./Database/seed.sql:/docker-entrypoint-initdb.d/seed.sql
       - ./Database/chapters.csv:/docker-entrypoint-initdb.d/chapters.csv
       - ./Database/volumes.csv:/docker-entrypoint-initdb.d/volumes.csv
 
