@@ -22,12 +22,11 @@ CREATE TABLE series (
 CREATE TABLE sefirots (
     sefirot_id      SERIAL          PRIMARY KEY,
     name            VARCHAR(255)    NOT NULL UNIQUE,
-    great_old_one   INT,
     description     TEXT
 );
 
 CREATE TABLE epochs (
-    epoch_id    SERIAL          PRIMARY KEY,
+    epoch_id    INT          PRIMARY KEY,
     name        VARCHAR(255)    NOT NULL UNIQUE,
     years       INT,            
     description TEXT
@@ -44,7 +43,7 @@ CREATE TABLE artifacts (
     artifact_id SERIAL          PRIMARY KEY,
     name        VARCHAR(255)    NOT NULL,
     description TEXT,
-    code_name   VARCHAR(255)
+    code_name   VARCHAR(10)
 );
 
 CREATE TABLE factions (
@@ -135,20 +134,21 @@ CREATE TABLE abilities (
 -- =============================================================
 
 CREATE TABLE characters (
-    character_id    SERIAL          PRIMARY KEY,
-    name            VARCHAR(255)    NOT NULL,
-    description     TEXT,
-    is_beyond_god   BOOLEAN         NOT NULL DEFAULT FALSE,
-    epoch_start_id  INT             REFERENCES epochs(epoch_id) ON DELETE SET NULL,
-    epoch_end_id    INT             REFERENCES epochs(epoch_id) ON DELETE SET NULL  -- NULL = still alive
+    character_id        SERIAL          PRIMARY KEY,
+    first_name          VARCHAR(100)    NOT NULL,
+    last_name           VARCHAR(100)    NOT NULL,
+    origin_location_id  INT             REFERENCES locations(location_id) ON DELETE SET NULL,
+    
+    birth_epoch_id      INT             REFERENCES epochs(epoch_id) ON DELETE SET NULL,
+    birth_year          INT,
+    
+    death_epoch_id      INT             REFERENCES epochs(epoch_id) ON DELETE SET NULL,
+    death_year          INT,
+    death_event         TEXT,
+    death_chapter_id    INT             REFERENCES chapters(chapter_id) ON DELETE SET NULL,
+    description         TEXT,
+    UNIQUE (first_name, last_name)
 );
-
--- FK deferred: sefirots.great_old_one → characters (characters must exist first)
-ALTER TABLE sefirots
-    ADD CONSTRAINT fk_sefirot_great_old_one
-    FOREIGN KEY (great_old_one)
-    REFERENCES characters(character_id)
-    ON DELETE SET NULL;
 
 -- =============================================================
 --  ALIAS  (1:N — one character has many aliases)
@@ -157,10 +157,8 @@ ALTER TABLE sefirots
 CREATE TABLE alias (
     alias_id            SERIAL          PRIMARY KEY,
     character_id        INT             NOT NULL REFERENCES characters(character_id) ON DELETE CASCADE,
-    name                VARCHAR(255)    NOT NULL,           -- e.g. "Fool", "Moon", "Star"
+    name                VARCHAR(255)    NOT NULL,
     description         TEXT,
-    volume_start_id     INT             NOT NULL REFERENCES volumes(volume_id) ON DELETE RESTRICT,
-    volume_end_id       INT             REFERENCES volumes(volume_id) ON DELETE SET NULL,  -- NULL = still active
     UNIQUE (character_id, name)
 );
 

@@ -11,7 +11,7 @@ const getByParentId = async (request: Request<{ parentId: string }>, response: R
         const result = await pool.query(`
             SELECT
                 name,
-                description
+                description,
                 epoch_start_id,
                 epoch_end_id
             FROM locations
@@ -21,7 +21,7 @@ const getByParentId = async (request: Request<{ parentId: string }>, response: R
 
         if (result.rowCount === 0) {
             response.status(400).json({
-                error: `Location parentId ${id} not found`,
+                error: `Location parentId ${parentId} not found`,
             });
             return;
         }
@@ -36,3 +36,5 @@ const getByParentId = async (request: Request<{ parentId: string }>, response: R
         });
     }
 };
+
+export { getByParentId };

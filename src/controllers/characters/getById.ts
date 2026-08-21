@@ -11,13 +11,19 @@ const getById = async (request: Request<{ id: string }>, response: Response): Pr
 
         const result = await pool.query(`
             SELECT
-                name,
-                description,
-                is_beyond_god,
-                epoch_start_id,
-                epoch_end_id
+                first_name,
+                last_name,
+                origin_location_id,
+                birth_epoch_id,
+                birth_year,
+                death_epoch_id,
+                death_year,
+                death_event,
+                death_chapter_id,
+                description
             FROM characters
             WHERE character_id = $1
+            ORDER BY name ASC
             `, [id]);
 
         if (result.rowCount === 0) {

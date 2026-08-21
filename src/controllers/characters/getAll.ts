@@ -7,10 +7,13 @@ const getAll = async (_request: Request, response: Response): Promise<void> => {
             SELECT
                 character_id,
                 name,
-                description,
-                is_beyond_god,
-                epoch_start_id,
-                epoch_end_id
+                origin_location_id,
+                birth_epoch_id,
+                birth_year,
+                death_epoch_id,
+                death_year,
+                death_event,
+                death_chapter_id
             FROM characters
             ORDER BY character_id ASC
         `);

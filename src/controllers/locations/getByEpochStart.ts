@@ -14,7 +14,7 @@ const getByEpochStart = async (request: Request<{ epoch_start_id: string }>, res
                 region,
                 description,
                 epoch_end_id
-            FROM location
+            FROM locations
             WHERE epoch_start_id = $1
             ORDER BY epoch_end_id
         `, [epochStartId]

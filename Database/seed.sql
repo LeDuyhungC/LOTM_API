@@ -42,11 +42,12 @@ INSERT INTO sefirots (name, description) VALUES
 --  3. EPOCHS
 -- =============================================================
 
-INSERT INTO epochs (name, years, description) VALUES
-('First Epoch', 981, 'The Age of Chaos, It began when the Original Creator fully awakened from slumber, destroying modern human civilization and shattering into the 22 Beyonder pathways and various Sephiroths.'),
-('Second Epoch',2561, 'The Dark Epoch or the Age of the Ancient Gods, It was a brutal era where humanity was weak and enslaved, and the world was ruled completely by powerful non-human races and innate Ancient Gods. The chaos of this brutal era eventually shifted during the cataclysmic conflicts that led to the rise of the Ancient Sun God.'),
-('Third Epoch', 1086 , 'Humanity finally stepped out from under the shadows and slavery of older, tyrannical alien races, outpacing them in growth. The epoch ended in a massive cataclysm triggered when the Ancient Sun God was betrayed by His own Kings of Angels and faced internal mental collapse from the awakening of the Primordial God Almighty. Civilization reset, and the continents were permanently fractured.'),
-('Fourth Epoch', 1233, 'the Epoch of the Gods. It began with the death of the Ancient Sun God and the appearance of the Second Blasphemy Slate, leading to an era where Sequence 0 deities and angels openly walked the earth and fought for supreme rule. Soloman first empire founded after the fall of the Ancient Sun God united the leftover continents after the collapse of the Soloman empire split empires were formed Soloman, Tudor Trunsoest, and Balam Empires. War of the Four Emperors resulted in the madness and death of the contending emperors, the reshaping of the continent''s political landscape, and the establishment of the current orthodox churches and kingdoms of the Fifth Epoch.'),
+INSERT INTO epochs (epoch_id, name, years, description) VALUES
+(0, 'Pre-Epoch', NULL, 'The beginning of time to when the Original Creator partially woke up and destroyed what is present day earth killing all of human civilization starting the first epoch'),
+(1, 'First Epoch', 981, 'The Age of Chaos, It began when the Original Creator fully awakened from slumber, destroying modern human civilization and shattering into the 22 Beyonder pathways and various Sephiroths.'),
+(2, 'Second Epoch',2561, 'The Dark Epoch or the Age of the Ancient Gods, It was a brutal era where humanity was weak and enslaved, and the world was ruled completely by powerful non-human races and innate Ancient Gods. The chaos of this brutal era eventually shifted during the cataclysmic conflicts that led to the rise of the Ancient Sun God.'),
+(3, 'Third Epoch', 1086 , 'Humanity finally stepped out from under the shadows and slavery of older, tyrannical alien races, outpacing them in growth. The epoch ended in a massive cataclysm triggered when the Ancient Sun God was betrayed by His own Kings of Angels and faced internal mental collapse from the awakening of the Primordial God Almighty. Civilization reset, and the continents were permanently fractured.'),
+(4, 'Fourth Epoch', 1233, 'the Epoch of the Gods. It began with the death of the Ancient Sun God and the appearance of the Second Blasphemy Slate, leading to an era where Sequence 0 deities and angels openly walked the earth and fought for supreme rule. Soloman first empire founded after the fall of the Ancient Sun God united the leftover continents after the collapse of the Soloman empire split empires were formed Soloman, Tudor Trunsoest, and Balam Empires. War of the Four Emperors resulted in the madness and death of the contending emperors, the reshaping of the continent''s political landscape, and the establishment of the current orthodox churches and kingdoms of the Fifth Epoch.'),
 ('Fifth Epoch',  1349, 'The current era. An age of steam and industry, roughly analogous to the Victorian period. Klein Moretti''s story takes place around year 1349-1352 of this epoch.');
 
 
@@ -135,7 +136,7 @@ INSERT INTO locations (name, region, description, parent_location_id, epoch_star
 -- Top-level (no parent)
 -- ID: 1
 ('Northern Continent', NULL,
- 'The primary continent where most of the story takes place. Home to the Loen Kingdom, Feysac Empire, and Intis Republic.',
+ 'The primary continent where most of the story takes place. Home to the Loen Kingdom, Feysac Empire, and Intis Republic of the 5th epoch.',
  NULL, 1, NULL),
 -- ID: 2
 ('Southern Continent', NULL,
@@ -654,6 +655,12 @@ INSERT INTO locations (name, region, description, parent_location_id, epoch_star
  'A northern island chain under Feysac control that marks the edge of the safe, established maritime route used to sail northeast directly into the Sea of Ruins.',
  10, 5, NULL);
 
+ --ID: 118 | parent: 17
+ ('East Chester County', 'Loen Kingdom',
+ 'County outside of Backlund City in the Loen Kingdom. Where the Hall family castle is located.',
+ 17, 5, NULL);
+ 
+
 -- =============================================================
 --  10. PATHWAYS 
 -- =============================================================
@@ -1045,65 +1052,45 @@ INSERT INTO abilities (sequence_id, name, type, description) VALUES
 --  13. CHARACTERS
 -- =============================================================
 
-INSERT INTO characters (name, description, is_beyond_god, epoch_start_id, epoch_end_id) VALUES
-('Klein Moretti',
- 'The main protagonist of Lord of the Mysteries. A university graduate from modern Earth who transmigrates into the Loen Kingdom. He eventually ascends the Fool pathway and takes the seat of the ancient Outer God, The Fool.',
- TRUE, 4, NULL),
+INSERT INTO characters (first_name, last_name, origin_location_id, birth_epoch_id, birth_year, death_epoch_id, death_year, death_event, death_chapter_id, description) VALUES
+('Zhou', 'Mingrui', 18, 0, NULL, NULL, NULL, NULL, NULL, 
+ 'Soul Transmigrator from China placed in a unkown world with mysterious gods watching. Insanely cautious and stingy with money.'),
 
-('Audrey Hall',
- 'The daughter of a prominent Loen noble family. Secretly a Beyonder who joins the Tarot Club as "The Justice." She walks the Justice pathway and is recruited by the Psychology Alchemists.',
- FALSE, 4, NULL),
+('Audrey', 'Hall', 118, 5, 1332, NULL, NULL, NULL, NULL,
+ 'The daughter of a prominent Loen noble family, naive about the world she lives in, however, very curious about the mysterious world of beyonders'),
 
-('Alger Wilson',
- 'A privateer captain with a dark past. A seasoned Beyonder who later joins the Tarot Club as "The Hanged Man." He walks the Hanged Man pathway and has complex loyalties.',
- FALSE, 4, NULL),
+('Alger', 'Wilson', 6, 5, 1317, NULL, NULL, NULL, NULL,
+ 'A privateer captain with a dark past. A seasoned Beyonder that sails the sea searching for power and higher purpose.'),
 
-('Derrick Berg',
- 'A young Beyonder from the City of Silver, a hidden community that has existed in isolation for generations. Joins the Tarot Club as "The Sun" on the Sun pathway.',
- FALSE, 4, NULL),
+('Derrick', 'Berg', 82, 5, 1335, NULL, NULL, NULL, NULL,
+ 'A young man searching for hope that his people in desperately need in the darkness of the foresaken land.'),
 
-('Emlyn White',
- 'A pure-blooded Vampire, proud of his bloodline and initially arrogant. Joins the Tarot Club as "The Moon" on the Moon pathway.',
- FALSE, 4, NULL),
+('Emlyn', 'White', 25, 5, 1312, NULL, NULL, NULL, NULL,
+ 'A pure-blooded Vampire, proud of his bloodline and arrogant. He enjoys collecting detailed dolls and stay at home.'),
 
-('Cattleya',
- 'A powerful and enigmatic female Beyonder and captain of the ship Spirit of Pleasure. A high-ranking Rose Bishop of the Rose School of Thought. Joins the Tarot Club as "The Hermit" on the Star pathway.',
- FALSE, 4, NULL),
+('Cattleya', NULL, NULL, 5, 1332, NULL, NULL, NULL, NULL,
+ 'A pirate and captain of the ship Spirit of Pleasure. Lost connection to someone important to her she now travels the sea searching for answers and a path for herself'),
 
-('Fors Wall',
- 'A writer who becomes a Beyonder. Represents "The Star" in the Tarot Club meetings.',
- FALSE, 4, NULL),
+('Fors', 'Wall', 27, 5, 1326, NULL, NULL, NULL, NULL,
+ 'A writer who wants to explore the world given powers by a forgotten ancient family in the past she wants to learn more about the beyonder world. She is quite lazy and has a wild imagination.'),
 
-('Xio Derecha',
- 'A bounty hunter and close partner of Fors Wall. Becomes a Beyonder and participates in Tarot Club activities.',
- FALSE, 4, NULL),
+('Xio', 'Derecha', 29 ,5 ,1326, NULL, NULL, NULL, NULL,
+ 'A bounty hunter and close partner of Fors Wall. Becomes a Beyonder and participates in Tarot Club activities.'),
 
-('Miss Sharron',
- 'A cold and powerful Beyonder. One of the early members of the Tarot Club representing "The World." She walks the Death pathway.',
- FALSE, 4, NULL),
-
-('Leonard Mitchell',
- 'A Nighthawk colleague of Klein in Tingen City who acts as his mentor. Harbors a hidden identity connected to one of the most powerful figures in the world.',
- FALSE, 4, NULL),
+('Leonard', 'Mitchell', 18, 5, 1324, NULL, NULL, NULL, NULL,
+ 'A Nighthawk colleague of Klein in Tingen City who acts as his mentor. Harbors a hidden identity connected to one of the most powerful figures in the world.'),
 
 ('Azik Eggers',
  'The ancient postman of supernatural origin. He gifts Klein the copper whistle. His true nature is deeply connected to the Death pathway and the ancient world.',
  FALSE, 2, NULL),
 
-('The Ancient Fool',
- 'The Outer God who originally held the seat of The Fool before Klein Moretti. A being of immense power who set events in motion across millennia.',
- TRUE, 1, 4),
-
-('Rosago',
- 'A powerful Beyonder on the Lovers pathway and a high-ranking figure in a major organization. An early antagonist whose downfall is orchestrated by Klein.',
- FALSE, 4, 4);
 
 
 -- =============================================================
 --  14. ALIASES
 -- =============================================================
 
-INSERT INTO alias (character_id, name, description, volume_start_id, volume_end_id) VALUES
+INSERT INTO alias (character_id, name, description) VALUES
 -- Klein Moretti (character_id = 1)
 (1, 'The Fool',              'Klein''s primary persona in the Tarot Club. He poses as an all-knowing, ancient Outer God to his fellow members.',       1, NULL),
 (1, 'Gehrman Sparrow',       'Klein''s fearsome bounty hunter alias in the Rorsted Archipelago. Known as one of the most dangerous Beyonders.',         2, NULL),
