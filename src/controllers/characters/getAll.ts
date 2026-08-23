@@ -6,16 +6,18 @@ const getAll = async (_request: Request, response: Response): Promise<void> => {
         const result = await pool.query(`
             SELECT
                 character_id,
-                name,
+                first_name,
+                last_name,
                 origin_location_id,
                 birth_epoch_id,
                 birth_year,
                 death_epoch_id,
                 death_year,
                 death_event,
-                death_chapter_id
+                death_chapter_id,
+                description
             FROM characters
-            ORDER BY character_id ASC
+            ORDER BY name ASC
         `);
 
         response.status(200).json({

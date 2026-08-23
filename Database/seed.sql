@@ -1078,11 +1078,33 @@ INSERT INTO characters (first_name, last_name, origin_location_id, birth_epoch_i
  'A bounty hunter and close partner of Fors Wall. Becomes a Beyonder and participates in Tarot Club activities.'),
 
 ('Leonard', 'Mitchell', 18, 5, 1324, NULL, NULL, NULL, NULL,
- 'A Nighthawk colleague of Klein in Tingen City who acts as his mentor. Harbors a hidden identity connected to one of the most powerful figures in the world.'),
+ 'A Nighthawk colleague of Klein in Tingen City who acts as his mentor. Harbors a hidden secret that affects every decision he makes.'),
 
-('Azik Eggers',
- 'The ancient postman of supernatural origin. He gifts Klein the copper whistle. His true nature is deeply connected to the Death pathway and the ancient world.',
- FALSE, 2, NULL),
+('Benson', 'Moretti', 18, 5, 1314, NULL, NULL, NULL, NULL,
+ 'A hard working brother seeking to provide for his family. Intelligent and curious from clerk to working in the Ministery of Finance in the Loen Kingdom.'),
+
+ ('Melissa', 'Moretti', 18, 5, 1333, NULL, NULL, NULL, NULL,
+ 'Intelligent young lady absorbed in understanding and creating machinery studying as a machinary student in University.'),
+
+ ('Dunn', 'Smith', 18, 5, 1333, NULL, NULL, NULL, NULL,
+ 'A middle aged gentleman that protects the city of Tingen as a beyonder under the Evernight Goddess Nighthawks. Memory is not as good as it could be and tries to make up for it by being a great captain.'),
+
+ ('Neil', 'Neil', 18, 5, 1288, 5, 1349,
+ 'Given forbidden knowledge by the hidden sage, he went mad thinking he could revive his wife turning and him to a monster, Dunn shooting him to end his suffering', 165,
+ 'A old man that works for the Tingen Nighthawks through his years he follows the motto "Do as you wish, but do no harm."'),
+
+ ('Daly', 'Simone', 18, 5, 1325, 1350, 
+ 'Klein turns Daly into a marionette to kill her peacefully instead of corruption turning her into a monster. Daly passes away peacefully with a smile on her face, believing she is dying in the arms of the man she loved.', 945,
+ 'A talented beyonder mastering the principles to quickly progress the levels towards godhood. Always fond of Dunn Smith and his caring nature.'),
+
+ ('Azik', 'Eggers', 2, 4, NULL, NULL, NULL, NULL, NULL,
+ 'A wonderer that roamed the world forgetting his memories of his past, but always continues to live. Always close with death sticking with him and his fate.'),
+
+
+
+
+
+
 
 
 
@@ -1092,26 +1114,29 @@ INSERT INTO characters (first_name, last_name, origin_location_id, birth_epoch_i
 
 INSERT INTO alias (character_id, name, description) VALUES
 -- Klein Moretti (character_id = 1)
-(1, 'The Fool',              'Klein''s primary persona in the Tarot Club. He poses as an all-knowing, ancient Outer God to his fellow members.',       1, NULL),
-(1, 'Gehrman Sparrow',       'Klein''s fearsome bounty hunter alias in the Rorsted Archipelago. Known as one of the most dangerous Beyonders.',         2, NULL),
-(1, 'Detective Moriarty',    'A detective alias Klein uses while investigating cases in Backlund.',                                                      2, NULL),
+(1, 'The Fool',              'Zhou Mingrui''s primary persona, He poses as an all-knowing, ancient Outer God to his fellow members.'),
+(1, 'Gehrman Sparrow',       'Klein''s fearsome bounty hunter alias in the Rorsted Archipelago. Known as one of the most dangerous Beyonders.'),
+(1, 'Detective Moriarty',    'A detective alias Klein uses while investigating cases in Backlund.'),
+(1, 'The World',              'The tarot card Zhou Mingrui picked out for himself for his smurf account'),
+(1, 'Dwayne Dantes',          'A wealthy buisness man identity to infiltrate high society and the Church of the Evernight'),
+(1, 'Merlin Hermes',          'A wondering magician that preforms miracles to those he meets'),
 -- Audrey Hall (character_id = 2)
-(2, 'The Justice',           'Audrey''s role in the Tarot Club, named for the Major Arcana card.',                                                      1, NULL),
+(2, 'The Justice',           'Audrey''s role in the Tarot Club, named for the Major Arcana card.'),
 -- Alger Wilson (character_id = 3)
-(3, 'The Hanged Man',        'Alger''s role in the Tarot Club.',                                                                                        1, NULL),
+(3, 'The Hanged Man',        'Alger''s role in the Tarot Club.'),
 -- Derrick Berg (character_id = 4)
-(4, 'The Sun',               'Derrick''s role in the Tarot Club.',                                                                                      2, NULL),
+(4, 'The Sun',               'Derrick''s role in the Tarot Club.'),
 -- Emlyn White (character_id = 5)
-(5, 'The Moon',              'Emlyn''s role in the Tarot Club.',                                                                                        2, NULL),
+(5, 'The Moon',              'Emlyn''s role in the Tarot Club.'),
 -- Cattleya (character_id = 6)
-(6, 'The Hermit',            'Cattleya''s role in the Tarot Club.',                                                                                     2, NULL),
-(6, 'Rose Bishop',           'Cattleya''s rank within the Rose School of Thought.',                                                                     1, NULL),
+(6, 'The Hermit',            'Cattleya''s role in the Tarot Club.'),
+(6, 'Rose Bishop',           'Cattleya''s rank within the Rose School of Thought.'),
 -- Fors Wall (character_id = 7)
-(7, 'The Star',              'Fors''s role in the Tarot Club.',                                                                                         2, NULL),
+(7, 'The Star',              'Fors''s role in the Tarot Club.'),
 -- Miss Sharron (character_id = 9)
-(9, 'The World',             'Miss Sharron''s role in the early Tarot Club. Position later taken by Klein in field operations.',                        1, 3),
+(9, 'The World',             'Miss Sharron''s role in the early Tarot Club. Position later taken by Klein in field operations.',),
 -- Leonard Mitchell (character_id = 10)
-(10,'Blazing Hearthfire',    'One of Leonard''s known Beyonder aliases.',                                                                               1, NULL);
+(10,'Blazing Hearthfire',    'One of Leonard''s known Beyonder aliases.',);
 
 
 -- =============================================================

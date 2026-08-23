@@ -136,7 +136,7 @@ CREATE TABLE abilities (
 CREATE TABLE characters (
     character_id        SERIAL          PRIMARY KEY,
     first_name          VARCHAR(100)    NOT NULL,
-    last_name           VARCHAR(100)    NOT NULL,
+    last_name           VARCHAR(100),
     origin_location_id  INT             REFERENCES locations(location_id) ON DELETE SET NULL,
     
     birth_epoch_id      INT             REFERENCES epochs(epoch_id) ON DELETE SET NULL,
