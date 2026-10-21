@@ -7,9 +7,8 @@ const getAll = async (_request: Request, response: Response): Promise<void> => {
             SELECT
                 sefirot_id,
                 name,
-                great_old_one,
                 description
-            FROM sefirot
+            FROM sefirots
             ORDER BY sefirot_id ASC
         `);
 

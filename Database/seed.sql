@@ -48,7 +48,7 @@ INSERT INTO epochs (epoch_id, name, years, description) VALUES
 (2, 'Second Epoch',2561, 'The Dark Epoch or the Age of the Ancient Gods, It was a brutal era where humanity was weak and enslaved, and the world was ruled completely by powerful non-human races and innate Ancient Gods. The chaos of this brutal era eventually shifted during the cataclysmic conflicts that led to the rise of the Ancient Sun God.'),
 (3, 'Third Epoch', 1086 , 'Humanity finally stepped out from under the shadows and slavery of older, tyrannical alien races, outpacing them in growth. The epoch ended in a massive cataclysm triggered when the Ancient Sun God was betrayed by His own Kings of Angels and faced internal mental collapse from the awakening of the Primordial God Almighty. Civilization reset, and the continents were permanently fractured.'),
 (4, 'Fourth Epoch', 1233, 'the Epoch of the Gods. It began with the death of the Ancient Sun God and the appearance of the Second Blasphemy Slate, leading to an era where Sequence 0 deities and angels openly walked the earth and fought for supreme rule. Soloman first empire founded after the fall of the Ancient Sun God united the leftover continents after the collapse of the Soloman empire split empires were formed Soloman, Tudor Trunsoest, and Balam Empires. War of the Four Emperors resulted in the madness and death of the contending emperors, the reshaping of the continent''s political landscape, and the establishment of the current orthodox churches and kingdoms of the Fifth Epoch.'),
-('Fifth Epoch',  1349, 'The current era. An age of steam and industry, roughly analogous to the Victorian period. Klein Moretti''s story takes place around year 1349-1352 of this epoch.');
+(5,'Fifth Epoch',  1349, 'The current era. An age of steam and industry, roughly analogous to the Victorian period. Klein Moretti''s story takes place around year 1349-1352 of this epoch.');
 
 
 -- =============================================================
@@ -69,7 +69,18 @@ INSERT INTO materials (name, description, rarity) VALUES
 ('Thousand-faced Hunter Leather','Skin from a Thousand-faced Hunter Beyonder. Extremely rare and prized.',                      'Very Rare'),
 ('Sea Monster Core',            'The mana core of a powerful sea creature. Used in Hanged Man pathway formulas.',               'Rare'),
 ('Silver Moon Dust',            'Dust collected under a full moon with silver properties. Used in Moon pathway formulas.',      'Uncommon'),
-('Sunlight Crystal',            'A crystal that stores concentrated sunlight. Used in Sun pathway formulas.',                   'Uncommon');
+('Sunlight Crystal',            'A crystal that stores concentrated sunlight. Used in Sun pathway formulas.',                   'Uncommon'),
+('Lavos Squid Blood',           'Blood from a mutant Lavos Squid in the Sunken Sea, a primary ingredient in the Seer potion formula.', 'Uncommon'),
+('Stella Aqua Crystal',         'A glowing aquatic crystal that resonates with spiritual energy, primary ingredient for Seer.', 'Uncommon'),
+('Hornacis Shadow Wolf Horn',   'A single horn of a shadow wolf from the Hornacis mountain range, primary ingredient for Clown.', 'Rare'),
+('Real Clown Fish Blood',       'Blood from a true deep-sea Clown Fish, essential catalyst for the Clown potion.',             'Uncommon'),
+('Mist Stalker Characteristic', 'Beyonder characteristic of a Mist Stalker, primary ingredient for Magician.',                 'Rare'),
+('Shadow Wolf Gland',           'A specialized gland from an adult Shadow Wolf, primary ingredient for Faceless.',             'Very Rare'),
+('Spirit Eater Core',           'The core of an ancient spiritual parasite, primary ingredient for Marionettist.',              'Very Rare'),
+('Golden-eyed Tree Frog Gland', 'Gland of a rare golden-eyed tree frog, primary ingredient for Marionettist.',                 'Very Rare'),
+('Dragon Eyeball',              'Preserved eyeball of a Mind Dragon, primary ingredient for Spectator pathway potions.',        'Very Rare'),
+('Rainbow Salamander Gland',    'Pituitary gland from a rainbow salamander, primary ingredient for Telepathist.',              'Rare'),
+('Wind Spirit Tree Fruit',      'Fruit of the legendary wind spirit tree, primary ingredient for Sailor pathway.',              'Uncommon');
 
 
 -- =============================================================
@@ -84,7 +95,16 @@ INSERT INTO artifacts (name, description, code_name) VALUES
 ('Siren''s Whistle',                'A whistle that mimics the call of a Siren, capable of luring and entrancing nearby targets. Classified Sequence 2.',                                                  null),
 ('Tinder''s Flames',                'A vial containing a fragment of the Eternal Blazing Sun''s fire. Devastating against darkness-type Beyonders.',                                                       null),
 ('Nightmare Realm Painting',        'A painting that drags viewers into a Nightmare Realm. Associated with the Moon pathway.',                                                                              '1-42'),
-('Evernight Goddess Blessed Sword', 'A long sword blessed by the Evernight Goddess. Effective against the undead and creatures of darkness.',                                                               '0-012');
+('Evernight Goddess Blessed Sword', 'A long sword blessed by the Evernight Goddess. Effective against the undead and creatures of darkness.',                                                               '0-012'),
+('Creeping Hunger',                 'A human-skin glove originally owned by Pirate Admiral Qilangos and later Klein Moretti. Grazes the souls of up to five Beyonders and utilizes their powers, requiring a sacrifice of human flesh daily unless fed with criminals.', null),
+('Arrodes',                         'A silver ancient mirror with patterns of eyes on the back. Requires users to answer an embarrassing or dangerous truth after asking it a question, but treats Klein Moretti with extreme reverence.', null),
+('Staff of the Stars',              'A dark staff inlaid with gems crafted by Klein Moretti combining the Box of the Great Old Ones and a Key of Stars characteristic, allowing instant teleportation to any place recorded or imagined.', null),
+('Word of the Sea',                 'A white bone scepter embedded with a blue jewel possessing the power of a Sequence 5 Ocean Songster, creating lightning storms and summoning water creatures.', '3-1111'),
+('Leymano''s Travels',              'A bronze-covered notebook created by Mr. Fool for Miss Magician (Fors Wall) that records and replays Beyonder abilities when pages are torn or activated.', null),
+('Master Key',                      'A brass key artifact belonging to the Apprentice pathway that can unlock almost any physical or spiritual door, but causes the owner to lose their sense of direction and get lost.', null),
+('Sun Brooch',                      'A golden brooch warm to the touch that radiates purifying sunlight and grants immunity to dark corruption, crafted from the Sun pathway.', null),
+('0-08',                            'A normal-looking feather quill that automatically writes stories into reality, orchestrating coincidences and controlling fates. Used by Ince Zangwill.', '0-08'),
+('Death Consul Ring',               'An ancient copper ring carrying the chill of the underworld belonging to Death Consul Azik Eggers.', null);
 
 
 -- =============================================================
@@ -93,20 +113,26 @@ INSERT INTO artifacts (name, description, code_name) VALUES
 
 INSERT INTO factions (name, description) VALUES
 ('Tarot Club',                      'A secret gathering of Beyonders convened "Above the Grey Fog" and presided over by "The Fool" (Klein Moretti). Members use their Major Arcana titles to protect their true identities.'),
-('Nighthawks',                      'A Beyonder hunter organization operating under the Church of the Evernight Goddess. Responsible for managing supernatural threats. Klein''s first affiliation, based in Tingen City.'),
-('Machinery Hivemind',              'A secret Beyonder organization pursuing the merger of man and machine. Operates primarily in large industrial cities.'),
-('Psychology Alchemists',           'A secret Beyonder organization specializing in mental abilities and psychological research. Audrey Hall is recruited by them.'),
+('Nighthawks',                      'A Beyonder hunter organization operating under the Church of the Evernight Goddess. Responsible for managing supernatural threats.'),
+('Machinery Hivemind',              'A Beyonder organization pursuing the merger of man and machine. Operates primarily in large industrial cities and follows the God of Steam.'),
+('Mandated Punisher',               'A Beyonder organization that master the art of sailing and navigation. A powerful Navy that follows the Tyrant Sea god'),
+('Psychology Alchemists',           'A Beyonder organization specializing in mental abilities and psychological.'),
 ('Twilight Hermit Order',           'An ancient and powerful secret society with obscure, long-term goals. Presence felt across multiple continents.'),
-('The Rose School of Thought',      'A secret Beyonder organization associated with the Lovers pathway. Known for charm and manipulation. Cattleya holds rank within them.'),
+('The Rose School of Thought Indulgence',      'Known for there terrorism throughout the North and South continent with acts like sacrificial killing, frenzy murder, and aggression. Worships primal desires as the source of there power'),
+('The Rose School of Thought Temperance',       'The other half of the The Rose School of Thought focuses on containing desires and emotions when the time is needed release the pent up emotion for relentless power. This splinter faction is hunted down by the Indulgence faction to near extinction.'),
 ('Church of the Evernight Goddess', 'One of the five major churches of the Northern Continent. Worships the Goddess of the Night. Known for charity, honesty, and combating the undead. Sponsor of the Nighthawks.'),
 ('Church of the Lord of Storms',    'A major church associated with the sea, storms, and seafarers. Popular among sailors and inhabitants of coastal regions.'),
-('Church of the God of Steam',      'A church worshipping the God of Steam and Machinery. Associated with industrial technology and mechanical innovation.'),
+('Church of the God of Steam',      'A church worshipping the God of Steam and Machinery. Associated with industrial technology and mechanical innovation. Sponsor of the Machinary Hivemind'),
 ('Church of the God of Knowledge',  'A church associated with the pursuit of knowledge, including forbidden and dangerous wisdom.'),
 ('Loen Kingdom',                    'The dominant political power in the Northern Continent, analogous to Victorian-era Britain. Home to most of the story''s primary events.'),
 ('Feysac Empire',                   'A large northern empire and rival to the Loen Kingdom, analogous to Tsarist Russia.'),
 ('Intis Republic',                  'A western republic with a revolutionary history, analogous to France. Strong presence of Beyonder circles.'),
 ('Abraham Family',                  'An ancient and powerful noble family with deep ties to Beyonder history and high-level sealed artifacts.'),
-('Zaratul Family',                  'A secretive and feared family with an ancient connection to the Fool pathway. Their patriarch is of near-godlike power.');
+('Zaratul Family',                  'A secretive and feared family with an ancient connection to the Fool pathway. Their patriarch is of near-godlike power.'),
+('City of Silver',                  'An isolated ancient human city located in the Forsaken Land of the Gods that has survived the Dark Cataclysm for thousands of years under constant darkness.'),
+('Aurora Order',                    'A fanatical secret organization that worships the True Creator, infamous for extreme rituals, sacrificial madness, and listening to the ravings of god.'),
+('Secret Order',                    'An ancient secret society led by the Zaratul family, holding secrets and formulas of the Seer pathway.'),
+('MI9',                             'Military Intelligence Section 9 of the Loen Kingdom, dealing with national security, espionage, and official Beyonder policing.');
 
 
 -- =============================================================
@@ -653,7 +679,7 @@ INSERT INTO locations (name, region, description, parent_location_id, epoch_star
 -- ID: 117 | parent: 10
 ('Gargas Archipelago', 'Sea of Ruins',
  'A northern island chain under Feysac control that marks the edge of the safe, established maritime route used to sail northeast directly into the Sea of Ruins.',
- 10, 5, NULL);
+ 10, 5, NULL),
 
  --ID: 118 | parent: 17
  ('East Chester County', 'Loen Kingdom',
@@ -1074,77 +1100,334 @@ INSERT INTO characters (first_name, last_name, origin_location_id, birth_epoch_i
 ('Fors', 'Wall', 27, 5, 1326, NULL, NULL, NULL, NULL,
  'A writer who wants to explore the world given powers by a forgotten ancient family in the past she wants to learn more about the beyonder world. She is quite lazy and has a wild imagination.'),
 
-('Xio', 'Derecha', 29 ,5 ,1326, NULL, NULL, NULL, NULL,
+('Xio', 'Derecha', 29, 5, 1326, NULL, NULL, NULL, NULL,
  'A bounty hunter and close partner of Fors Wall. Becomes a Beyonder and participates in Tarot Club activities.'),
 
 ('Leonard', 'Mitchell', 18, 5, 1324, NULL, NULL, NULL, NULL,
  'A Nighthawk colleague of Klein in Tingen City who acts as his mentor. Harbors a hidden secret that affects every decision he makes.'),
 
 ('Benson', 'Moretti', 18, 5, 1314, NULL, NULL, NULL, NULL,
- 'A hard working brother seeking to provide for his family. Intelligent and curious from clerk to working in the Ministery of Finance in the Loen Kingdom.'),
+ 'A hard working brother seeking to provide for his family. Intelligent and curious from clerk to working in the Ministry of Finance in the Loen Kingdom.'),
 
- ('Melissa', 'Moretti', 18, 5, 1333, NULL, NULL, NULL, NULL,
- 'Intelligent young lady absorbed in understanding and creating machinery studying as a machinary student in University.'),
+('Melissa', 'Moretti', 18, 5, 1333, NULL, NULL, NULL, NULL,
+ 'Intelligent young lady absorbed in understanding and creating machinery studying as a machinery student in University.'),
 
- ('Dunn', 'Smith', 18, 5, 1333, NULL, NULL, NULL, NULL,
- 'A middle aged gentleman that protects the city of Tingen as a beyonder under the Evernight Goddess Nighthawks. Memory is not as good as it could be and tries to make up for it by being a great captain.'),
+('Dunn', 'Smith', 18, 5, 1315, 5, 1349,
+ 'Sacrificed his life consuming Saint Selena''s ashes and the characteristic of Megose to protect Tingen City during Ince Zangwill''s conspiracy.', 211,
+ 'A middle aged gentleman that protects the city of Tingen as captain of the Nighthawks. Memory is not as good as it could be and tries to make up for it by being a great captain who protects his team.'),
 
  ('Neil', 'Neil', 18, 5, 1288, 5, 1349,
  'Given forbidden knowledge by the hidden sage, he went mad thinking he could revive his wife turning and him to a monster, Dunn shooting him to end his suffering', 165,
  'A old man that works for the Tingen Nighthawks through his years he follows the motto "Do as you wish, but do no harm."'),
 
- ('Daly', 'Simone', 18, 5, 1325, 1350, 
+ ('Daly', 'Simone', 18, 5, 1325, 5, 1350, 
  'Klein turns Daly into a marionette to kill her peacefully instead of corruption turning her into a monster. Daly passes away peacefully with a smile on her face, believing she is dying in the arms of the man she loved.', 945,
  'A talented beyonder mastering the principles to quickly progress the levels towards godhood. Always fond of Dunn Smith and his caring nature.'),
 
  ('Azik', 'Eggers', 2, 4, NULL, NULL, NULL, NULL, NULL,
- 'A wonderer that roamed the world forgetting his memories of his past, but always continues to live. Always close with death sticking with him and his fate.'),
-
-
-
-
-
-
-
+ 'A wonderer that roamed the world forgetting his memories of his past, but always continues to live. Always close with death sticking with him and his fate.');
 
 
 -- =============================================================
 --  14. ALIASES
 -- =============================================================
 
-INSERT INTO alias (character_id, name, description) VALUES
+INSERT INTO aliases (character_id, name, description) VALUES
 -- Klein Moretti (character_id = 1)
-(1, 'The Fool',              'Zhou Mingrui''s primary persona, He poses as an all-knowing, ancient Outer God to his fellow members.'),
-(1, 'Gehrman Sparrow',       'Klein''s fearsome bounty hunter alias in the Rorsted Archipelago. Known as one of the most dangerous Beyonders.'),
-(1, 'Detective Moriarty',    'A detective alias Klein uses while investigating cases in Backlund.'),
-(1, 'The World',              'The tarot card Zhou Mingrui picked out for himself for his smurf account'),
-(1, 'Dwayne Dantes',          'A wealthy buisness man identity to infiltrate high society and the Church of the Evernight'),
-(1, 'Merlin Hermes',          'A wondering magician that preforms miracles to those he meets'),
+(1, 'Klein Moretti',         'The primary transmigrated identity Zhou Mingrui assumes in Tingen City and carries through his journey.'),
+(1, 'The Fool',              'Zhou Mingrui''s persona as the mysterious convener of the Tarot Club above the gray fog.'),
+(1, 'The World',             'Klein''s smurf account and designated field-operative persona within the Tarot Club.'),
+(1, 'Sherlock Moriarty',     'Klein''s consulting detective alias while living and investigating in Backlund during Volume 2.'),
+(1, 'Gehrman Sparrow',       'Klein''s cold, ruthless pirate-hunter persona across the Sonia Sea and Rorsted Archipelago during Volume 3.'),
+(1, 'Dwayne Dantes',         'Klein''s charismatic, wealthy arms-dealer and philanthropist gentleman persona in Backlund during Volume 4.'),
+(1, 'Merlin Hermes',         'Klein''s wandering magician persona granting wishes to ordinary people to digest the Miracle Invoker potion during Volume 7.'),
+
 -- Audrey Hall (character_id = 2)
-(2, 'The Justice',           'Audrey''s role in the Tarot Club, named for the Major Arcana card.'),
+(2, 'Justice',               'Audrey''s code name as a founding member of the Tarot Club, named for the Major Arcana card.'),
+
 -- Alger Wilson (character_id = 3)
-(3, 'The Hanged Man',        'Alger''s role in the Tarot Club.'),
+(3, 'The Hanged Man',        'Alger''s code name as a founding member of the Tarot Club.'),
+
 -- Derrick Berg (character_id = 4)
-(4, 'The Sun',               'Derrick''s role in the Tarot Club.'),
+(4, 'The Sun',               'Derrick''s code name in the Tarot Club representing the hope and dawn of the City of Silver.'),
+
 -- Emlyn White (character_id = 5)
-(5, 'The Moon',              'Emlyn''s role in the Tarot Club.'),
+(5, 'The Moon',              'Emlyn''s code name in the Tarot Club.'),
+
 -- Cattleya (character_id = 6)
-(6, 'The Hermit',            'Cattleya''s role in the Tarot Club.'),
-(6, 'Rose Bishop',           'Cattleya''s rank within the Rose School of Thought.'),
+(6, 'The Hermit',            'Cattleya''s code name in the Tarot Club.'),
+(6, 'Admiral of Stars',      'Cattleya''s famous pirate admiral title commanding the Future.'),
+
 -- Fors Wall (character_id = 7)
-(7, 'The Star',              'Fors''s role in the Tarot Club.'),
--- Miss Sharron (character_id = 9)
-(9, 'The World',             'Miss Sharron''s role in the early Tarot Club. Position later taken by Klein in field operations.',),
--- Leonard Mitchell (character_id = 10)
-(10,'Blazing Hearthfire',    'One of Leonard''s known Beyonder aliases.',);
+(7, 'The Magician',          'Fors''s code name in the Tarot Club.'),
+
+-- Xio Derecha (character_id = 8)
+(8, 'Judgment',              'Xio''s code name in the Tarot Club.'),
+
+-- Leonard Mitchell (character_id = 9)
+(9, 'The Star',              'Leonard''s code name in the Tarot Club.'),
+(9, 'Blazing Hearthfire',    'One of Leonard''s known Beyonder code names in poetry and internal operations.'),
+
+-- Dunn Smith (character_id = 12)
+(12, 'Captain Dunn',         'The affectionate title given by the Tingen Nighthawk squad members to their captain.'),
+
+-- Neil Neil (character_id = 13)
+(13, 'Old Neil',             'The respected senior civilian staff member and mystic mentor to Klein in Tingen.'),
+
+-- Daly Simone (character_id = 14)
+(14, 'Madam Daly',           'The charismatic and unconventional Spirit Medium respected by the Tingen squad.'),
+
+-- Azik Eggers (character_id = 15)
+(15, 'Mr. Azik',             'The polite honorific Klein uses for the ancient, gentle amnesiac teacher.'),
+(15, 'Death Consul',         'Azik''s true historical title as the son of the Death God Salinger during the Balam Empire.');
 
 
 -- =============================================================
---  15. UPDATE SEFIROTS — assign great_old_one now that characters exist
---      The Ancient Fool (character_id = 12) -> sefirot_id = 1 (The Fool)
+--  15. LOC_FAC_TIME_RANGE (Location <-> Faction <-> Timeline)
 -- =============================================================
 
-UPDATE sefirots
-SET great_old_one = 12
-WHERE sefirot_id = 1;
+INSERT INTO loc_fac_time_range (location_id, faction_id, role, is_headquarters, epoch_start_id, epoch_end_id, start_year, end_year) VALUES
+(19, 2,  'Tingen city squad base and Chanis Gate vault guard', FALSE, 5, NULL, NULL, NULL),
+(33, 2,  'Backlund regional operations center and red gloves elite squad staging area', FALSE, 5, NULL, NULL, NULL),
 
+(25, 3,  'Backlund industrial sector unit', FALSE, 5, NULL, NULL, NULL),
+(69, 3,  'Headquarter of the Church of the God of Steam, The location for advanced technological research and innovation for the Savant pathway.', TRUE, 5, NULL, NULL, NULL),
+
+(32, 4,  'Backlund diocese naval combat squad', FALSE, 5, NULL, NULL, NULL),
+(41, 4,  'Port security and maritime Beyonder enforcement protecting the Loen Navy', FALSE, 5, NULL, NULL, NULL),
+(106, 4, 'Global naval command base for the Church of the Lord of Storms', TRUE, 5, NULL, NULL, NULL),
+
+(2,  7,  'Hidden all over the southern continent creating havoc and chaos as a terrorist organization', FALSE, 5, NULL, NULL, NULL),
+(82, 7,  'Active within the Paz Valley creating religious cults to support their global power', TRUE, 5, NULL, NULL, NULL),
+
+(38, 8,  'Covert Backlund hideout and underground gathering point for the Temperance faction', FALSE, 5, NULL, NULL, NULL),
+
+(17, 13, 'Sovereign national territory', FALSE, 5, NULL, NULL, NULL),
+(35, 13, 'Royal residence of the Augustus dynasty', TRUE, 5, NULL, NULL, NULL),
+(97, 13, 'The Sonia Sea colonies of the Loen Kingdom', FALSE, 5, NULL, NULL, NULL),
+(83, 13, 'The Southern Continent Colony of the Loen Kingdom', FALSE, 5, NULL, NULL, NULL),
+
+(51, 14, 'Sovereign national territory', FALSE, 5, NULL, NULL, NULL),
+(52, 14, 'Imperial capital and royal palace of the Einhorn family', TRUE, 5, NULL, NULL, NULL),
+
+(56, 15, 'Sovereign national territory', FALSE, 5, NULL, NULL, NULL),
+(66, 15, 'Electoral executive residence and political headquarters', TRUE, 5, NULL, NULL, NULL);
+
+
+-- =============================================================
+--  16. CHAR_SEQ_CHAPTER_RANGE (Character <-> Sequence Progression)
+-- =============================================================
+
+INSERT INTO char_seq_chapter_range (character_id, sequence_id, chapter_start_id, chapter_end_id) VALUES
+-- ── Klein Moretti (Zhou Mingrui - Pathway 1 Fool) ──
+(1, (SELECT sequence_id FROM sequences WHERE pathway_id = 1 AND position = 9), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 35 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 164 LIMIT 1)),
+(1, (SELECT sequence_id FROM sequences WHERE pathway_id = 1 AND position = 8), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 165 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 313 LIMIT 1)),
+(1, (SELECT sequence_id FROM sequences WHERE pathway_id = 1 AND position = 7), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 314 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 482 LIMIT 1)),
+(1, (SELECT sequence_id FROM sequences WHERE pathway_id = 1 AND position = 6), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 483 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 732 LIMIT 1)),
+(1, (SELECT sequence_id FROM sequences WHERE pathway_id = 1 AND position = 5), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 733 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 946 LIMIT 1)),
+(1, (SELECT sequence_id FROM sequences WHERE pathway_id = 1 AND position = 4), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 947 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1150 LIMIT 1)),
+(1, (SELECT sequence_id FROM sequences WHERE pathway_id = 1 AND position = 3), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1151 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1266 LIMIT 1)),
+(1, (SELECT sequence_id FROM sequences WHERE pathway_id = 1 AND position = 2), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1267 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1352 LIMIT 1)),
+(1, (SELECT sequence_id FROM sequences WHERE pathway_id = 1 AND position = 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1353 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1383 LIMIT 1)),
+(1, (SELECT sequence_id FROM sequences WHERE pathway_id = 1 AND position = 0), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1384 LIMIT 1), NULL),
+
+-- ── Audrey Hall (Miss Justice - Pathway 5 Visionary) ──
+(2, (SELECT sequence_id FROM sequences WHERE pathway_id = 5 AND position = 9), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 6 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 162 LIMIT 1)),
+(2, (SELECT sequence_id FROM sequences WHERE pathway_id = 5 AND position = 8), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 163 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 475 LIMIT 1)),
+(2, (SELECT sequence_id FROM sequences WHERE pathway_id = 5 AND position = 7), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 476 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 800 LIMIT 1)),
+(2, (SELECT sequence_id FROM sequences WHERE pathway_id = 5 AND position = 6), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 801 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1120 LIMIT 1)),
+(2, (SELECT sequence_id FROM sequences WHERE pathway_id = 5 AND position = 5), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1121 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1300 LIMIT 1)),
+(2, (SELECT sequence_id FROM sequences WHERE pathway_id = 5 AND position = 4), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1301 LIMIT 1), NULL),
+
+-- ── Alger Wilson (The Hanged Man - Pathway 6 Tyrant) ──
+(3, (SELECT sequence_id FROM sequences WHERE pathway_id = 6 AND position = 8), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 250 LIMIT 1)),
+(3, (SELECT sequence_id FROM sequences WHERE pathway_id = 6 AND position = 7), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 251 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 530 LIMIT 1)),
+(3, (SELECT sequence_id FROM sequences WHERE pathway_id = 6 AND position = 6), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 531 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 850 LIMIT 1)),
+(3, (SELECT sequence_id FROM sequences WHERE pathway_id = 6 AND position = 5), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 851 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1210 LIMIT 1)),
+(3, (SELECT sequence_id FROM sequences WHERE pathway_id = 6 AND position = 4), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1211 LIMIT 1), NULL),
+
+-- ── Derrick Berg (The Sun - Pathway 4 Sun) ──
+(4, (SELECT sequence_id FROM sequences WHERE pathway_id = 4 AND position = 9), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 10 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 185 LIMIT 1)),
+(4, (SELECT sequence_id FROM sequences WHERE pathway_id = 4 AND position = 8), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 186 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 420 LIMIT 1)),
+(4, (SELECT sequence_id FROM sequences WHERE pathway_id = 4 AND position = 7), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 421 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 710 LIMIT 1)),
+(4, (SELECT sequence_id FROM sequences WHERE pathway_id = 4 AND position = 6), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 711 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 980 LIMIT 1)),
+(4, (SELECT sequence_id FROM sequences WHERE pathway_id = 4 AND position = 5), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 981 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1240 LIMIT 1)),
+(4, (SELECT sequence_id FROM sequences WHERE pathway_id = 4 AND position = 4), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1241 LIMIT 1), NULL),
+
+-- ── Emlyn White (The Moon - Pathway 18 Moon) ──
+(5, (SELECT sequence_id FROM sequences WHERE pathway_id = 18 AND position = 9), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 190 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 370 LIMIT 1)),
+(5, (SELECT sequence_id FROM sequences WHERE pathway_id = 18 AND position = 8), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 371 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 650 LIMIT 1)),
+(5, (SELECT sequence_id FROM sequences WHERE pathway_id = 18 AND position = 7), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 651 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 950 LIMIT 1)),
+(5, (SELECT sequence_id FROM sequences WHERE pathway_id = 18 AND position = 6), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 951 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1210 LIMIT 1)),
+(5, (SELECT sequence_id FROM sequences WHERE pathway_id = 18 AND position = 5), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1211 LIMIT 1), NULL),
+
+-- ── Cattleya (The Hermit - Pathway 19 Hermit) ──
+(6, (SELECT sequence_id FROM sequences WHERE pathway_id = 19 AND position = 5), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 500 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1150 LIMIT 1)),
+(6, (SELECT sequence_id FROM sequences WHERE pathway_id = 19 AND position = 4), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1151 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1350 LIMIT 1)),
+(6, (SELECT sequence_id FROM sequences WHERE pathway_id = 19 AND position = 3), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1351 LIMIT 1), NULL),
+
+-- ── Fors Wall (The Magician - Pathway 2 Door) ──
+(7, (SELECT sequence_id FROM sequences WHERE pathway_id = 2 AND position = 9), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 180 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 340 LIMIT 1)),
+(7, (SELECT sequence_id FROM sequences WHERE pathway_id = 2 AND position = 8), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 341 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 620 LIMIT 1)),
+(7, (SELECT sequence_id FROM sequences WHERE pathway_id = 2 AND position = 7), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 621 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 920 LIMIT 1)),
+(7, (SELECT sequence_id FROM sequences WHERE pathway_id = 2 AND position = 6), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 921 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1190 LIMIT 1)),
+(7, (SELECT sequence_id FROM sequences WHERE pathway_id = 2 AND position = 5), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1191 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1340 LIMIT 1)),
+(7, (SELECT sequence_id FROM sequences WHERE pathway_id = 2 AND position = 4), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1341 LIMIT 1), NULL),
+
+-- ── Xio Derecha (Judgment - Pathway 14 Justiciar) ──
+(8, (SELECT sequence_id FROM sequences WHERE pathway_id = 14 AND position = 9), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 180 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 500 LIMIT 1)),
+(8, (SELECT sequence_id FROM sequences WHERE pathway_id = 14 AND position = 8), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 501 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 890 LIMIT 1)),
+(8, (SELECT sequence_id FROM sequences WHERE pathway_id = 14 AND position = 7), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 891 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1180 LIMIT 1)),
+(8, (SELECT sequence_id FROM sequences WHERE pathway_id = 14 AND position = 6), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1181 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1340 LIMIT 1)),
+(8, (SELECT sequence_id FROM sequences WHERE pathway_id = 14 AND position = 5), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1341 LIMIT 1), NULL),
+
+-- ── Leonard Mitchell (The Star - Pathway 9 Darkness) ──
+(9, (SELECT sequence_id FROM sequences WHERE pathway_id = 9 AND position = 8), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 211 LIMIT 1)),
+(9, (SELECT sequence_id FROM sequences WHERE pathway_id = 9 AND position = 7), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 212 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 680 LIMIT 1)),
+(9, (SELECT sequence_id FROM sequences WHERE pathway_id = 9 AND position = 6), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 681 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1050 LIMIT 1)),
+(9, (SELECT sequence_id FROM sequences WHERE pathway_id = 9 AND position = 5), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1051 LIMIT 1), NULL),
+
+-- ── Dunn Smith (Pathway 9 Darkness) ──
+(12, (SELECT sequence_id FROM sequences WHERE pathway_id = 9 AND position = 7), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 211 LIMIT 1)),
+
+-- ── Neil Neil (Old Neil - Pathway 19 Hermit) ──
+(13, (SELECT sequence_id FROM sequences WHERE pathway_id = 19 AND position = 9), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 165 LIMIT 1)),
+
+-- ── Daly Simone (Pathway 10 Death) ──
+(14, (SELECT sequence_id FROM sequences WHERE pathway_id = 10 AND position = 7), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 350 LIMIT 1)),
+(14, (SELECT sequence_id FROM sequences WHERE pathway_id = 10 AND position = 6), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 351 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 700 LIMIT 1)),
+(14, (SELECT sequence_id FROM sequences WHERE pathway_id = 10 AND position = 5), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 701 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 945 LIMIT 1)),
+
+-- ── Azik Eggers (Pathway 10 Death - Sequence 2 Angel) ──
+(15, (SELECT sequence_id FROM sequences WHERE pathway_id = 10 AND position = 2), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1 LIMIT 1), NULL);
+
+
+-- =============================================================
+--  17. CHAR_FAC_CHAPTER_RANGE (Character <-> Faction Membership)
+-- =============================================================
+
+INSERT INTO char_fac_chapter_range (character_id, faction_id, chapter_start_id, chapter_end_id, role) VALUES
+-- Klein Moretti
+(1, (SELECT faction_id FROM factions WHERE name = 'Tarot Club'), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1 LIMIT 1), NULL, 'Founder and Presiding God ("The Fool")'),
+(1, (SELECT faction_id FROM factions WHERE name = 'Nighthawks'), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 13 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 211 LIMIT 1), 'Civilian Staff and Tingen Squad Official Beyonder'),
+(1, (SELECT faction_id FROM factions WHERE name = 'Church of the Evernight Goddess'), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 760 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1150 LIMIT 1), 'Distinguished Benefactor and Affiliated Deacon (as Dwayne Dantes)'),
+
+-- Audrey Hall
+(2, (SELECT faction_id FROM factions WHERE name = 'Tarot Club'), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1 LIMIT 1), NULL, 'Founding Member ("Justice")'),
+(2, (SELECT faction_id FROM factions WHERE name = 'Psychology Alchemists'), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 163 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1200 LIMIT 1), 'Infiltrator and Backlund Councillor'),
+
+-- Alger Wilson
+(3, (SELECT faction_id FROM factions WHERE name = 'Tarot Club'), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1 LIMIT 1), NULL, 'Founding Member ("The Hanged Man")'),
+(3, (SELECT faction_id FROM factions WHERE name = 'Mandated Punisher'), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1 LIMIT 1), NULL, 'Captain and Senior Naval Official'),
+
+-- Derrick Berg
+(4, (SELECT faction_id FROM factions WHERE name = 'Tarot Club'), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 10 LIMIT 1), NULL, 'Tarot Club Member ("The Sun")'),
+(4, (SELECT faction_id FROM factions WHERE name = 'City of Silver'), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1 LIMIT 1), NULL, 'Youth Patrol Beyonder and Six-Member Council Elder'),
+
+-- Fors Wall
+(7, (SELECT faction_id FROM factions WHERE name = 'Tarot Club'), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 180 LIMIT 1), NULL, 'Tarot Club Member ("The Magician")'),
+(7, (SELECT faction_id FROM factions WHERE name = 'Abraham Family'), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1100 LIMIT 1), NULL, 'Direct Disciple of Elder Dorian Gray Abraham'),
+
+-- Emlyn White
+(5, (SELECT faction_id FROM factions WHERE name = 'Tarot Club'), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 190 LIMIT 1), NULL, 'Tarot Club Member ("The Moon")'),
+
+-- Leonard Mitchell
+(9, (SELECT faction_id FROM factions WHERE name = 'Nighthawks'), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 211 LIMIT 1), 'Tingen City Squad Official Beyonder'),
+(9, (SELECT faction_id FROM factions WHERE name = 'Nighthawks'), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 212 LIMIT 1), NULL, 'Red Gloves Elite Operations Captain'),
+(9, (SELECT faction_id FROM factions WHERE name = 'Tarot Club'), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 708 LIMIT 1), NULL, 'Tarot Club Member ("The Star")'),
+
+-- Dunn Smith
+(12, (SELECT faction_id FROM factions WHERE name = 'Nighthawks'), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 211 LIMIT 1), 'Captain of the Tingen City Nighthawk Squad'),
+
+-- Old Neil
+(13, (SELECT faction_id FROM factions WHERE name = 'Nighthawks'), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 165 LIMIT 1), 'Mystic Archivist and Senior Civilian Staff'),
+
+-- Daly Simone
+(14, (SELECT faction_id FROM factions WHERE name = 'Nighthawks'), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 945 LIMIT 1), 'Spirit Medium Specialist');
+
+
+-- =============================================================
+--  18. CHAR_ART_CHAPTER_RANGE (Character <-> Artifact Possession)
+-- =============================================================
+
+INSERT INTO char_art_chapter_range (character_id, artifact_id, chapter_start_id, chapter_end_id, acquisition_type) VALUES
+-- Klein Moretti
+(1, (SELECT artifact_id FROM artifacts WHERE name = 'Azik''s Copper Whistle'), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 47 LIMIT 1), NULL, 'Gift from teacher Azik Eggers for spirit communication'),
+(1, (SELECT artifact_id FROM artifacts WHERE name = 'Master Key'), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 170 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 480 LIMIT 1), 'Purchased at Mr. Eye of Wisdom''s Backlund occult gathering'),
+(1, (SELECT artifact_id FROM artifacts WHERE name = 'Sun Brooch'), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 180 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 733 LIMIT 1), 'Acquired from Tarot Club trade with Derrick Berg'),
+(1, (SELECT artifact_id FROM artifacts WHERE name = 'Biological Poison Bottle'), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 350 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 732 LIMIT 1), 'Looted from the deceased Ambis mentor in Backlund'),
+(1, (SELECT artifact_id FROM artifacts WHERE name = 'Creeping Hunger'), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 438 LIMIT 1), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1352 LIMIT 1), 'Looted after the demise of Pirate Admiral Qilangos and purified above the gray fog'),
+(1, (SELECT artifact_id FROM artifacts WHERE name = 'Arrodes'), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 375 LIMIT 1), NULL, 'Formed mystical soul contract as master and humble magical mirror'),
+(1, (SELECT artifact_id FROM artifacts WHERE name = 'Staff of the Stars'), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 948 LIMIT 1), NULL, 'Crafted combining Box of the Great Old Ones and Key of Stars characteristic'),
+
+-- Fors Wall
+(7, (SELECT artifact_id FROM artifacts WHERE name = 'Leymano''s Travels'), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 580 LIMIT 1), NULL, 'Gift from Mr. Fool crafted by The Sun'),
+
+-- Leonard Mitchell
+(9, (SELECT artifact_id FROM artifacts WHERE name = 'Nightmare Realm Painting'), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 700 LIMIT 1), NULL, 'Assigned by Church of the Evernight for Red Gloves squad deployment'),
+
+-- Alger Wilson
+(3, (SELECT artifact_id FROM artifacts WHERE name = 'Word of the Sea'), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 450 LIMIT 1), NULL, 'Custom-forged bone cane created using sea monster characteristic'),
+
+-- Azik Eggers
+(15, (SELECT artifact_id FROM artifacts WHERE name = 'Death Consul Ring'), (SELECT chapter_id FROM chapters WHERE volume_id <= 8 AND chapter_number = 1 LIMIT 1), NULL, 'Personal heritage ring from the Fourth Epoch Balam Empire');
+
+
+-- =============================================================
+--  19. SEQUENCE_MATERIAL (Potion Formulas / Ingredients)
+-- =============================================================
+
+INSERT INTO sequence_material (sequence_id, material_id, quantity, unit) VALUES
+-- Seer (Pathway 1, Sequence 9)
+((SELECT sequence_id FROM sequences WHERE pathway_id = 1 AND position = 9), (SELECT material_id FROM materials WHERE name = 'Lavos Squid Blood'), 10, 'ml'),
+((SELECT sequence_id FROM sequences WHERE pathway_id = 1 AND position = 9), (SELECT material_id FROM materials WHERE name = 'Stella Aqua Crystal'), 50, 'g'),
+((SELECT sequence_id FROM sequences WHERE pathway_id = 1 AND position = 9), (SELECT material_id FROM materials WHERE name = 'Siren Spinal Fluid'), 5, 'drops'),
+
+-- Clown (Pathway 1, Sequence 8)
+((SELECT sequence_id FROM sequences WHERE pathway_id = 1 AND position = 8), (SELECT material_id FROM materials WHERE name = 'Hornacis Shadow Wolf Horn'), 1, 'horn'),
+((SELECT sequence_id FROM sequences WHERE pathway_id = 1 AND position = 8), (SELECT material_id FROM materials WHERE name = 'Real Clown Fish Blood'), 10, 'ml'),
+((SELECT sequence_id FROM sequences WHERE pathway_id = 1 AND position = 8), (SELECT material_id FROM materials WHERE name = 'Golden Rose Stem'), 7, 'stalks'),
+
+-- Magician (Pathway 1, Sequence 7)
+((SELECT sequence_id FROM sequences WHERE pathway_id = 1 AND position = 7), (SELECT material_id FROM materials WHERE name = 'Mist Stalker Characteristic'), 1, 'characteristic'),
+((SELECT sequence_id FROM sequences WHERE pathway_id = 1 AND position = 7), (SELECT material_id FROM materials WHERE name = 'Devil''s Bone Powder'), 40, 'g'),
+
+-- Faceless (Pathway 1, Sequence 6)
+((SELECT sequence_id FROM sequences WHERE pathway_id = 1 AND position = 6), (SELECT material_id FROM materials WHERE name = 'Thousand-faced Hunter Leather'), 1, 'hide'),
+((SELECT sequence_id FROM sequences WHERE pathway_id = 1 AND position = 6), (SELECT material_id FROM materials WHERE name = 'Shadow Wolf Gland'), 1, 'gland'),
+
+-- Nimblewright Master / Marionettist (Pathway 1, Sequence 5)
+((SELECT sequence_id FROM sequences WHERE pathway_id = 1 AND position = 5), (SELECT material_id FROM materials WHERE name = 'Spirit Eater Core'), 1, 'core'),
+((SELECT sequence_id FROM sequences WHERE pathway_id = 1 AND position = 5), (SELECT material_id FROM materials WHERE name = 'Golden-eyed Tree Frog Gland'), 1, 'gland'),
+
+-- Spectator (Pathway 5, Sequence 9)
+((SELECT sequence_id FROM sequences WHERE pathway_id = 5 AND position = 9), (SELECT material_id FROM materials WHERE name = 'Dragon Eyeball'), 1, 'pair'),
+((SELECT sequence_id FROM sequences WHERE pathway_id = 5 AND position = 9), (SELECT material_id FROM materials WHERE name = 'Mutated Pituitary Gland'), 1, 'gland'),
+
+-- Telepathist (Pathway 5, Sequence 8)
+((SELECT sequence_id FROM sequences WHERE pathway_id = 5 AND position = 8), (SELECT material_id FROM materials WHERE name = 'Rainbow Salamander Gland'), 1, 'gland'),
+
+-- Sailor (Pathway 6, Sequence 9)
+((SELECT sequence_id FROM sequences WHERE pathway_id = 6 AND position = 9), (SELECT material_id FROM materials WHERE name = 'Sea Monster Core'), 1, 'core'),
+((SELECT sequence_id FROM sequences WHERE pathway_id = 6 AND position = 9), (SELECT material_id FROM materials WHERE name = 'Wind Spirit Tree Fruit'), 1, 'fruit');
+
+
+-- =============================================================
+--  20. ARTIFACT_ABILITY (Artifacts <-> Granted Beyonder Abilities)
+-- =============================================================
+
+INSERT INTO artifact_ability (artifact_id, ability_id) VALUES
+-- Azik's Copper Whistle -> Minor Undead Command, Spirit Vision
+((SELECT artifact_id FROM artifacts WHERE name = 'Azik''s Copper Whistle'), (SELECT ability_id FROM abilities WHERE name = 'Minor Undead Command')),
+((SELECT artifact_id FROM artifacts WHERE name = 'Azik''s Copper Whistle'), (SELECT ability_id FROM abilities WHERE name = 'Spirit Vision')),
+
+-- Creeping Hunger -> Ability Copy, Surface Thought Reading
+((SELECT artifact_id FROM artifacts WHERE name = 'Creeping Hunger'), (SELECT ability_id FROM abilities WHERE name = 'Ability Copy')),
+((SELECT artifact_id FROM artifacts WHERE name = 'Creeping Hunger'), (SELECT ability_id FROM abilities WHERE name = 'Surface Thought Reading')),
+
+-- Word of the Sea -> Water Manipulation
+((SELECT artifact_id FROM artifacts WHERE name = 'Word of the Sea'), (SELECT ability_id FROM abilities WHERE name = 'Water Manipulation')),
+
+-- Arrodes -> Divination, Surface Thought Reading
+((SELECT artifact_id FROM artifacts WHERE name = 'Arrodes'), (SELECT ability_id FROM abilities WHERE name = 'Divination')),
+((SELECT artifact_id FROM artifacts WHERE name = 'Arrodes'), (SELECT ability_id FROM abilities WHERE name = 'Surface Thought Reading'));

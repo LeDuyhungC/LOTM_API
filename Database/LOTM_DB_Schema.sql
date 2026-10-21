@@ -151,10 +151,10 @@ CREATE TABLE characters (
 );
 
 -- =============================================================
---  ALIAS  (1:N — one character has many aliases)
+--  ALIASES  (1:N — one character has many aliases)
 -- =============================================================
 
-CREATE TABLE alias (
+CREATE TABLE aliases (
     alias_id            SERIAL          PRIMARY KEY,
     character_id        INT             NOT NULL REFERENCES characters(character_id) ON DELETE CASCADE,
     name                VARCHAR(255)    NOT NULL,
@@ -165,15 +165,6 @@ CREATE TABLE alias (
 -- =============================================================
 --  JUNCTION TABLES  (N:M)
 -- =============================================================
-
--- LOCATION <-> FACTIONS  (N:M via location_faction)
-CREATE TABLE location_faction (
-    location_id     INT     NOT NULL REFERENCES locations(location_id) ON DELETE CASCADE,
-    faction_id      INT     NOT NULL REFERENCES factions(faction_id) ON DELETE CASCADE,
-    role            TEXT,
-    is_headquarters BOOLEAN NOT NULL DEFAULT FALSE,
-    PRIMARY KEY (location_id, faction_id)
-);
 
 -- SEQUENCES <-> MATERIAL  (N:M via sequence_material)
 CREATE TABLE sequence_material (
@@ -192,36 +183,49 @@ CREATE TABLE artifact_ability (
 );
 
 -- =============================================================
---  TERNARY TABLES  (Character + Entity + Chapter Range)
+--  TERNARY TABLES  (Character / Location + Entity + Range)
 -- =============================================================
+
+-- LOCATIONS <-> FACTIONS <-> TIME range  (LOC_FAC_TIME_RANGE)
+CREATE TABLE loc_fac_time_range (
+    loc_fac_id         SERIAL  PRIMARY KEY,
+    location_id        INT     NOT NULL REFERENCES locations(location_id) ON DELETE CASCADE,
+    faction_id         INT     NOT NULL REFERENCES factions(faction_id) ON DELETE CASCADE,
+    role               TEXT,
+    is_headquarters    BOOLEAN NOT NULL DEFAULT FALSE,
+    epoch_start_id     INT     REFERENCES epochs(epoch_id) ON DELETE SET NULL,
+    epoch_end_id       INT     REFERENCES epochs(epoch_id) ON DELETE SET NULL,  -- NULL = still active
+    start_year         INT,
+    end_year           INT     -- NULL = still active
+);
 
 -- CHARACTERS <-> FACTIONS <-> CHAPTER range  (CHAR_FAC_CHAPTER_RANGE)
 CREATE TABLE char_fac_chapter_range (
-    character_id        INT NOT NULL REFERENCES characters(character_id) ON DELETE CASCADE,
-    faction_id          INT NOT NULL REFERENCES factions(faction_id) ON DELETE CASCADE,
-    chapter_start_id    INT NOT NULL REFERENCES chapters(chapter_id) ON DELETE RESTRICT,
-    chapter_end_id      INT          REFERENCES chapters(chapter_id) ON DELETE SET NULL,  -- NULL = still active
-    role                TEXT,
-    PRIMARY KEY (character_id, faction_id, chapter_start_id)
+    char_fac_id         SERIAL  PRIMARY KEY,
+    character_id        INT     NOT NULL REFERENCES characters(character_id) ON DELETE CASCADE,
+    faction_id          INT     NOT NULL REFERENCES factions(faction_id) ON DELETE CASCADE,
+    chapter_start_id    INT     REFERENCES chapters(chapter_id) ON DELETE SET NULL,
+    chapter_end_id      INT     REFERENCES chapters(chapter_id) ON DELETE SET NULL,  -- NULL = still active
+    role                TEXT
 );
 
 -- CHARACTERS <-> SEQUENCES <-> CHAPTER range  (CHAR_SEQ_CHAPTER_RANGE)
 CREATE TABLE char_seq_chapter_range (
-    character_id        INT NOT NULL REFERENCES characters(character_id) ON DELETE CASCADE,
-    sequence_id         INT NOT NULL REFERENCES sequences(sequence_id) ON DELETE CASCADE,
-    chapter_start_id    INT NOT NULL REFERENCES chapters(chapter_id) ON DELETE RESTRICT,
-    chapter_end_id      INT          REFERENCES chapters(chapter_id) ON DELETE SET NULL,  -- NULL = still active
-    PRIMARY KEY (character_id, sequence_id, chapter_start_id)
+    char_seq_id         SERIAL  PRIMARY KEY,
+    character_id        INT     NOT NULL REFERENCES characters(character_id) ON DELETE CASCADE,
+    sequence_id         INT     NOT NULL REFERENCES sequences(sequence_id) ON DELETE CASCADE,
+    chapter_start_id    INT     REFERENCES chapters(chapter_id) ON DELETE SET NULL,
+    chapter_end_id      INT     REFERENCES chapters(chapter_id) ON DELETE SET NULL  -- NULL = still active
 );
 
 -- CHARACTERS <-> ARTIFACTS <-> CHAPTER range  (CHAR_ART_CHAPTER_RANGE)
 CREATE TABLE char_art_chapter_range (
-    character_id        INT NOT NULL REFERENCES characters(character_id) ON DELETE CASCADE,
-    artifact_id         INT NOT NULL REFERENCES artifacts(artifact_id) ON DELETE CASCADE,
-    chapter_start_id    INT NOT NULL REFERENCES chapters(chapter_id) ON DELETE RESTRICT,
-    chapter_end_id      INT          REFERENCES chapters(chapter_id) ON DELETE SET NULL,  -- NULL = still active
-    acquisition_type    TEXT,
-    PRIMARY KEY (character_id, artifact_id, chapter_start_id)
+    char_art_id         SERIAL  PRIMARY KEY,
+    character_id        INT     NOT NULL REFERENCES characters(character_id) ON DELETE CASCADE,
+    artifact_id         INT     NOT NULL REFERENCES artifacts(artifact_id) ON DELETE CASCADE,
+    chapter_start_id    INT     REFERENCES chapters(chapter_id) ON DELETE SET NULL,
+    chapter_end_id      INT     REFERENCES chapters(chapter_id) ON DELETE SET NULL,  -- NULL = still active
+    acquisition_type    TEXT
 );
 
 -- =============================================================
@@ -233,13 +237,15 @@ CREATE INDEX idx_chapter_volume         ON chapters(volume_id);
 CREATE INDEX idx_pathways_sefirot       ON pathways(sefirot_id);
 CREATE INDEX idx_sequences_pathway      ON sequences(pathway_id);
 CREATE INDEX idx_abilities_sequence     ON abilities(sequence_id);
-CREATE INDEX idx_alias_character        ON alias(character_id);
+CREATE INDEX idx_alias_character        ON aliases(character_id);
 CREATE INDEX idx_location_epoch_start   ON locations(epoch_start_id);
-CREATE INDEX idx_character_epoch_start  ON characters(epoch_start_id);
+CREATE INDEX idx_character_birth_epoch  ON characters(birth_epoch_id);
 
-CREATE INDEX idx_char_fac_char       ON char_fac_chapter_range(character_id);
-CREATE INDEX idx_char_fac_faction    ON char_fac_chapter_range(faction_id);
-CREATE INDEX idx_char_seq_char       ON char_seq_chapter_range(character_id);
-CREATE INDEX idx_char_seq_seq        ON char_seq_chapter_range(sequence_id);
-CREATE INDEX idx_char_art_char       ON char_art_chapter_range(character_id);
-CREATE INDEX idx_char_art_art        ON char_art_chapter_range(artifact_id);
+CREATE INDEX idx_loc_fac_loc            ON loc_fac_time_range(location_id);
+CREATE INDEX idx_loc_fac_faction        ON loc_fac_time_range(faction_id);
+CREATE INDEX idx_char_fac_char          ON char_fac_chapter_range(character_id);
+CREATE INDEX idx_char_fac_faction       ON char_fac_chapter_range(faction_id);
+CREATE INDEX idx_char_seq_char          ON char_seq_chapter_range(character_id);
+CREATE INDEX idx_char_seq_seq           ON char_seq_chapter_range(sequence_id);
+CREATE INDEX idx_char_art_char          ON char_art_chapter_range(character_id);
+CREATE INDEX idx_char_art_art           ON char_art_chapter_range(artifact_id);

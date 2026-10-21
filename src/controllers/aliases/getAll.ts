@@ -8,10 +8,8 @@ const getAll = async (_request: Request, response: Response): Promise<void> => {
                 alias_id,
                 character_id,
                 name,
-                description,
-                volume_start_id,
-                volume_end_id
-            FROM alias
+                description
+            FROM aliases
             ORDER BY alias_id ASC
         `);
 

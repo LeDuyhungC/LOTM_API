@@ -43,7 +43,7 @@ let getOrigin = async (request: Request<{ name: string }>, response: Response): 
         console.error('❌ Error fetching character origin:', error);
         response.status(500).json({
             error: 'Failed to retrieve character origin from the database',
-        })
+        });
     }
 };
 

@@ -11,8 +11,8 @@ const getById = async (request: Request<{ id: string }>, response: Response): Pr
 
         const result = await pool.query(`
             SELECT
+                sefirot_id,
                 name,
-                great_old_one,
                 description
             FROM sefirots
             WHERE sefirot_id = $1

@@ -12,7 +12,7 @@ const getAll = async (_request: Request, response: Response): Promise<void> => {
                 parent_location_id,
                 epoch_start_id,
                 epoch_end_id
-            FROM location
+            FROM locations
             ORDER BY location_id ASC
         `);
 

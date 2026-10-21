@@ -45,7 +45,6 @@ let getCharacterPresentSequence = async (request: Request<{ name: string }>, res
         response.status(500).json({
             error: 'Failed to retrieve character current sequence from the database',
         });
-
     };
 };
 

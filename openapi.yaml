@@ -1,0 +1,411 @@
+openapi: 3.0.3
+info:
+  title: Lord of the Mysteries (LOTM) API
+  description: >
+    Comprehensive RESTful API for the Beyonder universe created by Cuttlefish That Loves Diving (*爱潜水的乌贼*).
+    Provides access to Pathways, Sequences, Potion Formulas, Sealed Artifacts, Factions, Characters, and a Spoiler-Proof Reader Companion.
+  version: 1.0.0
+  contact:
+    name: LOTM API Support
+    url: https://github.com/LeDuyhungC/LOTM_API
+servers:
+  - url: http://localhost:3000
+    description: Local Development Server
+
+paths:
+  /status:
+    get:
+      summary: API Health Check
+      description: Returns health status of the API server.
+      tags:
+        - Health
+      responses:
+        '200':
+          description: Service is healthy and operational.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "📖 LOTM API is running"
+
+  /v1/characters:
+    get:
+      summary: Get all characters
+      description: Returns list of known characters across the LOTM series.
+      tags:
+        - Characters
+      responses:
+        '200':
+          description: List of characters.
+
+  /v1/characters/{id}:
+    get:
+      summary: Get character by ID
+      tags:
+        - Characters
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          example: 1
+      responses:
+        '200':
+          description: Character details.
+        '404':
+          description: Character not found.
+
+  /v1/characters/{id}/reader-profile:
+    get:
+      summary: Spoiler-Proof Reader Profile
+      description: Returns a character snapshot (sequence, faction, artifacts, life status) as of a specific chapter number to protect readers from future spoilers.
+      tags:
+        - Characters
+        - Reader Companion
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          example: 1
+        - name: chapter
+          in: query
+          required: false
+          description: Chapter number to filter state up to (e.g. 100). If omitted, returns latest.
+          schema:
+            type: integer
+          example: 100
+      responses:
+        '200':
+          description: Spoiler-protected character profile.
+
+  /v1/characters/{id}/timeline:
+    get:
+      summary: Character Progression Timeline
+      description: Returns the full chronological history of sequence advances, faction memberships, and artifact possessions with chapter ranges.
+      tags:
+        - Characters
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          example: 1
+      responses:
+        '200':
+          description: Chronological advancement timeline.
+
+  /v1/characters/name/{name}/sequence:
+    get:
+      summary: Get Character Current Sequence by Name
+      tags:
+        - Characters
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "Klein Moretti"
+      responses:
+        '200':
+          description: Sequence and pathway details.
+
+  /v1/characters/name/{name}/origin:
+    get:
+      summary: Get Character Origin Location by Name
+      tags:
+        - Characters
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "Klein Moretti"
+      responses:
+        '200':
+          description: Origin location and epoch.
+
+  /v1/sequences:
+    get:
+      summary: Get all sequences
+      tags:
+        - Sequences
+      responses:
+        '200':
+          description: List of all 220 Beyonder sequences.
+
+  /v1/sequences/{id}:
+    get:
+      summary: Get sequence by ID
+      tags:
+        - Sequences
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          example: 1
+      responses:
+        '200':
+          description: Sequence details.
+
+  /v1/sequences/{id}/recipe:
+    get:
+      summary: Get Potion Recipe Formula
+      description: Returns the canonical main and supplementary ingredients, quantities, and units for a sequence potion.
+      tags:
+        - Sequences
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          example: 1
+      responses:
+        '200':
+          description: Potion formula ingredients.
+
+  /v1/pathways:
+    get:
+      summary: Get all 22 Beyonder Pathways
+      tags:
+        - Pathways
+      responses:
+        '200':
+          description: List of the 22 pathways.
+
+  /v1/pathways/{id}:
+    get:
+      summary: Get pathway by ID
+      tags:
+        - Pathways
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          example: 1
+      responses:
+        '200':
+          description: Pathway details.
+
+  /v1/pathways/{id}/sequences:
+    get:
+      summary: Get Pathway Full Sequence Ladder
+      description: Returns all 10 sequences for this pathway from Sequence 9 down to Sequence 0.
+      tags:
+        - Pathways
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          example: 1
+      responses:
+        '200':
+          description: All 10 sequences for the pathway.
+
+  /v1/pathways/{id}/neighboring:
+    get:
+      summary: Get Neighboring Pathways & Sefirot Group
+      description: Returns the governing Sefirot and neighboring pathways that can be safely switched to at Sequence 4+ without losing control.
+      tags:
+        - Pathways
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          example: 1
+      responses:
+        '200':
+          description: Neighboring pathways under the same Sefirot.
+
+  /v1/artifacts:
+    get:
+      summary: Get all Sealed Artifacts
+      tags:
+        - Artifacts
+      responses:
+        '200':
+          description: List of sealed artifacts.
+
+  /v1/artifacts/{id}:
+    get:
+      summary: Get sealed artifact by ID
+      tags:
+        - Artifacts
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          example: 9
+      responses:
+        '200':
+          description: Artifact details.
+
+  /v1/artifacts/{id}/abilities:
+    get:
+      summary: Get Artifact Granted Abilities and Bearers
+      description: Returns the supernatural abilities granted by the artifact and its known historical owners.
+      tags:
+        - Artifacts
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          example: 9
+      responses:
+        '200':
+          description: Abilities granted by the artifact and bearer history.
+
+  /v1/factions:
+    get:
+      summary: Get all Factions & Churches
+      tags:
+        - Factions
+      responses:
+        '200':
+          description: List of factions and churches.
+
+  /v1/factions/{id}:
+    get:
+      summary: Get faction by ID
+      tags:
+        - Factions
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          example: 1
+      responses:
+        '200':
+          description: Faction details.
+
+  /v1/factions/{id}/members:
+    get:
+      summary: Get Faction Members Roster
+      description: Returns characters belonging to this faction, their role, and chapter ranges.
+      tags:
+        - Factions
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          example: 1
+      responses:
+        '200':
+          description: List of faction members.
+
+  /v1/chapters:
+    get:
+      summary: Get chapters with pagination
+      tags:
+        - Chapters
+      parameters:
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 100
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 0
+      responses:
+        '200':
+          description: Paginated list of chapters.
+
+  /v1/chapters/{id}:
+    get:
+      summary: Get chapter by ID
+      tags:
+        - Chapters
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          example: 1
+      responses:
+        '200':
+          description: Chapter details.
+
+  /v1/materials:
+    get:
+      summary: Get all potion materials
+      tags:
+        - Materials
+      responses:
+        '200':
+          description: List of materials.
+
+  /v1/locations:
+    get:
+      summary: Get all geographical locations
+      tags:
+        - Locations
+      responses:
+        '200':
+          description: List of locations.
+
+  /v1/epochs:
+    get:
+      summary: Get historical epochs
+      tags:
+        - Epochs
+      responses:
+        '200':
+          description: List of historical epochs.
+
+  /v1/volumes:
+    get:
+      summary: Get all novel volumes
+      tags:
+        - Volumes
+      responses:
+        '200':
+          description: List of book volumes.
+
+  /v1/sefirots:
+    get:
+      summary: Get all Sefirots
+      tags:
+        - Sefirots
+      responses:
+        '200':
+          description: List of sefirots.
+
+  /v1/series:
+    get:
+      summary: Get novel series
+      tags:
+        - Series
+      responses:
+        '200':
+          description: List of series.

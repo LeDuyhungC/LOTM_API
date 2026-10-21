@@ -17,7 +17,7 @@ const getAll = async (_request: Request, response: Response): Promise<void> => {
                 death_chapter_id,
                 description
             FROM characters
-            ORDER BY name ASC
+            ORDER BY character_id ASC
         `);
 
         response.status(200).json({

@@ -23,7 +23,6 @@ const getById = async (request: Request<{ id: string }>, response: Response): Pr
                 description
             FROM characters
             WHERE character_id = $1
-            ORDER BY name ASC
             `, [id]);
 
         if (result.rowCount === 0) {

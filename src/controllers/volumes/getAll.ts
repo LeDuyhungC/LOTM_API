@@ -9,7 +9,7 @@ const getAll = async (_request: Request, response: Response): Promise<void> => {
                 series_id,
                 volume_number,
                 title
-            FROM volume
+            FROM volumes
             ORDER BY volume_id ASC
         `);
 

@@ -11,12 +11,11 @@ const getById = async (request: Request<{ id: string }>, response: Response): Pr
 
         const result = await pool.query(`
             SELECT
+                alias_id,
                 character_id,
                 name,
-                description,
-                volume_start_id,
-                volume_end_id
-            FROM alias
+                description
+            FROM aliases
             WHERE alias_id = $1
             `, [id]);
 
